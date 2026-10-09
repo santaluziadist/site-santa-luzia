@@ -48,10 +48,11 @@
     .about-visual{position:relative;min-height:570px;isolation:isolate}
     .about-visual:before{content:"";position:absolute;left:58px;top:40px;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle,rgba(42,139,255,.08),rgba(42,139,255,0) 70%);z-index:-3}
     .about-visual:after{content:"";position:absolute;right:18px;bottom:28px;width:92px;height:92px;border-radius:50%;border:1px solid rgba(20,111,244,.12);z-index:-2}
-    .about-photo-shell{position:absolute;left:74px;top:62px;width:388px;height:388px;overflow:hidden;background:#eaf3ff;border-radius:72px;transform:rotate(45deg);filter:drop-shadow(0 24px 34px rgba(25,59,107,.15));z-index:1}
+    .about-photo-shell{position:absolute;left:3px;top:6px;width:77%;height:545px;overflow:hidden;background:#eaf3ff;clip-path:url(#aboutRoundedHex);filter:drop-shadow(0 25px 34px rgba(25,59,107,.13));z-index:1}
     .about-photo-shell:before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(150deg,rgba(255,255,255,.035),rgba(8,65,145,.025));pointer-events:none}
-    .about-photo-shell img{position:absolute;left:50%;top:50%;width:146%;height:146%;display:block;object-fit:cover;object-position:46% center;transform:translate(-50%,-50%) rotate(-45deg) scale(1.04)}
-    .about-outline{position:absolute;z-index:0;left:54px;top:42px;width:428px;height:428px;border:1.5px solid rgba(30,139,255,.34);border-radius:84px;transform:rotate(45deg);pointer-events:none}
+    .about-photo-shell img{width:100%;height:100%;display:block;object-fit:cover;object-position:46% center;transform:scale(1.04)}
+    .about-outline{position:absolute;z-index:0;left:-17px;top:-8px;width:81%;height:572px;background:rgba(30,139,255,.42);clip-path:url(#aboutRoundedHex);opacity:.75;pointer-events:none}
+    .about-outline:after{content:"";position:absolute;inset:2px;background:#fbfdff;clip-path:url(#aboutRoundedHex)}
     .about-shape{position:absolute;z-index:3;border-radius:26px;background:linear-gradient(145deg,rgba(181,221,255,.66),rgba(221,240,255,.50));backdrop-filter:blur(6px)}
     .about-shape.one{width:86px;height:86px;left:2px;top:198px;transform:rotate(30deg)}.about-shape.two{width:90px;height:90px;right:88px;bottom:8px;transform:rotate(30deg)}
     .about-cards{position:absolute;z-index:4;right:0;top:48px;width:250px;display:grid;gap:12px}
@@ -61,8 +62,8 @@
     .about-card h3{margin:0;color:#10265a;font:700 16px/1.12 Manrope,sans-serif;letter-spacing:-.022em}.about-card p{margin:6px 0 0;color:#687b9a;font-size:12.5px;line-height:1.42}
     .about-card ul{list-style:none;padding:0;margin:7px 0 0;display:grid;gap:4px}.about-card li{position:relative;padding-left:13px;color:#687b9a;font-size:11.8px;line-height:1.3}.about-card li:before{content:"";position:absolute;left:0;top:.5em;width:5px;height:5px;border-radius:50%;background:#1680f8}
     @media(max-width:1120px){.about-wrap{grid-template-columns:1fr;gap:40px}.about-visual{min-height:610px}.about-photo-shell{left:18%;top:78px}.about-outline{left:calc(18% - 20px);top:58px}.about-cards{right:3%}.about-facts{max-width:760px}}
-    @media(max-width:760px){.about-section{padding:72px 0 78px}.about-wrap{width:calc(100% - 40px);gap:34px}.about-title{font-size:42px}.about-copy{font-size:15.5px}.about-content:after{display:none}.about-facts{grid-template-columns:repeat(2,1fr);row-gap:20px}.about-fact:nth-child(3){border-left:0;padding-left:0;border-top:1px solid #dbe6f2;padding-top:18px}.about-fact:nth-child(4){border-top:1px solid #dbe6f2;padding-top:18px}.about-visual{min-height:760px}.about-photo-shell{left:50%;top:78px;width:min(72vw,360px);height:min(72vw,360px);transform:translateX(-50%) rotate(45deg);border-radius:62px}.about-outline{left:50%;top:61px;width:min(78vw,390px);height:min(78vw,390px);transform:translateX(-50%) rotate(45deg);border-radius:68px}.about-cards{position:relative;right:auto;top:auto;width:calc(100% - 28px);margin:510px auto 0}.about-shape.one{display:none}.about-shape.two{right:16px;bottom:70px}}
-    @media(max-width:520px){.about-wrap{width:calc(100% - 32px)}.about-title{font-size:37px}.about-copy{padding-left:14px}.about-facts{grid-template-columns:1fr}.about-fact+.about-fact{border-left:0;padding-left:0;border-top:1px solid #dbe6f2;padding-top:17px}.about-visual{min-height:700px}.about-photo-shell{top:72px;width:68vw;height:68vw;border-radius:48px}.about-outline{top:58px;width:74vw;height:74vw;border-radius:54px}.about-cards{width:100%;margin-top:430px}}
+    @media(max-width:760px){.about-section{padding:72px 0 78px}.about-wrap{width:calc(100% - 40px);gap:34px}.about-title{font-size:42px}.about-copy{font-size:15.5px}.about-content:after{display:none}.about-facts{grid-template-columns:repeat(2,1fr);row-gap:20px}.about-fact:nth-child(3){border-left:0;padding-left:0;border-top:1px solid #dbe6f2;padding-top:18px}.about-fact:nth-child(4){border-top:1px solid #dbe6f2;padding-top:18px}.about-visual{min-height:760px}.about-photo-shell{position:relative;left:auto;top:auto;width:100%;height:440px}.about-outline{display:none}.about-cards{position:relative;right:auto;top:auto;width:calc(100% - 28px);margin:-30px auto 0}.about-shape.one{display:none}.about-shape.two{right:16px;bottom:70px}}
+    @media(max-width:520px){.about-wrap{width:calc(100% - 32px)}.about-title{font-size:37px}.about-copy{padding-left:14px}.about-facts{grid-template-columns:1fr}.about-fact+.about-fact{border-left:0;padding-left:0;border-top:1px solid #dbe6f2;padding-top:17px}.about-visual{min-height:700px}.about-photo-shell{height:350px}.about-outline{display:none}.about-cards{width:100%}}
     @media(prefers-reduced-motion:reduce){.about-card{opacity:1!important;transform:none!important;transition:none!important}}
     </style>
 </head>
@@ -120,6 +121,13 @@
       </div>
 
       <div class="about-visual" aria-label="Santa Luzia Distribuidora">
+        <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+          <defs>
+            <clipPath id="aboutRoundedHex" clipPathUnits="objectBoundingBox">
+              <path d="M .28 .03 L .72 .03 Q .76 .03 .79 .085 L .97 .445 Q 1 .5 .97 .555 L .79 .915 Q .76 .97 .72 .97 L .28 .97 Q .24 .97 .21 .915 L .03 .555 Q 0 .5 .03 .445 L .21 .085 Q .24 .03 .28 .03 Z"/>
+            </clipPath>
+          </defs>
+        </svg>
         <div class="about-outline" aria-hidden="true"></div>
         <div class="about-photo-shell"><img src="assets/santa-luzia-fachada.jpg" alt="Fachada da Santa Luzia Distribuidora em Belém, Pará"></div>
         <div class="about-shape one" aria-hidden="true"></div>
