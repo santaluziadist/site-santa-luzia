@@ -129,15 +129,22 @@
   
     /* Problema */
     body{
-      transition:background-color .95s ease,color .95s ease
+      transition:background-color 1.05s ease,color 1.05s ease
     }
+    body::before{
+      content:"";position:fixed;inset:0;z-index:24;pointer-events:none;
+      background:rgba(3,10,23,.62);opacity:0;
+      transition:opacity .62s cubic-bezier(.2,.7,.2,1)
+    }
+    body.problem-transition::before{opacity:.58}
+    body.problem-focus.theme-settled::before{opacity:0}
     body::after{content:none}
     .hero,.about-section,.social-section,
     .topbar,.product,.button-secondary,.about-card,.social-support,.hospital-card,
     .about-title,.about-copy,.about-fact strong,.about-fact span,
     .social-title,.social-intro,.hospital-card h3,.hospital-card p,
     nav a,.brand,.brand small,.intro{
-      transition:background .95s ease,background-color .95s ease,color .95s ease,border-color .95s ease,box-shadow .95s ease,filter .95s ease
+      transition:background 1.05s ease,background-color 1.05s ease,color 1.05s ease,border-color 1.05s ease,box-shadow 1.05s ease,filter 1.05s ease
     }
 
     body.problem-focus{
@@ -149,13 +156,13 @@
     }
 
     body.problem-focus .hero{
-      background:
-        radial-gradient(circle at 78% 18%,rgba(35,132,255,.13),transparent 31%),
-        linear-gradient(135deg,#0a2a55 0%,#071e42 48%,#061a38 100%)
+      background:radial-gradient(circle at 7% 5%,rgba(27,113,238,.30),transparent 28%),
+        radial-gradient(circle at 88% -8%,rgba(15,78,169,.28),transparent 34%),
+        linear-gradient(135deg,#0b2d5c 0%,#071f45 43%,#061a39 72%,#061a38 100%)
     }
     body.problem-focus .hero:before{background:radial-gradient(circle at 36% 38%,rgba(34,132,255,.16),rgba(23,112,244,0) 68%)}
     body.problem-focus .hero:after{border-color:rgba(79,158,255,.17)}
-    body.problem-focus .topbar{background:rgba(7,30,65,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(91,147,214,.12)}
+    body.problem-focus .topbar{background:rgba(7,31,69,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(91,147,214,.14)}
     body.problem-focus .brand,
     body.problem-focus nav a{color:#dce8f8}
     body.problem-focus .brand small,
@@ -174,7 +181,7 @@
     body.problem-focus .proof span{color:#9eb0c8}
     body.problem-focus .proof i{background:rgba(103,151,210,.20)}
     body.problem-focus .product{
-      background:#0c2a50;border:1px solid rgba(80,144,219,.18);
+      background:linear-gradient(180deg,rgba(27,66,111,.82),rgba(12,41,80,.94));border:1px solid rgba(49,151,255,.28);
       box-shadow:0 18px 40px rgba(0,0,0,.18)
     }
     body.problem-focus .product img{mix-blend-mode:normal}
@@ -186,9 +193,9 @@
 
     body.problem-focus .about-section,
     body.problem-focus .social-section{
-      background:
-        radial-gradient(circle at 86% 12%,rgba(35,132,255,.10),transparent 26%),
-        linear-gradient(180deg,#081f43 0%,#061a38 100%);
+      background:radial-gradient(circle at 7% 5%,rgba(27,113,238,.30),transparent 28%),
+        radial-gradient(circle at 88% -8%,rgba(15,78,169,.28),transparent 34%),
+        linear-gradient(135deg,#0b2d5c 0%,#071f45 43%,#061a39 72%,#061a38 100%);
       border-color:rgba(86,145,212,.14)
     }
     body.problem-focus .about-section:before,
@@ -223,8 +230,8 @@
     body.problem-focus .about-card,
     body.problem-focus .social-support,
     body.problem-focus .hospital-card{
-      background:rgba(11,39,76,.96);
-      border-color:rgba(83,148,221,.23);
+      background:linear-gradient(180deg,rgba(27,66,111,.82),rgba(12,41,80,.94));
+      border-color:rgba(49,151,255,.32);
       box-shadow:0 18px 38px rgba(0,0,0,.16)
     }
     body.problem-focus .hospital-card-image{background:#0a2448}
@@ -424,7 +431,7 @@
       .problem-photo-bg{height:270px}
     }
     @media(prefers-reduced-motion:reduce){
-      body::after,.hero,.about-section,.social-section,.problem-card{transition:none}
+      body::before,.hero,.about-section,.social-section,.problem-card{transition:none}
       .problem-card{opacity:1!important;transform:none!important}
     }
 
@@ -710,11 +717,33 @@
     }
     const problemSection=document.querySelector(".problem-section");
     if(problemSection){
+      let themeTimer=null;
+      let currentState=null;
+      const applyProblemTheme=(active)=>{
+        if(active===currentState)return;
+        currentState=active;
+        clearTimeout(themeTimer);
+        const body=document.body;
+        body.classList.remove("theme-settled");
+        body.classList.add("problem-transition");
+        if(active){
+          problemSection.classList.add("is-visible");
+          setTimeout(()=>body.classList.add("problem-focus"),90);
+          themeTimer=setTimeout(()=>{
+            body.classList.remove("problem-transition");
+            body.classList.add("theme-settled");
+          },720);
+        }else{
+          setTimeout(()=>{
+            body.classList.remove("problem-focus");
+            problemSection.classList.remove("is-visible");
+          },90);
+          themeTimer=setTimeout(()=>body.classList.remove("problem-transition"),720);
+        }
+      };
       const syncProblemTheme=()=>{
         const trigger=problemSection.offsetTop-(window.innerHeight*.34);
-        const active=window.scrollY>=trigger;
-        problemSection.classList.toggle("is-visible",active);
-        document.body.classList.toggle("problem-focus",active);
+        applyProblemTheme(window.scrollY>=trigger);
       };
       syncProblemTheme();
       window.addEventListener("scroll",syncProblemTheme,{passive:true});
