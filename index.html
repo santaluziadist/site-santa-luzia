@@ -128,18 +128,108 @@
 
   
     /* Problema */
-    body::after{
-      content:"";position:fixed;inset:0;
-      background:rgba(4,8,18,.56);
-      opacity:0;pointer-events:none;z-index:20;
-      backdrop-filter:brightness(.58) saturate(.82) contrast(1.02);
-      transition:opacity 1.05s cubic-bezier(.2,.7,.2,1),backdrop-filter 1.05s ease
+    body{
+      transition:background-color .95s ease,color .95s ease
     }
-    body.problem-focus::after{opacity:1}
-    .hero,.about-section,.social-section{transition:filter 1.05s ease}
-    body.problem-focus .hero,
+    body::after{content:none}
+    .hero,.about-section,.social-section,
+    .topbar,.product,.button-secondary,.about-card,.social-support,.hospital-card,
+    .about-title,.about-copy,.about-fact strong,.about-fact span,
+    .social-title,.social-intro,.hospital-card h3,.hospital-card p,
+    nav a,.brand,.brand small,.intro{
+      transition:background .95s ease,background-color .95s ease,color .95s ease,border-color .95s ease,box-shadow .95s ease,filter .95s ease
+    }
+
+    body.problem-focus{
+      --ink:#f4f8ff;
+      --muted:#b4c2d8;
+      --line:rgba(115,151,196,.22);
+      --mist:#0b2449;
+      background:#061a38;color:#f4f8ff
+    }
+
+    body.problem-focus .hero{
+      background:
+        radial-gradient(circle at 78% 18%,rgba(35,132,255,.13),transparent 31%),
+        linear-gradient(135deg,#0a2a55 0%,#071e42 48%,#061a38 100%)
+    }
+    body.problem-focus .hero:before{background:radial-gradient(circle at 36% 38%,rgba(34,132,255,.16),rgba(23,112,244,0) 68%)}
+    body.problem-focus .hero:after{border-color:rgba(79,158,255,.17)}
+    body.problem-focus .topbar{background:rgba(7,30,65,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(91,147,214,.12)}
+    body.problem-focus .brand,
+    body.problem-focus nav a{color:#dce8f8}
+    body.problem-focus .brand small,
+    body.problem-focus .menu-note{color:#8ea5c3}
+    body.problem-focus nav a:hover,
+    body.problem-focus nav a:first-child,
+    body.problem-focus .eyebrow,
+    body.problem-focus h1 em{color:#48a2ff}
+    body.problem-focus h1{color:#f7faff}
+    body.problem-focus .intro{color:#aebed4}
+    body.problem-focus .button-secondary{
+      background:#0c2b54;color:#f4f8ff;border-color:rgba(92,154,225,.36)
+    }
+    body.problem-focus .button-secondary svg{color:#56a9ff}
+    body.problem-focus .proof{border-color:rgba(99,148,207,.18)}
+    body.problem-focus .proof span{color:#9eb0c8}
+    body.problem-focus .proof i{background:rgba(103,151,210,.20)}
+    body.problem-focus .product{
+      background:#0c2a50;border:1px solid rgba(80,144,219,.18);
+      box-shadow:0 18px 40px rgba(0,0,0,.18)
+    }
+    body.problem-focus .product img{mix-blend-mode:normal}
+    body.problem-focus .flavor{color:#f5f9ff}
+    body.problem-focus .benefits span{color:#8dc5ff}
+    body.problem-focus .carousel-arrow{background:#0d2b52;border-color:rgba(105,166,232,.28);color:#5eb2ff}
+    body.problem-focus .pager button{background:#385a82}
+    body.problem-focus .pager button.active{background:#48a2ff}
+
     body.problem-focus .about-section,
-    body.problem-focus .social-section{filter:brightness(.62) saturate(.78) contrast(1.02)}
+    body.problem-focus .social-section{
+      background:
+        radial-gradient(circle at 86% 12%,rgba(35,132,255,.10),transparent 26%),
+        linear-gradient(180deg,#081f43 0%,#061a38 100%);
+      border-color:rgba(86,145,212,.14)
+    }
+    body.problem-focus .about-section:before,
+    body.problem-focus .social-section:before,
+    body.problem-focus .social-section:after{border-color:rgba(74,151,244,.15)}
+    body.problem-focus .about-title,
+    body.problem-focus .social-title,
+    body.problem-focus .about-fact strong,
+    body.problem-focus .hospital-card h3,
+    body.problem-focus .about-card h3,
+    body.problem-focus .social-support h3{color:#f5f9ff}
+    body.problem-focus .about-title em,
+    body.problem-focus .social-title em,
+    body.problem-focus .about-kicker,
+    body.problem-focus .social-kicker{color:#55aaff}
+    body.problem-focus .about-copy,
+    body.problem-focus .about-copy p:first-child,
+    body.problem-focus .about-fact span,
+    body.problem-focus .social-intro,
+    body.problem-focus .hospital-card p,
+    body.problem-focus .about-card p,
+    body.problem-focus .about-card li,
+    body.problem-focus .social-support p{color:#a8bbd3}
+    body.problem-focus .about-facts{border-color:rgba(104,151,210,.18)}
+    body.problem-focus .about-fact+.about-fact{border-color:rgba(104,151,210,.18)}
+    body.problem-focus .about-fact-icon,
+    body.problem-focus .about-card-icon,
+    body.problem-focus .social-support-icon,
+    body.problem-focus .social-arrow{
+      background:#0d2e5a;color:#58adff
+    }
+    body.problem-focus .about-card,
+    body.problem-focus .social-support,
+    body.problem-focus .hospital-card{
+      background:rgba(11,39,76,.96);
+      border-color:rgba(83,148,221,.23);
+      box-shadow:0 18px 38px rgba(0,0,0,.16)
+    }
+    body.problem-focus .hospital-card-image{background:#0a2448}
+    body.problem-focus .about-outline:after{background:#081f43}
+    body.problem-focus .about-shape{background:linear-gradient(145deg,rgba(43,126,222,.24),rgba(73,148,232,.13))}
 
     .problem-section{
       position:relative;z-index:30;overflow:hidden;color:#fff;
@@ -161,7 +251,7 @@
       border:1px solid rgba(46,144,255,.25);border-radius:50%;pointer-events:none
     }
     .problem-wrap{
-      width:min(1280px,calc(100% - 64px));min-height:720px;
+      width:min(1280px,calc(100% - 64px));min-height:655px;
       margin:auto;position:relative;z-index:2
     }
     .problem-top{
@@ -243,7 +333,7 @@
     .problem-section.is-visible .problem-card:nth-child(3){transition-delay:.22s}
     .problem-section.is-visible .problem-card:nth-child(4){transition-delay:.29s}
     .problem-card:hover{background:linear-gradient(180deg,rgba(34,81,137,.82),rgba(15,49,93,.95))}
-    .problem-card-index{position:absolute;right:18px;top:16px;color:#3296ff;font:800 15px Manrope,sans-serif}
+    .problem-card-index{display:none}
     .problem-card-icon{
       width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
       background:rgba(15,79,150,.48);color:#47a6ff;margin-bottom:12px;
@@ -254,7 +344,7 @@
     .problem-card p{margin:8px 0 0;color:#c6d4e8;font-size:12.2px;line-height:1.4}
 
     .care-strip{
-      position:absolute;z-index:6;left:265px;right:0;top:450px;
+      position:absolute;z-index:6;left:255px;right:0;top:398px;
       padding:15px 18px 16px;border-radius:22px;
       background:linear-gradient(180deg,rgba(18,57,102,.94),rgba(8,38,76,.97));
       border:1px solid rgba(54,157,255,.60);
@@ -306,7 +396,6 @@
     }
 
     @media(max-width:1100px){
-      body.problem-focus::after{opacity:.72}
       .problem-wrap{min-height:auto}
       .problem-top{grid-template-columns:1fr;gap:34px}
       .problem-intro{margin-left:0}
@@ -560,7 +649,7 @@
           <div class="care-arrow" aria-hidden="true">→</div>
 
           <div class="care-step">
-            <div class="care-step-photo main-alt"><img src="assets/618f926d-c59e-4bfa-996f-e41268a16352.png" alt="Profissional de saúde orientando a continuidade do cuidado"></div>
+            <div class="care-step-photo main-alt"><img src="assets/39d36857-fe06-406c-bdbb-b4aca514eba8.png" alt="Orientação de alta e continuidade do cuidado"></div>
             <div class="care-step-info">
               <div class="care-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></svg></div>
               <div><strong>Alta</strong><span>Orientação para continuidade do tratamento.</span></div>
@@ -621,22 +710,15 @@
     }
     const problemSection=document.querySelector(".problem-section");
     if(problemSection){
-      if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-        problemSection.classList.add("is-visible");
-      }else{
-        const problemObserver=new IntersectionObserver(entries=>{
-          entries.forEach(entry=>{
-            if(entry.isIntersecting){
-              problemSection.classList.add("is-visible");
-              document.body.classList.add("problem-focus");
-            }else{
-              problemSection.classList.remove("is-visible");
-              document.body.classList.remove("problem-focus");
-            }
-          });
-        },{threshold:.08,rootMargin:"-5% 0px -12% 0px"});
-        problemObserver.observe(problemSection);
-      }
+      const syncProblemTheme=()=>{
+        const trigger=problemSection.offsetTop-(window.innerHeight*.34);
+        const active=window.scrollY>=trigger;
+        problemSection.classList.toggle("is-visible",active);
+        document.body.classList.toggle("problem-focus",active);
+      };
+      syncProblemTheme();
+      window.addEventListener("scroll",syncProblemTheme,{passive:true});
+      window.addEventListener("resize",syncProblemTheme,{passive:true});
     }
   </script>
 </body>
