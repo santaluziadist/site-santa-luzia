@@ -129,16 +129,17 @@
   
     /* Problema */
     body::after{
-      content:"";position:fixed;inset:0;background:rgba(4,24,55,.84);
+      content:"";position:fixed;inset:0;
+      background:rgba(4,8,18,.56);
       opacity:0;pointer-events:none;z-index:20;
-      backdrop-filter:saturate(.72) brightness(.78);
-      transition:opacity 1.05s cubic-bezier(.2,.7,.2,1)
+      backdrop-filter:brightness(.58) saturate(.82) contrast(1.02);
+      transition:opacity 1.05s cubic-bezier(.2,.7,.2,1),backdrop-filter 1.05s ease
     }
     body.problem-focus::after{opacity:1}
     .hero,.about-section,.social-section{transition:filter 1.05s ease}
     body.problem-focus .hero,
     body.problem-focus .about-section,
-    body.problem-focus .social-section{filter:brightness(.72) saturate(.78)}
+    body.problem-focus .social-section{filter:brightness(.62) saturate(.78) contrast(1.02)}
 
     .problem-section{
       position:relative;z-index:30;overflow:hidden;color:#fff;
@@ -146,7 +147,7 @@
         radial-gradient(circle at 7% 5%,rgba(27,113,238,.30),transparent 28%),
         radial-gradient(circle at 88% -8%,rgba(15,78,169,.28),transparent 34%),
         linear-gradient(135deg,#0b2d5c 0%,#071f45 43%,#061a39 72%,#061a38 100%);
-      padding:64px 0 58px;
+      padding:54px 0 48px;
       border-top:1px solid rgba(70,151,255,.24)
     }
     .problem-section:before{
@@ -160,7 +161,7 @@
       border:1px solid rgba(46,144,255,.25);border-radius:50%;pointer-events:none
     }
     .problem-wrap{
-      width:min(1280px,calc(100% - 64px));min-height:835px;
+      width:min(1280px,calc(100% - 64px));min-height:720px;
       margin:auto;position:relative;z-index:2
     }
     .problem-top{
@@ -174,37 +175,37 @@
     }
     .problem-kicker:before{content:"";width:40px;height:3px;border-radius:999px;background:#2e93ff}
     .problem-title{
-      font:800 clamp(44px,3.72vw,58px)/1.03 Manrope,sans-serif;
+      font:800 clamp(41px,3.45vw,54px)/1.03 Manrope,sans-serif;
       letter-spacing:-.056em;margin:0;max-width:635px;color:#fff
     }
     .problem-title em{font-style:normal;color:#2d8dff}
     .problem-intro{
       margin:22px 0 0 58px;max-width:565px;color:#cbd9ed;
-      font-size:15.8px;line-height:1.56
+      font-size:15px;line-height:1.52
     }
 
     .problem-main-photo{
-      position:absolute;left:-74px;top:342px;z-index:5;
-      width:520px;height:520px;overflow:visible;
+      position:absolute;left:-68px;top:306px;z-index:5;
+      width:475px;height:450px;overflow:visible;
       background:transparent
     }
     .problem-main-photo:before{
       content:"";position:absolute;z-index:-2;
-      left:-78px;top:32px;width:520px;height:410px;
+      left:-70px;top:28px;width:475px;height:355px;
       border-radius:46% 54% 40% 60% / 48% 38% 62% 52%;
       background:radial-gradient(circle at 58% 48%,rgba(30,137,255,.26),rgba(12,74,157,.10) 48%,transparent 72%);
       filter:blur(3px);pointer-events:none
     }
     .problem-main-photo:after{
       content:"";position:absolute;z-index:-1;
-      left:-34px;top:64px;width:505px;height:365px;
+      left:-28px;top:58px;width:462px;height:315px;
       border:2px solid rgba(37,146,255,.42);
       border-radius:0 145px 38px 0;
       box-shadow:0 0 0 18px rgba(28,122,231,.035);
       pointer-events:none
     }
     .problem-photo-bg{
-      position:absolute;z-index:0;left:-8px;top:98px;width:505px;height:342px;
+      position:absolute;z-index:0;left:-6px;top:82px;width:455px;height:295px;
       overflow:hidden;border:2px solid rgba(32,145,255,.96);
       border-radius:0 142px 36px 0;
       background:#0a315f;
@@ -221,15 +222,15 @@
       filter:blur(2.8px) saturate(.92) brightness(.96);transform:scale(1.04)
     }
     .problem-main-photo>img{
-      position:absolute;z-index:2;left:22px;bottom:-4px;
-      width:350px;height:auto;max-height:520px;display:block;
+      position:absolute;z-index:2;left:20px;bottom:-2px;
+      width:315px;height:auto;max-height:450px;display:block;
       object-fit:contain;object-position:center bottom;
       filter:drop-shadow(0 24px 28px rgba(0,0,0,.20))
     }
 
     .problem-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
     .problem-card{
-      position:relative;min-height:190px;padding:20px 20px 18px;border-radius:21px;
+      position:relative;min-height:172px;padding:18px 18px 16px;border-radius:20px;
       background:linear-gradient(180deg,rgba(27,66,111,.76),rgba(12,41,80,.90));
       border:1px solid rgba(49,151,255,.58);
       box-shadow:0 14px 28px rgba(0,0,0,.13);
@@ -244,17 +245,17 @@
     .problem-card:hover{background:linear-gradient(180deg,rgba(34,81,137,.82),rgba(15,49,93,.95))}
     .problem-card-index{position:absolute;right:18px;top:16px;color:#3296ff;font:800 15px Manrope,sans-serif}
     .problem-card-icon{
-      width:44px;height:44px;border-radius:13px;display:grid;place-items:center;
+      width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
       background:rgba(15,79,150,.48);color:#47a6ff;margin-bottom:12px;
       box-shadow:inset 0 0 0 1px rgba(54,155,255,.13)
     }
-    .problem-card-icon svg{width:22px;height:22px}
-    .problem-card h3{margin:0;color:#fff;font:800 18px/1.14 Manrope,sans-serif;letter-spacing:-.028em;max-width:220px}
-    .problem-card p{margin:8px 0 0;color:#c6d4e8;font-size:12.8px;line-height:1.42}
+    .problem-card-icon svg{width:20px;height:20px}
+    .problem-card h3{margin:0;color:#fff;font:800 17px/1.14 Manrope,sans-serif;letter-spacing:-.028em;max-width:220px}
+    .problem-card p{margin:8px 0 0;color:#c6d4e8;font-size:12.2px;line-height:1.4}
 
     .care-strip{
-      position:absolute;z-index:6;left:286px;right:0;top:500px;
-      padding:17px 20px 18px;border-radius:24px;
+      position:absolute;z-index:6;left:265px;right:0;top:450px;
+      padding:15px 18px 16px;border-radius:22px;
       background:linear-gradient(180deg,rgba(18,57,102,.94),rgba(8,38,76,.97));
       border:1px solid rgba(54,157,255,.60);
       box-shadow:0 18px 36px rgba(0,0,0,.15)
@@ -271,19 +272,19 @@
     }
     .care-step{min-width:0}
     .care-step-photo{
-      width:100%;height:74px;overflow:hidden;border-radius:14px;margin-bottom:9px;
+      width:100%;height:66px;overflow:hidden;border-radius:14px;margin-bottom:9px;
       border:1px solid rgba(80,161,255,.24);background:#0b2d59
     }
     .care-step-photo img{width:100%;height:100%;display:block;object-fit:cover}
     .care-step-photo.main-alt img{object-position:43% center}
-    .care-step-info{display:grid;grid-template-columns:38px 1fr;gap:8px;align-items:center}
+    .care-step-info{display:grid;grid-template-columns:35px 1fr;gap:8px;align-items:center}
     .care-step-icon{
-      width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#3da5ff;
+      width:35px;height:35px;border-radius:50%;display:grid;place-items:center;color:#3da5ff;
       background:#0b2d59;border:1px solid #2293ff;box-shadow:0 0 15px rgba(34,147,255,.14)
     }
-    .care-step-icon svg{width:19px;height:19px}
-    .care-step strong{display:block;color:#fff;font:700 13px/1.2 Manrope,sans-serif}
-    .care-step span{display:block;margin-top:3px;color:#a3b6d0;font-size:10.2px;line-height:1.28}
+    .care-step-icon svg{width:17px;height:17px}
+    .care-step strong{display:block;color:#fff;font:700 12.5px/1.2 Manrope,sans-serif}
+    .care-step span{display:block;margin-top:3px;color:#a3b6d0;font-size:9.8px;line-height:1.25}
     .care-arrow{
       width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#55adff;
       border:1px solid #238eea;background:#0a2a52;font-size:15px
@@ -305,11 +306,11 @@
     }
 
     @media(max-width:1100px){
-      body.problem-focus::after{opacity:.1}
+      body.problem-focus::after{opacity:.72}
       .problem-wrap{min-height:auto}
       .problem-top{grid-template-columns:1fr;gap:34px}
       .problem-intro{margin-left:0}
-      .problem-main-photo{position:relative;left:auto;top:auto;width:min(500px,100%);height:440px;margin:18px 0 0}
+      .problem-main-photo{position:relative;left:auto;top:auto;width:min(470px,100%);height:410px;margin:18px 0 0}
       .problem-main-photo:before,.problem-main-photo:after{display:none}
       .problem-photo-bg{left:0;width:100%;top:90px}
       .care-strip{position:relative;left:auto;right:auto;top:auto;width:100%;margin:24px 0 0}
