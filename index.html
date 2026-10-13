@@ -176,29 +176,30 @@
     }
 
     .problem-main-photo{
-      position:relative;z-index:5;width:400px;height:445px;
-      margin:8px 0 -16px -58px;overflow:visible;
-      border:0;box-shadow:none
+      position:relative;z-index:5;width:420px;height:455px;
+      margin:4px 0 -20px -58px;overflow:visible;
+      border:0;box-shadow:none;background:transparent
     }
     .problem-main-photo:before{
       content:"";position:absolute;z-index:0;
-      left:0;right:-8px;top:112px;bottom:0;
+      left:0;right:-4px;top:150px;bottom:0;
       border:2px solid rgba(31,146,255,.92);
-      border-radius:0 132px 34px 0;
-      background:linear-gradient(160deg,rgba(19,80,150,.30),rgba(10,47,96,.22));
+      border-radius:0 126px 34px 0;
+      background:linear-gradient(160deg,rgba(19,80,150,.28),rgba(10,47,96,.20));
       box-shadow:0 24px 48px rgba(0,0,0,.16)
     }
     .problem-main-photo:after{
-      content:"";position:absolute;z-index:2;left:4px;right:-4px;bottom:4px;height:58%;
-      background:linear-gradient(180deg,rgba(5,24,52,0),rgba(5,24,52,.18));
-      border-radius:0 118px 30px 0;pointer-events:none
+      content:"";position:absolute;z-index:1;
+      left:4px;right:0;top:152px;bottom:4px;
+      background:linear-gradient(180deg,rgba(5,24,52,0),rgba(5,24,52,.12));
+      border-radius:0 120px 30px 0;pointer-events:none
     }
     .problem-main-photo img{
-      position:absolute;z-index:1;left:0;bottom:0;
-      width:100%;height:100%;display:block;object-fit:cover;object-position:31% center;
-      clip-path:polygon(0 27%,14% 27%,14% 0,75% 0,75% 15%,100% 15%,100% 100%,0 100%);
-      border-radius:0 118px 30px 0;
-      filter:saturate(.96) contrast(1.02)
+      position:absolute;z-index:2;left:-8px;bottom:-2px;
+      width:370px;height:auto;max-height:455px;display:block;
+      object-fit:contain;object-position:center bottom;
+      filter:drop-shadow(0 22px 26px rgba(0,0,0,.17));
+      border-radius:0;clip-path:none
     }
 
     .problem-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -458,7 +459,7 @@
           <h2 class="problem-title" id="problem-title">Desafios que exigem <em>agilidade, disponibilidade</em> e suporte técnico.</h2>
           <p class="problem-intro">Em nutrição clínica, atrasos, falta de produto e dificuldade logística podem comprometer a continuidade do cuidado. Hospitais, clínicas, profissionais e atendimento domiciliar precisam de soluções confiáveis, com portfólio adequado e resposta regional eficiente.</p>
           <div class="problem-main-photo">
-            <img src="assets/618f926d-c59e-4bfa-996f-e41268a16352.png" alt="Profissional de saúde em ambiente hospitalar">
+            <img src="assets/346c2ee1-6b0d-4e56-a18a-ae804ceb25af.png" alt="Profissional de saúde com prancheta">
           </div>
         </div>
 
