@@ -435,13 +435,49 @@
       .problem-card{opacity:1!important;transform:none!important}
     }
 
+  
+    /* Solução */
+    .solution-section{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);padding:72px 0 78px;border-top:1px solid rgba(220,230,243,.58);color:#10265a}
+    .solution-section:before{content:"";position:absolute;right:-150px;top:-180px;width:520px;height:520px;border:1px solid rgba(20,111,244,.10);border-radius:50%}
+    .solution-wrap{width:min(1280px,calc(100% - 72px));margin:auto;position:relative;z-index:2}
+    .solution-grid{display:grid;grid-template-columns:.9fr 1.05fr 1.05fr;gap:22px;align-items:stretch}
+    .solution-copy{display:flex;flex-direction:column;justify-content:center;padding:6px 0}
+    .solution-kicker{margin:0 0 20px;color:#6b82aa;font-size:11px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;display:flex;align-items:center;gap:15px}
+    .solution-kicker:before{content:"";width:42px;height:3px;border-radius:999px;background:#1680f8}
+    .solution-title{margin:0;color:#10265a;font:800 clamp(42px,3.8vw,58px)/1.035 Manrope,sans-serif;letter-spacing:-.057em;max-width:520px}
+    .solution-title em{font-style:normal;color:#1680f8}
+    .solution-intro{margin:22px 0 0;color:#647797;font-size:15.8px;line-height:1.6;max-width:500px}
+    .solution-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:24px}
+    .solution-btn{display:inline-flex;align-items:center;justify-content:center;min-height:47px;padding:0 20px;border-radius:10px;text-decoration:none;font-size:13.5px;font-weight:700}
+    .solution-btn.primary{background:#146ff4;color:#fff;box-shadow:0 10px 22px rgba(20,111,244,.18)}
+    .solution-btn.secondary{background:#fff;color:#146ff4;border:1px solid #bcd0e9}
+    .solution-benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;align-content:center}
+    .solution-card{min-height:150px;padding:18px;border-radius:22px;background:#fff;border:1px solid #dce8f5;box-shadow:0 14px 30px rgba(28,63,111,.07);opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .7s cubic-bezier(.2,.72,.22,1)}
+    .solution-section.is-visible .solution-card{opacity:1;transform:translateY(0)}
+    .solution-section.is-visible .solution-card:nth-child(2){transition-delay:.08s}.solution-section.is-visible .solution-card:nth-child(3){transition-delay:.16s}.solution-section.is-visible .solution-card:nth-child(4){transition-delay:.24s}
+    .solution-icon{width:42px;height:42px;border-radius:13px;background:#edf6ff;color:#1680f8;display:grid;place-items:center;margin-bottom:12px}
+    .solution-icon svg{width:21px;height:21px}
+    .solution-card h3{margin:0;color:#10265a;font:800 17px/1.16 Manrope,sans-serif;letter-spacing:-.028em}
+    .solution-card p{margin:8px 0 0;color:#6a7f9f;font-size:12.7px;line-height:1.45}
+    .solution-products{position:relative;min-height:460px;border-radius:32px;background:radial-gradient(circle at 50% 38%,rgba(55,146,255,.13),transparent 46%),linear-gradient(180deg,#f5f9ff 0%,#eef6ff 100%);border:1px solid #dfebf7;overflow:hidden;isolation:isolate}
+    .solution-products:before{content:"";position:absolute;left:50%;bottom:32px;transform:translateX(-50%);width:86%;height:70px;border-radius:50%;background:#fff;box-shadow:0 18px 32px rgba(25,59,107,.10);z-index:0}
+    .solution-products-label{position:absolute;left:22px;top:20px;color:#6d86a9;font-size:10px;font-weight:800;letter-spacing:.20em;text-transform:uppercase}
+    .solution-product{position:absolute;bottom:48px;display:block;object-fit:contain;filter:drop-shadow(0 18px 16px rgba(18,53,98,.16));transform-origin:center bottom}
+    .solution-product.p1{left:1%;width:23%;max-height:260px;z-index:2}.solution-product.p2{left:16%;width:28%;max-height:310px;z-index:3}.solution-product.p3{left:37%;width:29%;max-height:330px;z-index:5}.solution-product.p4{right:16%;width:27%;max-height:305px;z-index:4}.solution-product.p5{right:1%;width:23%;max-height:270px;z-index:2}
+    .solution-strip{margin-top:22px;padding:19px 22px;border:1px solid #deebf7;border-radius:24px;background:rgba(248,252,255,.92);display:grid;grid-template-columns:1.1fr repeat(4,1fr);align-items:center}
+    .solution-strip-intro{padding-right:18px}.solution-strip-intro strong{display:block;color:#10265a;font:800 18px/1.18 Manrope,sans-serif}.solution-strip-intro em{display:block;font-style:normal;color:#1680f8}
+    .solution-strip-item{padding:2px 17px;border-left:1px solid #dce8f5;min-height:62px}.solution-strip-item strong{display:block;color:#10265a;font:700 13.5px/1.2 Manrope,sans-serif}.solution-strip-item span{display:block;margin-top:5px;color:#7185a2;font-size:11.3px;line-height:1.35}
+    @media(max-width:1120px){.solution-grid{grid-template-columns:1fr 1fr}.solution-products{grid-column:1/-1;min-height:420px}}
+    @media(max-width:780px){.solution-wrap{width:calc(100% - 40px)}.solution-grid{grid-template-columns:1fr}.solution-benefits{grid-template-columns:1fr 1fr}.solution-products{min-height:380px}.solution-strip{grid-template-columns:1fr 1fr;gap:14px}.solution-strip-intro{grid-column:1/-1}.solution-strip-item{border-left:0;border-top:1px solid #dce8f5;padding:13px 0 0}}
+    @media(max-width:540px){.solution-wrap{width:calc(100% - 32px)}.solution-title{font-size:38px}.solution-benefits{grid-template-columns:1fr}.solution-products{min-height:320px}.solution-strip{grid-template-columns:1fr}}
+
   </style>
 </head>
 <body>
   <main><section class="hero"><div class="cursor-glow" aria-hidden="true"></div>
     <header class="topbar">
       <a class="brand" href="#inicio" aria-label="Santa Luzia Distribuidora"><img src="assets/santa-luzia-symbol.png" alt=""><span>Santa Luzia<small>Distribuidora</small></span></a>
-      <nav aria-label="Navegação principal"><a href="#inicio">Início</a><a href="#empresa">A empresa</a><a href="#prova-social">Prova social</a><a href="#problema">Problema</a><a href="#contato">Contato</a></nav>
+      <nav aria-label="Navegação principal"><a href="#inicio">Início</a><a href="#empresa">A empresa</a><a href="#prova-social">Prova social</a><a href="#problema">Problema</a><a href="#solucao">Solução</a><a href="#contato">Contato</a></nav>
       
     </header>
     <section class="hero-grid" id="inicio">
@@ -677,6 +713,45 @@
       <div class="problem-decor" aria-hidden="true"></div>
     </div>
   </section>
+
+  <section class="solution-section" id="solucao" aria-labelledby="solution-title">
+    <div class="solution-wrap">
+      <div class="solution-grid">
+        <div class="solution-copy">
+          <p class="solution-kicker">Solução</p>
+          <h2 class="solution-title" id="solution-title">Soluções completas <em>para cada etapa</em> do cuidado nutricional.</h2>
+          <p class="solution-intro">A Santa Luzia reúne nutrição enteral, suplementação oral e produtos especializados das linhas NVTRO e Prodiet, com atendimento regional e suporte técnico para instituições, profissionais de saúde e atendimento domiciliar.</p>
+          <div class="solution-actions">
+            <a class="solution-btn primary" href="#contato">Falar com a Santa Luzia</a>
+            <a class="solution-btn secondary" href="#inicio">Ver produtos</a>
+          </div>
+        </div>
+
+        <div class="solution-benefits">
+          <article class="solution-card"><div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 7 8-4 8 4-8 4-8-4Z"/><path d="M4 7v10l8 4 8-4V7M12 11v10"/></svg></div><h3>Portfólio especializado</h3><p>Nutrição enteral, suplementação oral e produtos para diferentes necessidades clínicas.</p></article>
+          <article class="solution-card"><div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg></div><h3>Entrega regional</h3><p>Atendimento para hospitais, clínicas e home care com operação regional.</p></article>
+          <article class="solution-card"><div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M3 19c0-3 2.2-5 5-5s5 2 5 5M11 19c0-3 2.2-5 5-5s5 2 5 5"/></svg></div><h3>Apoio técnico</h3><p>Apresentações, treinamentos e relacionamento com nutricionistas e equipes de saúde.</p></article>
+          <article class="solution-card"><div class="solution-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 5 6v5c0 4.4 2.7 7.6 7 10 4.3-2.4 7-5.6 7-10V6l-7-3Z"/><path d="m9.3 12 1.8 1.8 3.8-4"/></svg></div><h3>Continuidade do cuidado</h3><p>Soluções para diferentes momentos do atendimento, da instituição ao ambiente domiciliar.</p></article>
+        </div>
+
+        <div class="solution-products">
+          <div class="solution-products-label">Portfólio em destaque</div>
+          <img class="solution-product p1" src="assets/3ce6a81d60db40acbed6a46c01ac405c-2xeukegs53.png" alt="Produto do portfólio Santa Luzia">
+          <img class="solution-product p2" src="assets/7f556cb943bf81b7126fe3b8f5db69be-quf3tcdjl9.jpg" alt="Produto do portfólio Santa Luzia">
+          <img class="solution-product p3" src="assets/8b9fd5352430437ba748f8ed1bca6468-gse807z32t.png" alt="Produto do portfólio Santa Luzia">
+          <img class="solution-product p4" src="assets/93e00349f29f41449c825edd7f762b03-wifgzpqosy.png" alt="Produto do portfólio Santa Luzia">
+          <img class="solution-product p5" src="assets/a638e376c3c4440d88eb945f72dc2b64-pp8c2ek0rj%20(1).png" alt="Produto do portfólio Santa Luzia">
+        </div>
+      </div>
+      <div class="solution-strip">
+        <div class="solution-strip-intro"><strong>Diferentes <em>cenários de cuidado</em></strong></div>
+        <div class="solution-strip-item"><strong>Hospitais e clínicas</strong><span>Fornecimento institucional.</span></div>
+        <div class="solution-strip-item"><strong>Alta e recuperação</strong><span>Continuidade nutricional.</span></div>
+        <div class="solution-strip-item"><strong>Home care</strong><span>Cuidado nutricional domiciliar.</span></div>
+        <div class="solution-strip-item"><strong>Profissionais</strong><span>Suporte técnico especializado.</span></div>
+      </div>
+    </div>
+  </section>
   </main>
   <script>
     const products=[
@@ -716,6 +791,7 @@
       }
     }
     const problemSection=document.querySelector(".problem-section");
+    const solutionSection=document.querySelector(".solution-section");
     if(problemSection){
       let themeTimer=null;
       let currentState=null;
@@ -729,25 +805,27 @@
         if(active){
           problemSection.classList.add("is-visible");
           setTimeout(()=>body.classList.add("problem-focus"),90);
-          themeTimer=setTimeout(()=>{
-            body.classList.remove("problem-transition");
-            body.classList.add("theme-settled");
-          },720);
+          themeTimer=setTimeout(()=>{body.classList.remove("problem-transition");body.classList.add("theme-settled")},720);
         }else{
-          setTimeout(()=>{
-            body.classList.remove("problem-focus");
-            problemSection.classList.remove("is-visible");
-          },90);
-          themeTimer=setTimeout(()=>body.classList.remove("problem-transition"),720);
+          setTimeout(()=>body.classList.remove("problem-focus"),90);
+          themeTimer=setTimeout(()=>{body.classList.remove("problem-transition");body.classList.add("theme-settled")},720);
         }
       };
       const syncProblemTheme=()=>{
-        const trigger=problemSection.offsetTop-(window.innerHeight*.34);
-        applyProblemTheme(window.scrollY>=trigger);
+        const start=problemSection.offsetTop-(window.innerHeight*.34);
+        const end=solutionSection?solutionSection.offsetTop-(window.innerHeight*.32):Infinity;
+        applyProblemTheme(window.scrollY>=start&&window.scrollY<end);
       };
       syncProblemTheme();
       window.addEventListener("scroll",syncProblemTheme,{passive:true});
       window.addEventListener("resize",syncProblemTheme,{passive:true});
+    }
+    if(solutionSection){
+      if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){solutionSection.classList.add("is-visible")}
+      else{
+        const solutionObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){solutionSection.classList.add("is-visible");solutionObserver.unobserve(solutionSection)}})},{threshold:.16,rootMargin:"0px 0px -5% 0px"});
+        solutionObserver.observe(solutionSection);
+      }
     }
   </script>
 </body>
