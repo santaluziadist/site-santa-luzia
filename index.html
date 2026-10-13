@@ -129,7 +129,7 @@
   
     /* Problema */
     body::after{
-      content:"";position:fixed;inset:0;background:rgba(4,18,42,.14);
+      content:"";position:fixed;inset:0;background:rgba(4,18,42,.15);
       opacity:0;pointer-events:none;z-index:20;
       transition:opacity .95s cubic-bezier(.2,.7,.2,1)
     }
@@ -138,30 +138,33 @@
     .problem-section{
       position:relative;z-index:30;overflow:hidden;color:#fff;
       background:
-        radial-gradient(circle at 14% -8%,rgba(35,131,255,.33),transparent 32%),
-        radial-gradient(circle at 88% -12%,rgba(21,89,176,.30),transparent 34%),
-        radial-gradient(circle at 96% 96%,rgba(16,91,206,.22),transparent 28%),
-        linear-gradient(135deg,#0a2b58 0%,#071d40 44%,#061a38 72%,#061a39 100%);
-      padding:66px 0 72px;
-      border-top:1px solid rgba(72,151,255,.25);
-      transition:filter .95s ease,box-shadow 1s ease
+        radial-gradient(circle at 7% 5%,rgba(27,113,238,.30),transparent 28%),
+        radial-gradient(circle at 88% -8%,rgba(15,78,169,.28),transparent 34%),
+        linear-gradient(135deg,#0b2d5c 0%,#071f45 43%,#061a39 72%,#061a38 100%);
+      padding:64px 0 58px;
+      border-top:1px solid rgba(70,151,255,.24)
     }
-    .problem-section.is-visible{box-shadow:inset 0 80px 160px rgba(0,0,0,.08)}
     .problem-section:before{
       content:"";position:absolute;inset:0;pointer-events:none;
       background:
-        linear-gradient(118deg,rgba(14,91,199,.14) 0 16%,transparent 16% 100%),
-        radial-gradient(ellipse at 18% 79%,rgba(18,92,196,.13),transparent 26%);
+        linear-gradient(125deg,rgba(24,111,229,.12) 0 13%,transparent 13% 100%),
+        linear-gradient(55deg,transparent 0 58%,rgba(14,75,159,.08) 58% 70%,transparent 70% 100%)
     }
     .problem-section:after{
-      content:"";position:absolute;right:-135px;top:-185px;width:600px;height:600px;
-      border:1px solid rgba(42,137,255,.23);border-radius:50%;pointer-events:none
+      content:"";position:absolute;right:-145px;top:-190px;width:615px;height:615px;
+      border:1px solid rgba(46,144,255,.25);border-radius:50%;pointer-events:none
     }
-    .problem-wrap{width:min(1280px,calc(100% - 64px));margin:auto;position:relative;z-index:2}
-    .problem-top{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:start}
+    .problem-wrap{
+      width:min(1280px,calc(100% - 64px));min-height:835px;
+      margin:auto;position:relative;z-index:2
+    }
+    .problem-top{
+      display:grid;grid-template-columns:.95fr 1.05fr;
+      gap:44px;align-items:start;position:relative;z-index:4
+    }
     .problem-copy{position:relative;min-width:0}
     .problem-kicker{
-      margin:0 0 18px;color:#e4efff;font-size:11px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
+      margin:0 0 18px;color:#e6f0ff;font-size:11px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
       display:flex;align-items:center;gap:15px
     }
     .problem-kicker:before{content:"";width:40px;height:3px;border-radius:999px;background:#2e93ff}
@@ -171,42 +174,43 @@
     }
     .problem-title em{font-style:normal;color:#2d8dff}
     .problem-intro{
-      margin:22px 0 0 56px;max-width:560px;color:#cbd9ed;
+      margin:22px 0 0 58px;max-width:565px;color:#cbd9ed;
       font-size:15.8px;line-height:1.56
     }
 
     .problem-main-photo{
-      position:relative;z-index:5;width:420px;height:455px;
-      margin:4px 0 -20px -58px;overflow:visible;
-      border:0;box-shadow:none;background:transparent
+      position:absolute;left:-74px;top:350px;z-index:5;
+      width:490px;height:500px;overflow:visible;
+      background:transparent
     }
-    .problem-main-photo:before{
-      content:"";position:absolute;z-index:0;
-      left:0;right:-4px;top:150px;bottom:0;
-      border:2px solid rgba(31,146,255,.92);
-      border-radius:0 126px 34px 0;
-      background:linear-gradient(160deg,rgba(19,80,150,.28),rgba(10,47,96,.20));
-      box-shadow:0 24px 48px rgba(0,0,0,.16)
+    .problem-photo-bg{
+      position:absolute;z-index:0;left:0;top:92px;width:470px;height:325px;
+      overflow:hidden;border:2px solid rgba(32,145,255,.95);
+      border-radius:0 135px 34px 0;
+      background:#0a315f;box-shadow:0 24px 48px rgba(0,0,0,.18)
     }
-    .problem-main-photo:after{
-      content:"";position:absolute;z-index:1;
-      left:4px;right:0;top:152px;bottom:4px;
-      background:linear-gradient(180deg,rgba(5,24,52,0),rgba(5,24,52,.12));
-      border-radius:0 120px 30px 0;pointer-events:none
+    .problem-photo-bg:after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(4,29,65,.05),rgba(4,29,65,.20));
+      pointer-events:none
     }
-    .problem-main-photo img{
-      position:absolute;z-index:2;left:-8px;bottom:-2px;
-      width:370px;height:auto;max-height:455px;display:block;
+    .problem-photo-bg img{
+      width:calc(100% + 18px);height:calc(100% + 18px);
+      margin:-9px;display:block;object-fit:cover;object-position:center;
+      filter:blur(2.8px) saturate(.92) brightness(.96);transform:scale(1.04)
+    }
+    .problem-main-photo>img{
+      position:absolute;z-index:2;left:28px;bottom:0;
+      width:330px;height:auto;max-height:500px;display:block;
       object-fit:contain;object-position:center bottom;
-      filter:drop-shadow(0 22px 26px rgba(0,0,0,.17));
-      border-radius:0;clip-path:none
+      filter:drop-shadow(0 22px 26px rgba(0,0,0,.18))
     }
 
     .problem-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
     .problem-card{
       position:relative;min-height:190px;padding:20px 20px 18px;border-radius:21px;
-      background:linear-gradient(180deg,rgba(27,66,111,.76),rgba(12,41,80,.88));
-      border:1px solid rgba(49,151,255,.55);
+      background:linear-gradient(180deg,rgba(27,66,111,.76),rgba(12,41,80,.90));
+      border:1px solid rgba(49,151,255,.58);
       box-shadow:0 14px 28px rgba(0,0,0,.13);
       opacity:0;transform:translateY(24px);
       transition:opacity .68s ease,transform .72s cubic-bezier(.2,.72,.22,1),background .3s ease
@@ -228,21 +232,20 @@
     .problem-card p{margin:8px 0 0;color:#c6d4e8;font-size:12.8px;line-height:1.42}
 
     .care-strip{
-      position:relative;z-index:3;
-      width:calc(100% - 250px);
-      margin:-168px 0 0 250px;
-      padding:17px 20px 19px;border-radius:24px;
-      background:linear-gradient(180deg,rgba(18,56,100,.91),rgba(8,38,76,.96));
-      border:1px solid rgba(54,157,255,.58);
-      box-shadow:0 18px 36px rgba(0,0,0,.14)
+      position:absolute;z-index:6;left:300px;right:0;top:575px;
+      padding:17px 20px 18px;border-radius:24px;
+      background:linear-gradient(180deg,rgba(18,57,102,.94),rgba(8,38,76,.97));
+      border:1px solid rgba(54,157,255,.60);
+      box-shadow:0 18px 36px rgba(0,0,0,.15)
     }
     .care-strip-head{
       display:flex;align-items:center;gap:12px;margin-bottom:13px;
-      color:#e3edfb;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase
+      color:#e5effd;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase
     }
     .care-strip-head:before{content:"";width:36px;height:3px;border-radius:999px;background:#2e93ff}
     .care-journey{
-      display:grid;grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr);
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr) 30px minmax(0,1fr);
       align-items:center;gap:10px
     }
     .care-step{min-width:0}
@@ -272,11 +275,12 @@
 
     @media(max-width:1100px){
       body.problem-focus::after{opacity:.1}
+      .problem-wrap{min-height:auto}
       .problem-top{grid-template-columns:1fr;gap:34px}
       .problem-intro{margin-left:0}
-      .problem-main-photo{margin:18px 0 0;width:min(430px,100%);height:360px}
-      .problem-main-photo:before{top:86px}
-      .care-strip{width:100%;margin:24px 0 0}
+      .problem-main-photo{position:relative;left:auto;top:auto;width:min(480px,100%);height:430px;margin:18px 0 0}
+      .problem-photo-bg{width:100%;top:90px}
+      .care-strip{position:relative;left:auto;right:auto;top:auto;width:100%;margin:24px 0 0}
       .care-journey{grid-template-columns:1fr;gap:12px}
       .care-arrow{transform:rotate(90deg);margin-left:5px}
       .care-step-photo{height:150px}
@@ -293,7 +297,9 @@
     @media(max-width:520px){
       .problem-wrap{width:calc(100% - 32px)}
       .problem-title{font-size:37px}
-      .problem-main-photo{height:320px}
+      .problem-main-photo{height:380px}
+      .problem-main-photo>img{width:300px}
+      .problem-photo-bg{height:270px}
     }
     @media(prefers-reduced-motion:reduce){
       body::after,.problem-card{transition:none}
@@ -459,6 +465,9 @@
           <h2 class="problem-title" id="problem-title">Desafios que exigem <em>agilidade, disponibilidade</em> e suporte técnico.</h2>
           <p class="problem-intro">Em nutrição clínica, atrasos, falta de produto e dificuldade logística podem comprometer a continuidade do cuidado. Hospitais, clínicas, profissionais e atendimento domiciliar precisam de soluções confiáveis, com portfólio adequado e resposta regional eficiente.</p>
           <div class="problem-main-photo">
+            <div class="problem-photo-bg" aria-hidden="true">
+              <img src="assets/033f1b82-b685-4e2f-b879-669bae62862d.png" alt="">
+            </div>
             <img src="assets/346c2ee1-6b0d-4e56-a18a-ae804ceb25af.png" alt="Profissional de saúde com prancheta">
           </div>
         </div>
