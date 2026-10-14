@@ -8,12 +8,12 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
     :root{--blue:#146ff4;--ink:#12203a;--muted:#62708a;--line:#dce6f3;--mist:#f5f9ff}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
-    .hero{min-height:100vh;overflow:hidden;position:relative;background:linear-gradient(120deg,#fff 0%,#fff 52%,#f4f8ff 100%)}
-    .cursor-glow{position:fixed;z-index:1;width:300px;height:300px;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(20,111,244,.15),rgba(20,111,244,0) 67%);opacity:0;transition:opacity .3s ease;mix-blend-mode:multiply}.cursor-glow.is-active{opacity:1}.hero:before{content:"";position:absolute;width:650px;height:650px;right:-225px;top:100px;border-radius:50%;background:radial-gradient(circle at 36% 38%,rgba(23,112,244,.18),rgba(23,112,244,0) 68%)}.hero:after{content:"";position:absolute;width:420px;height:420px;left:-260px;bottom:-315px;border:1px solid rgba(20,111,244,.12);border-radius:50%}
-    .topbar{height:92px;width:min(1240px,calc(100% - 64px));margin:auto;display:flex;align-items:center;position:sticky;top:0;z-index:4;transition:opacity .48s ease,transform .48s ease}.topbar.is-hidden{opacity:0;transform:translateY(-12px);pointer-events:none}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}section[id]{scroll-margin-top:104px}body{margin:0;background:#fff;color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
+    .hero{min-height:100vh;overflow:hidden;position:relative;padding-top:92px;background:linear-gradient(120deg,#fff 0%,#fff 52%,#f4f8ff 100%)}
+.hero:before{content:"";position:absolute;width:650px;height:650px;right:-225px;top:100px;border-radius:50%;background:radial-gradient(circle at 36% 38%,rgba(23,112,244,.18),rgba(23,112,244,0) 68%)}.hero:after{content:"";position:absolute;width:420px;height:420px;left:-260px;bottom:-315px;border:1px solid rgba(20,111,244,.12);border-radius:50%}
+    .topbar{height:76px;width:min(1240px,calc(100% - 32px));padding:0 22px;margin:0;display:flex;align-items:center;position:fixed;left:50%;top:10px;z-index:1000;transform:translateX(-50%);border:1px solid rgba(211,225,241,.62);border-radius:18px;background:rgba(255,255,255,.68);backdrop-filter:blur(18px) saturate(1.18);-webkit-backdrop-filter:blur(18px) saturate(1.18);box-shadow:0 10px 30px rgba(26,60,104,.055);transition:opacity .34s ease,transform .42s cubic-bezier(.2,.72,.22,1),background .7s ease,border-color .7s ease}.topbar.is-hidden{opacity:0;transform:translate(-50%,-120%);pointer-events:none}
     .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-family:Manrope,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.06em;line-height:1}.brand img{width:39px;height:39px;object-fit:contain}.brand small{display:block;margin-top:5px;color:#64718a;font:700 7px "DM Sans",sans-serif;letter-spacing:.15em;text-transform:uppercase}
-    nav{display:flex;align-items:center;gap:36px;margin:0 auto}nav a{color:#35445e;text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}nav a:hover,nav a:first-child{color:var(--blue)}.menu-note{color:#9aa8bb;font-size:12px;font-weight:600}
+    nav{display:flex;align-items:center;gap:36px;margin:0 auto}nav a{color:#35445e;text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}nav a:hover{color:var(--blue)}.menu-note{color:#9aa8bb;font-size:12px;font-weight:600}
     .hero-grid{width:min(1240px,calc(100% - 64px));min-height:calc(100vh - 92px);padding:44px 0 44px;margin:auto;display:grid;grid-template-columns:.86fr 1.14fr;gap:25px;align-items:start;position:relative;z-index:2}
     .eyebrow{color:var(--blue);font-weight:700;font-size:12px;letter-spacing:.19em;text-transform:uppercase;margin:0 0 19px}h1{font:800 clamp(49px,4.8vw,71px)/1.07 Manrope,sans-serif;letter-spacing:-.06em;margin:0;max-width:610px}h1 em{color:var(--blue);font-style:normal}.intro{font-size:17px;line-height:1.7;color:var(--muted);max-width:475px;margin:24px 0 29px}.buttons{display:flex;gap:12px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:53px;padding:0 25px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:700;transition:transform .2s,box-shadow .2s}.button svg{width:16px;height:16px;flex:0 0 auto}.button-secondary svg{color:var(--blue)}.button:hover{transform:translateY(-2px)}.button-primary{background:var(--blue);color:#fff;box-shadow:0 11px 22px rgba(20,111,244,.24)}.button-secondary{background:#fff;color:var(--ink);border:1px solid #b9c8db}
     .proof{display:flex;align-items:center;gap:15px;margin-top:38px;padding-top:21px;border-top:1px solid var(--line)}.proof strong{font:800 25px/1 Manrope,sans-serif;letter-spacing:-.05em;color:var(--blue)}.proof span{max-width:180px;color:#718098;font-size:12px;line-height:1.4}.proof i{width:1px;height:26px;background:var(--line)}
@@ -61,6 +61,16 @@
     .about-card-icon{width:34px;height:34px;border-radius:11px;background:#eef7ff;color:#1680f8;display:grid;place-items:center;margin-bottom:9px}.about-card-icon svg{width:18px;height:18px}
     .about-card h3{margin:0;color:#10265a;font:700 16px/1.12 Manrope,sans-serif;letter-spacing:-.022em}.about-card p{margin:6px 0 0;color:#687b9a;font-size:12.5px;line-height:1.42}
     .about-card ul{list-style:none;padding:0;margin:7px 0 0;display:grid;gap:4px}.about-card li{position:relative;padding-left:13px;color:#687b9a;font-size:11.8px;line-height:1.3}.about-card li:before{content:"";position:absolute;left:0;top:.5em;width:5px;height:5px;border-radius:50%;background:#1680f8}
+
+    .about-section.is-visible .about-card-icon{animation:aboutIconPop .62s cubic-bezier(.2,.8,.2,1) both}
+    .about-section.is-visible .about-card:nth-child(1) .about-card-icon{animation-delay:.22s}
+    .about-section.is-visible .about-card:nth-child(2) .about-card-icon{animation-delay:.34s}
+    .about-section.is-visible .about-card:nth-child(3) .about-card-icon{animation-delay:.46s}
+    @keyframes aboutIconPop{
+      0%{opacity:0;transform:scale(.55) rotate(-12deg)}
+      70%{opacity:1;transform:scale(1.08) rotate(3deg)}
+      100%{opacity:1;transform:scale(1) rotate(0)}
+    }
     @media(max-width:1120px){.about-wrap{grid-template-columns:1fr;gap:40px}.about-visual{min-height:610px}.about-photo-shell{left:18%;top:78px}.about-outline{left:calc(18% - 20px);top:58px}.about-cards{right:3%}.about-facts{max-width:760px}}
     @media(max-width:760px){.about-section{padding:72px 0 78px}.about-wrap{width:calc(100% - 40px);gap:34px}.about-title{font-size:42px}.about-copy{font-size:15.5px}.about-content:after{display:none}.about-facts{grid-template-columns:repeat(2,1fr);row-gap:20px}.about-fact:nth-child(3){border-left:0;padding-left:0;border-top:1px solid #dbe6f2;padding-top:18px}.about-fact:nth-child(4){border-top:1px solid #dbe6f2;padding-top:18px}.about-visual{min-height:760px}.about-photo-shell{position:relative;left:auto;top:auto;width:100%;height:440px}.about-outline{display:none}.about-cards{position:relative;right:auto;top:auto;width:calc(100% - 28px);margin:-30px auto 0}.about-shape.one{display:none}.about-shape.two{right:16px;bottom:70px}}
     @media(max-width:520px){.about-wrap{width:calc(100% - 32px)}.about-title{font-size:37px}.about-copy{padding-left:14px}.about-facts{grid-template-columns:1fr}.about-fact+.about-fact{border-left:0;padding-left:0;border-top:1px solid #dbe6f2;padding-top:17px}.about-visual{min-height:700px}.about-photo-shell{height:350px}.about-outline{display:none}.about-cards{width:100%}}
@@ -131,20 +141,14 @@
     body{
       transition:background-color 1.05s ease,color 1.05s ease
     }
-    body::before{
-      content:"";position:fixed;inset:0;z-index:24;pointer-events:none;
-      background:rgba(3,10,23,.62);opacity:0;
-      transition:opacity .62s cubic-bezier(.2,.7,.2,1)
-    }
-    body.problem-transition::before{opacity:.58}
-    body.problem-focus.theme-settled::before{opacity:0}
+    body::before{content:none}
     body::after{content:none}
     .hero,.about-section,.social-section,
     .topbar,.product,.button-secondary,.about-card,.social-support,.hospital-card,
     .about-title,.about-copy,.about-fact strong,.about-fact span,
     .social-title,.social-intro,.hospital-card h3,.hospital-card p,
     nav a,.brand,.brand small,.intro{
-      transition:background 1.05s ease,background-color 1.05s ease,color 1.05s ease,border-color 1.05s ease,box-shadow 1.05s ease,filter 1.05s ease
+      transition:background 1.18s cubic-bezier(.2,.72,.22,1),background-color 1.18s cubic-bezier(.2,.72,.22,1),color .72s ease,border-color .9s ease,box-shadow .9s ease,filter .9s ease
     }
 
     body.problem-focus{
@@ -162,13 +166,12 @@
     }
     body.problem-focus .hero:before{background:radial-gradient(circle at 36% 38%,rgba(34,132,255,.16),rgba(23,112,244,0) 68%)}
     body.problem-focus .hero:after{border-color:rgba(79,158,255,.17)}
-    body.problem-focus .topbar{background:rgba(7,31,69,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(91,147,214,.14)}
+    body.problem-focus .topbar{background:rgba(7,31,69,.72);backdrop-filter:blur(18px) saturate(1.12);-webkit-backdrop-filter:blur(18px) saturate(1.12);border-color:rgba(91,147,214,.18)}
     body.problem-focus .brand,
     body.problem-focus nav a{color:#dce8f8}
     body.problem-focus .brand small,
     body.problem-focus .menu-note{color:#8ea5c3}
     body.problem-focus nav a:hover,
-    body.problem-focus nav a:first-child,
     body.problem-focus .eyebrow,
     body.problem-focus h1 em{color:#48a2ff}
     body.problem-focus h1{color:#f7faff}
@@ -710,13 +713,13 @@
       background:
         radial-gradient(circle at 78% 20%,rgba(37,133,255,.10),transparent 29%),
         linear-gradient(135deg,#ffffff 0%,#fbfdff 54%,#f2f8ff 100%);
-      padding:54px 0 64px;
+      padding:44px 0 54px;
       border-top:0;
       overflow:hidden
     }
     .cta-wrap{
-      width:min(1180px,calc(100% - 96px));margin:auto;position:relative;z-index:2;
-      min-height:455px;border:0;border-radius:0;
+      width:min(1120px,calc(100% - 104px));margin:auto;position:relative;z-index:2;
+      min-height:420px;border:0;border-radius:0;
       background:transparent;
       box-shadow:none;
       overflow:visible
@@ -726,10 +729,10 @@
       border:1px solid rgba(21,126,246,.08);border-radius:50%;pointer-events:none
     }
     .cta-grid{
-      display:grid;grid-template-columns:.95fr 1.05fr;min-height:455px;align-items:center;
+      display:grid;grid-template-columns:.96fr 1.04fr;min-height:420px;align-items:center;
       position:relative;z-index:2
     }
-    .cta-copy{padding:44px 24px 40px 50px;position:relative;z-index:5}
+    .cta-copy{padding:38px 22px 34px 44px;position:relative;z-index:5}
     .cta-kicker{
       margin:0 0 18px;color:#1680f8;font-size:11px;font-weight:800;
       letter-spacing:.26em;text-transform:uppercase;display:flex;align-items:center;gap:14px
@@ -767,12 +770,12 @@
     .cta-point strong{display:block;color:#17366c;font:700 11.8px/1.25 Manrope,sans-serif}
 
     .cta-visual{
-      position:relative;height:100%;min-height:455px;overflow:visible
+      position:relative;height:100%;min-height:420px;overflow:visible
     }
     .cta-art{
       position:absolute;z-index:0;
-      width:118%;max-width:none;height:auto;
-      right:-7%;bottom:-2%;
+      width:108%;max-width:none;height:auto;
+      right:-3%;bottom:0;
       object-fit:contain;pointer-events:none;
       filter:drop-shadow(0 28px 36px rgba(40,104,177,.09))
     }
@@ -843,10 +846,27 @@
       .cta-float{animation:none!important}
     }
 
+  
+    .section-seam{
+      position:absolute;z-index:12;left:50%;top:0;transform:translate(-50%,-50%);
+      width:116px;height:24px;pointer-events:none
+    }
+    .section-seam:before{
+      content:"";position:absolute;left:0;right:0;top:11px;height:1px;
+      background:linear-gradient(90deg,transparent,rgba(22,128,248,.38),transparent)
+    }
+    .section-seam:after{
+      content:"";position:absolute;left:50%;top:7px;width:8px;height:8px;transform:translateX(-50%) rotate(45deg);
+      border-radius:2px;background:#fff;border:1px solid rgba(22,128,248,.38);
+      box-shadow:0 0 0 5px rgba(22,128,248,.035)
+    }
+    .problem-section>.section-seam:after{background:#0b2d5c;border-color:rgba(76,166,255,.48)}
+    .problem-section>.section-seam:before{background:linear-gradient(90deg,transparent,rgba(76,166,255,.42),transparent)}
+
   </style>
 </head>
 <body>
-  <main><section class="hero"><div class="cursor-glow" aria-hidden="true"></div>
+  <main><section class="hero">
     <header class="topbar">
       <a class="brand" href="#inicio" aria-label="Santa Luzia Distribuidora"><img src="assets/santa-luzia-symbol.png" alt=""><span>Santa Luzia<small>Distribuidora</small></span></a>
       <nav aria-label="Navegação principal"><a href="#inicio">Início</a><a href="#empresa">A empresa</a><a href="#prova-social">Prova social</a><a href="#problema">Problema</a><a href="#solucao">Solução</a><a href="#faq">FAQ</a><a href="#contato">Contato</a></nav>
@@ -870,9 +890,10 @@
   </section>
   
   <section class="about-section" id="empresa" aria-labelledby="about-title">
+    <span class="section-seam" aria-hidden="true"></span>
     <div class="about-wrap">
       <div class="about-content">
-        <p class="about-kicker">Quem somos</p>
+        <p class="about-kicker">A empresa</p>
         <h2 class="about-title" id="about-title">Desde 2022, levando nutrição para <em>mais saúde e qualidade de vida.</em></h2>
         <div class="about-copy">
           <p>A Santa Luzia Distribuidora é uma empresa paraense especializada em nutrição clínica, com atuação no fornecimento de dietas enterais, suplementação oral e produtos especializados para hospitais, clínicas, home care e profissionais de saúde.</p>
@@ -933,11 +954,12 @@
   </section>
 
   <section class="social-section" id="prova-social" aria-labelledby="social-title">
+    <span class="section-seam" aria-hidden="true"></span>
     <div class="social-wrap">
       <div class="social-decor-dot" aria-hidden="true"></div>
       <div class="social-top">
         <div>
-          <p class="social-kicker">Prova social</p>
+          <p class="social-kicker">Instituições parceiras</p>
           <h2 class="social-title" id="social-title">Instituições que <em>confiam</em> na Santa Luzia.</h2>
           <p class="social-intro">Fornecemos soluções em nutrição clínica para instituições de saúde, com atendimento regional, suporte técnico especializado e compromisso com a continuidade do cuidado.</p>
         </div>
@@ -949,8 +971,8 @@
             <div class="social-support-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 5 6v5c0 4.4 2.7 7.6 7 10 4.3-2.4 7-5.6 7-10V6l-7-3Z"/><path d="m9.3 12 1.8 1.8 3.8-4"/></svg>
             </div>
-            <h3>Atendimento regional e suporte técnico.</h3>
-            <p>Mais que fornecimento, uma parceria para apoiar a nutrição clínica.</p>
+            <h3>Hospital Unimed Belém</h3>
+            <p>Instituição hospitalar privada em Belém, atendida pela Santa Luzia com fornecimento e suporte em nutrição clínica.</p>
             <span class="social-arrow" aria-hidden="true">→</span>
           </aside>
         </div>
@@ -995,10 +1017,11 @@
 
   
   <section class="problem-section" id="problema" aria-labelledby="problem-title">
+    <span class="section-seam" aria-hidden="true"></span>
     <div class="problem-wrap">
       <div class="problem-top">
         <div class="problem-copy">
-          <p class="problem-kicker">Problema</p>
+          <p class="problem-kicker">Desafios</p>
           <h2 class="problem-title" id="problem-title">Desafios que exigem <em>agilidade, disponibilidade</em> e suporte técnico.</h2>
           <p class="problem-intro">Em nutrição clínica, atrasos, falta de produto e dificuldade logística podem comprometer a continuidade do cuidado. Hospitais, clínicas, profissionais e atendimento domiciliar precisam de soluções confiáveis, com portfólio adequado e resposta regional eficiente.</p>
           <div class="problem-main-photo">
@@ -1088,10 +1111,11 @@
 
   
   <section class="solution-section" id="solucao" aria-labelledby="solution-title">
+    <span class="section-seam" aria-hidden="true"></span>
     <div class="solution-wrap">
       <div class="solution-grid">
         <div class="solution-copy">
-          <p class="solution-kicker">Solução</p>
+          <p class="solution-kicker">Nossa solução</p>
           <h2 class="solution-title" id="solution-title">Soluções nutricionais para <em>diferentes necessidades clínicas.</em></h2>
           <p class="solution-intro">Um portfólio especializado em nutrição enteral, suplementação oral, módulos e produtos para diferentes cenários de cuidado, com atendimento regional e suporte técnico.</p>
 
@@ -1127,9 +1151,10 @@
   </section>
 
   <section class="faq-section" id="faq" aria-labelledby="faq-title">
+    <span class="section-seam" aria-hidden="true"></span>
     <div class="faq-wrap">
       <div class="faq-head">
-        <p class="faq-kicker">FAQ</p>
+        <p class="faq-kicker">Dúvidas frequentes</p>
         <h2 class="faq-title" id="faq-title">Dúvidas frequentes</h2>
         <p class="faq-intro">Reunimos as principais perguntas para facilitar o seu atendimento e mostrar como a Santa Luzia pode apoiar instituições, profissionais e pacientes.</p>
       </div>
@@ -1192,10 +1217,11 @@
   </section>
 
   <section class="cta-section" id="contato" aria-labelledby="cta-title">
+    <span class="section-seam" aria-hidden="true"></span>
     <div class="cta-wrap">
       <div class="cta-grid">
         <div class="cta-copy">
-          <p class="cta-kicker">Pronto para começar?</p>
+          <p class="cta-kicker">Fale conosco</p>
           <h2 class="cta-title" id="cta-title">Vamos encontrar a <em>solução nutricional ideal</em> para o seu atendimento.</h2>
           <p class="cta-text">Conte com suporte técnico especializado, atendimento regional e um portfólio completo para hospitais, clínicas e home care. Estamos prontos para entender a sua necessidade e indicar a melhor solução.</p>
 
@@ -1249,11 +1275,33 @@
       {src:"assets/energyzip-chocolate.png",alt:"EnergyZip sabor chocolate",flavor:"Chocolate",benefits:["Vitamina C","Selênio + Zinco"]},
       {src:"assets/energyzip-morango.png",alt:"EnergyZip sabor morango",flavor:"Morango",benefits:["Vitamina C","Selênio + Zinco"]}
     ];
-    const header=document.querySelector(".topbar"),cursorGlow=document.querySelector(".cursor-glow");let cursorFrame;document.addEventListener("pointermove",event=>{cancelAnimationFrame(cursorFrame);cursorFrame=requestAnimationFrame(()=>{cursorGlow.style.left=event.clientX+"px";cursorGlow.style.top=event.clientY+"px";cursorGlow.classList.add("is-active")})});document.addEventListener("pointerleave",()=>cursorGlow.classList.remove("is-active"));window.addEventListener("scroll",()=>header.classList.toggle("is-hidden",window.scrollY>24),{passive:true});
+    const header=document.querySelector(".topbar");let lastScrollY=window.scrollY;window.addEventListener("scroll",()=>{const y=window.scrollY;if(y<=18){header.classList.remove("is-hidden")}else if(y>lastScrollY+5){header.classList.add("is-hidden")}else if(y<lastScrollY-5){header.classList.remove("is-hidden")}lastScrollY=y},{passive:true});
     const cards=[...document.querySelectorAll(".product")],pager=document.querySelector(".pager"),flavor=document.querySelector("#flavor"),benefits=document.querySelector("#benefits"),previous=document.querySelector(".carousel-arrow.prev"),next=document.querySelector(".carousel-arrow.next");let current=0,timer;
-    products.forEach((_,i)=>{const button=document.createElement("button");button.setAttribute("aria-label","Mostrar produto "+(i+1));button.onclick=()=>show(i,true);pager.append(button)});previous.onclick=()=>show(current-1,true);next.onclick=()=>show(current+1,true);
-    function show(index,manual){current=(index+products.length)%products.length;[-1,0,1].forEach((offset,slot)=>{const item=products[(current+offset+products.length)%products.length],card=cards[slot];card.querySelector("img").src=item.src;card.querySelector("img").alt=item.alt;card.className="product "+["left","center","right"][slot];card.onclick=()=>show(current+offset,true)});const active=products[current];flavor.textContent=active.flavor;benefits.innerHTML=active.benefits.map(item=>"<span>"+item+"</span>").join("");[...pager.children].forEach((button,i)=>button.classList.toggle("active",i===current));cards[1].animate([{opacity:.86,transform:"translateX(34px) translateY(-11px)"},{opacity:1,transform:"translateX(0) translateY(-11px)"}],{duration:780,easing:"cubic-bezier(.22,.61,.36,1)"});document.querySelector(".product-card").animate([{opacity:.75,transform:"translateX(16px)"},{opacity:1,transform:"translateX(0)"}],{duration:700,easing:"cubic-bezier(.22,.61,.36,1)"});if(manual){clearInterval(timer);timer=setInterval(()=>show(current+1),4600)}}
-    show(0);timer=setInterval(()=>show(current+1),4600);
+    let carouselBusy=false;
+    products.forEach((_,i)=>{const button=document.createElement("button");button.setAttribute("aria-label","Mostrar produto "+(i+1));button.onclick=()=>show(i,true);pager.append(button)});
+    previous.onclick=()=>show(current-1,true);next.onclick=()=>show(current+1,true);
+    function renderCarousel(index){
+      current=(index+products.length)%products.length;
+      [-1,0,1].forEach((offset,slot)=>{const item=products[(current+offset+products.length)%products.length],card=cards[slot];card.querySelector("img").src=item.src;card.querySelector("img").alt=item.alt;card.className="product "+["left","center","right"][slot];card.onclick=()=>show(current+offset,true)});
+      const active=products[current];flavor.textContent=active.flavor;benefits.innerHTML=active.benefits.map(item=>"<span>"+item+"</span>").join("");
+      [...pager.children].forEach((button,i)=>button.classList.toggle("active",i===current));
+    }
+    function show(index,manual){
+      if(carouselBusy)return;
+      const target=(index+products.length)%products.length;
+      if(target===current&&cards[1].querySelector("img").src){renderCarousel(target);return}
+      carouselBusy=true;
+      const forward=((target-current+products.length)%products.length)<=products.length/2;
+      const shift=forward?-20:20;
+      Promise.all(cards.map(card=>card.animate([{opacity:1,translate:"0 0"},{opacity:.28,translate:shift+"px 0"}],{duration:220,easing:"ease-in",fill:"forwards"}).finished.catch(()=>{}))).then(()=>{
+        renderCarousel(target);
+        cards.forEach(card=>card.animate([{opacity:.28,translate:(-shift)+"px 0"},{opacity:1,translate:"0 0"}],{duration:520,easing:"cubic-bezier(.22,.61,.36,1)",fill:"both"}));
+        document.querySelector(".product-card").animate([{opacity:.55,translate:"14px 0"},{opacity:1,translate:"0 0"}],{duration:520,easing:"cubic-bezier(.22,.61,.36,1)"});
+        setTimeout(()=>carouselBusy=false,530);
+      });
+      if(manual){clearInterval(timer);timer=setInterval(()=>show(current+1),5200)}
+    }
+    renderCarousel(0);timer=setInterval(()=>show(current+1),5200);
     const aboutSection=document.querySelector(".about-section");
     if(aboutSection){
       const revealAbout=()=>{
@@ -1282,28 +1330,16 @@
     const problemSection=document.querySelector(".problem-section");
     const solutionSection=document.querySelector(".solution-section");
     if(problemSection){
-      let themeTimer=null;
       let currentState=null;
-      const applyProblemTheme=(active)=>{
-        if(active===currentState)return;
-        currentState=active;
-        clearTimeout(themeTimer);
-        const body=document.body;
-        body.classList.remove("theme-settled");
-        body.classList.add("problem-transition");
-        if(active){
-          problemSection.classList.add("is-visible");
-          setTimeout(()=>body.classList.add("problem-focus"),90);
-          themeTimer=setTimeout(()=>{body.classList.remove("problem-transition");body.classList.add("theme-settled")},720);
-        }else{
-          setTimeout(()=>body.classList.remove("problem-focus"),90);
-          themeTimer=setTimeout(()=>{body.classList.remove("problem-transition");body.classList.add("theme-settled")},720);
-        }
-      };
       const syncProblemTheme=()=>{
         const start=problemSection.offsetTop-(window.innerHeight*.34);
         const end=solutionSection?solutionSection.offsetTop-(window.innerHeight*.32):Infinity;
-        applyProblemTheme(window.scrollY>=start&&window.scrollY<end);
+        const active=window.scrollY>=start&&window.scrollY<end;
+        if(active!==currentState){
+          currentState=active;
+          document.body.classList.toggle("problem-focus",active);
+        }
+        if(window.scrollY>=start)problemSection.classList.add("is-visible");
       };
       syncProblemTheme();
       window.addEventListener("scroll",syncProblemTheme,{passive:true});
