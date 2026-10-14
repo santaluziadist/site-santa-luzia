@@ -591,13 +591,125 @@
       .solution-copy,.solution-showcase,.solution-benefit-row{opacity:1!important;transform:none!important;transition:none!important}
     }
 
+  
+    /* FAQ */
+    .faq-section{
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(circle at 8% 20%,rgba(43,132,255,.09),transparent 24%),
+        radial-gradient(circle at 92% 12%,rgba(43,132,255,.07),transparent 22%),
+        linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+      color:#10265a;
+      padding:78px 0 86px;
+      border-top:1px solid rgba(220,230,243,.58)
+    }
+    .faq-section:before{
+      content:"";position:absolute;left:-150px;top:120px;width:430px;height:430px;
+      border:1px solid rgba(22,128,248,.12);border-radius:50%;pointer-events:none
+    }
+    .faq-section:after{
+      content:"";position:absolute;right:-190px;bottom:-170px;width:480px;height:480px;
+      border:1px solid rgba(22,128,248,.10);border-radius:50%;pointer-events:none
+    }
+    .faq-wrap{width:min(1280px,calc(100% - 72px));margin:auto;position:relative;z-index:2}
+    .faq-head{text-align:center;max-width:780px;margin:0 auto 44px}
+    .faq-kicker{
+      margin:0 auto 17px;color:#1680f8;font-size:11px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;
+      display:flex;align-items:center;justify-content:center;gap:15px
+    }
+    .faq-kicker:before,.faq-kicker:after{content:"";width:84px;height:1px;background:#b9d5f4}
+    .faq-title{
+      margin:0;color:#10265a;font:800 clamp(44px,4vw,60px)/1.04 Manrope,sans-serif;letter-spacing:-.055em
+    }
+    .faq-intro{margin:16px auto 0;color:#687c9c;font-size:16px;line-height:1.55;max-width:690px}
+
+    .faq-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:38px;align-items:center}
+    .faq-visual{position:relative;min-height:540px}
+    .faq-art{
+      position:absolute;left:50%;top:0;transform:translateX(-50%);
+      width:112%;max-width:590px;height:auto;object-fit:contain;
+      filter:drop-shadow(0 24px 32px rgba(31,91,158,.12))
+    }
+    .faq-contact{
+      position:absolute;left:4%;right:4%;bottom:0;
+      background:rgba(255,255,255,.92);border:1px solid #dce8f5;border-radius:24px;
+      padding:22px 24px;box-shadow:0 18px 34px rgba(27,62,108,.08);
+      backdrop-filter:blur(12px)
+    }
+    .faq-contact-top{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start}
+    .faq-contact-icon{
+      width:48px;height:48px;border-radius:15px;background:#edf6ff;color:#1680f8;
+      display:grid;place-items:center
+    }
+    .faq-contact-icon svg{width:25px;height:25px}
+    .faq-contact h3{margin:0;color:#10265a;font:800 20px/1.15 Manrope,sans-serif}
+    .faq-contact p{margin:7px 0 0;color:#6b7e9d;font-size:13.5px;line-height:1.45}
+    .faq-contact a{
+      margin:18px 0 0 62px;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      min-height:46px;padding:0 22px;border-radius:11px;background:#146ff4;color:#fff;text-decoration:none;
+      font-size:13.5px;font-weight:800;box-shadow:0 10px 22px rgba(20,111,244,.18)
+    }
+
+    .faq-list{display:grid;gap:10px}
+    .faq-item{
+      background:rgba(255,255,255,.96);border:1px solid #dce8f5;border-radius:17px;
+      box-shadow:0 10px 22px rgba(29,66,111,.045);overflow:hidden;
+      opacity:0;transform:translateY(18px);
+      transition:opacity .6s ease,transform .68s cubic-bezier(.2,.72,.22,1),border-color .2s ease,box-shadow .2s ease
+    }
+    .faq-section.is-visible .faq-item{opacity:1;transform:translateY(0)}
+    .faq-section.is-visible .faq-item:nth-child(2){transition-delay:.05s}
+    .faq-section.is-visible .faq-item:nth-child(3){transition-delay:.10s}
+    .faq-section.is-visible .faq-item:nth-child(4){transition-delay:.15s}
+    .faq-section.is-visible .faq-item:nth-child(5){transition-delay:.20s}
+    .faq-section.is-visible .faq-item:nth-child(6){transition-delay:.25s}
+    .faq-section.is-visible .faq-item:nth-child(7){transition-delay:.30s}
+    .faq-section.is-visible .faq-item:nth-child(8){transition-delay:.35s}
+    .faq-item.is-open{border-color:#b9d8fb;box-shadow:0 14px 30px rgba(29,87,154,.075)}
+    .faq-question{
+      width:100%;border:0;background:transparent;cursor:pointer;text-align:left;
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+      padding:18px 20px;color:#10265a;font:700 15px/1.35 Manrope,sans-serif
+    }
+    .faq-chevron{
+      flex:0 0 auto;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+      color:#146ff4;background:#f2f7fd;transition:transform .28s ease,background .2s ease
+    }
+    .faq-item.is-open .faq-chevron{transform:rotate(180deg);background:#e8f3ff}
+    .faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+    .faq-item.is-open .faq-answer{grid-template-rows:1fr}
+    .faq-answer>div{overflow:hidden}
+    .faq-answer p{margin:0;padding:0 20px 18px;color:#6a7f9f;font-size:13.5px;line-height:1.55}
+
+    @media(max-width:980px){
+      .faq-grid{grid-template-columns:1fr}
+      .faq-visual{min-height:480px;max-width:680px;margin:auto;width:100%}
+      .faq-art{width:min(90%,560px)}
+      .faq-contact{left:8%;right:8%}
+    }
+    @media(max-width:620px){
+      .faq-section{padding:68px 0 74px}
+      .faq-wrap{width:calc(100% - 34px)}
+      .faq-title{font-size:40px}
+      .faq-kicker:before,.faq-kicker:after{width:48px}
+      .faq-visual{min-height:420px}
+      .faq-contact{left:0;right:0;padding:20px}
+      .faq-contact a{margin-left:0;width:100%}
+      .faq-question{padding:17px 16px;font-size:14px}
+      .faq-answer p{padding:0 16px 16px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .faq-item{opacity:1!important;transform:none!important;transition:none!important}
+      .faq-answer,.faq-chevron{transition:none!important}
+    }
+
   </style>
 </head>
 <body>
   <main><section class="hero"><div class="cursor-glow" aria-hidden="true"></div>
     <header class="topbar">
       <a class="brand" href="#inicio" aria-label="Santa Luzia Distribuidora"><img src="assets/santa-luzia-symbol.png" alt=""><span>Santa Luzia<small>Distribuidora</small></span></a>
-      <nav aria-label="Navegação principal"><a href="#inicio">Início</a><a href="#empresa">A empresa</a><a href="#prova-social">Prova social</a><a href="#problema">Problema</a><a href="#solucao">Solução</a><a href="#contato">Contato</a></nav>
+      <nav aria-label="Navegação principal"><a href="#inicio">Início</a><a href="#empresa">A empresa</a><a href="#prova-social">Prova social</a><a href="#problema">Problema</a><a href="#solucao">Solução</a><a href="#faq">FAQ</a><a href="#contato">Contato</a></nav>
       
     </header>
     <section class="hero-grid" id="inicio">
@@ -873,6 +985,71 @@
       </div>
     </div>
   </section>
+
+  <section class="faq-section" id="faq" aria-labelledby="faq-title">
+    <div class="faq-wrap">
+      <div class="faq-head">
+        <p class="faq-kicker">FAQ</p>
+        <h2 class="faq-title" id="faq-title">Dúvidas frequentes</h2>
+        <p class="faq-intro">Reunimos as principais perguntas para facilitar o seu atendimento e mostrar como a Santa Luzia pode apoiar instituições, profissionais e pacientes.</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-visual">
+          <img class="faq-art" src="assets/d0ab7771-3035-45ae-9966-36dba8f8e0e4.png" alt="Ilustração tridimensional de perguntas e atendimento">
+          <div class="faq-contact">
+            <div class="faq-contact-top">
+              <div class="faq-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13h3v6H4zM17 13h3v6h-3z"/><path d="M17 19c0 1.1-.9 2-2 2h-2"/></svg></div>
+              <div><h3>Ainda tem alguma dúvida?</h3><p>Fale com o nosso time. Será um prazer orientar você.</p></div>
+            </div>
+            <a href="https://wa.me/5591992944871" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Quais produtos a Santa Luzia Distribuidora trabalha?</span><span class="faq-chevron">⌄</span></button>
+            <div class="faq-answer"><div><p>Trabalhamos com nutrição enteral, suplementação oral, módulos e produtos especializados, incluindo as linhas NVTRO e Prodiet.</p></div></div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>A Santa Luzia realiza entrega em quais regiões?</span><span class="faq-chevron">⌄</span></button>
+            <div class="faq-answer"><div><p>Atuamos regionalmente com destaque no Pará, Maranhão, Piauí e Amapá. A disponibilidade e o prazo de entrega podem variar conforme a cidade e o pedido.</p></div></div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Vocês oferecem apoio técnico para nutricionistas e equipes de saúde?</span><span class="faq-chevron">⌄</span></button>
+            <div class="faq-answer"><div><p>Sim. A Santa Luzia realiza apresentações, treinamentos e apoio técnico-comercial para nutricionistas, instituições e equipes de saúde.</p></div></div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>É possível solicitar amostras ou realizar degustação dos produtos?</span><span class="faq-chevron">⌄</span></button>
+            <div class="faq-answer"><div><p>Podemos avaliar ações de apresentação, amostras e degustação conforme o produto, o público e a disponibilidade. Fale com nossa equipe para verificar as possibilidades.</p></div></div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Vocês atendem hospitais, clínicas, home care e pessoa física?</span><span class="faq-chevron">⌄</span></button>
+            <div class="faq-answer"><div><p>Sim. Atendemos instituições de saúde, profissionais, home care e também vendas diretas ao consumidor, conforme a disponibilidade dos produtos e o canal de atendimento.</p></div></div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Como posso solicitar um orçamento?</span><span class="faq-chevron">⌄</span></button>
+            <div class="faq-answer"><div><p>Você pode entrar em contato com nossa equipe comercial pelo WhatsApp e informar os produtos, quantidades e demais detalhes da sua necessidade.</p></div></div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Vocês participam de licitações e compras públicas?</span><span class="faq-chevron">⌄</span></button>
+            <div class="faq-answer"><div><p>Sim. A Santa Luzia atua no fornecimento institucional e também participa de processos de compras públicas e licitações.</p></div></div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Qual o horário de atendimento?</span><span class="faq-chevron">⌄</span></button>
+            <div class="faq-answer"><div><p>Nosso horário comercial é de 08h às 12h e de 14h às 18h.</p></div></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
   </main>
   <script>
     const products=[
@@ -947,6 +1124,34 @@
         const solutionObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){solutionSection.classList.add("is-visible");solutionObserver.unobserve(solutionSection)}})},{threshold:.16,rootMargin:"0px 0px -5% 0px"});
         solutionObserver.observe(solutionSection);
       }
+    }
+
+    const faqSection=document.querySelector(".faq-section");
+    if(faqSection){
+      if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){faqSection.classList.add("is-visible")}
+      else{
+        const faqObserver=new IntersectionObserver(entries=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){faqSection.classList.add("is-visible");faqObserver.unobserve(faqSection)}
+          })
+        },{threshold:.14,rootMargin:"0px 0px -6% 0px"});
+        faqObserver.observe(faqSection);
+      }
+      const faqItems=[...faqSection.querySelectorAll(".faq-item")];
+      faqItems.forEach(item=>{
+        const button=item.querySelector(".faq-question");
+        button.addEventListener("click",()=>{
+          const open=!item.classList.contains("is-open");
+          faqItems.forEach(other=>{
+            other.classList.remove("is-open");
+            other.querySelector(".faq-question").setAttribute("aria-expanded","false");
+          });
+          if(open){
+            item.classList.add("is-open");
+            button.setAttribute("aria-expanded","true");
+          }
+        });
+      });
     }
   </script>
 </body>
