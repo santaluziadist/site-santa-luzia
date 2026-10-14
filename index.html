@@ -438,120 +438,157 @@
   
     /* Solução */
     .solution-section{
-      position:relative;overflow:hidden;isolation:isolate;
+      position:relative;overflow:hidden;
       background:
-        radial-gradient(circle at 85% 16%,rgba(41,142,255,.08),transparent 26%),
-        linear-gradient(180deg,#ffffff 0%,#fbfdff 100%);
-      color:#10265a;padding:76px 0 78px;
+        radial-gradient(circle at 78% 18%,rgba(35,132,255,.08),transparent 28%),
+        linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+      color:#10265a;
+      padding:74px 0 82px;
       border-top:1px solid rgba(220,230,243,.58)
     }
-    .solution-wrap{
-      width:min(1280px,calc(100% - 72px));margin:auto;position:relative;z-index:3;
-      min-height:650px;display:grid;grid-template-columns:.86fr 1.14fr;align-items:center;gap:24px
+    .solution-section:before{
+      content:"";position:absolute;right:-150px;top:-170px;width:520px;height:520px;
+      border:1px solid rgba(20,111,244,.10);border-radius:50%;pointer-events:none
     }
-    .solution-wave{
-      position:absolute;z-index:0;left:24%;top:8%;width:92%;max-width:1400px;
-      opacity:.30;pointer-events:none;filter:saturate(.92)
+    .solution-wrap{width:min(1280px,calc(100% - 72px));margin:auto;position:relative;z-index:2}
+    .solution-grid{
+      display:grid;grid-template-columns:.82fr 1.18fr;gap:30px;align-items:center;
+      min-height:560px
     }
-    .solution-glass{
-      position:absolute;z-index:1;right:-6%;top:-2%;width:66%;max-width:900px;
-      opacity:.78;pointer-events:none;filter:drop-shadow(0 22px 44px rgba(33,106,190,.10));
-      transform:translateX(50px);transition:transform 1s cubic-bezier(.2,.72,.22,1),opacity 1s ease
-    }
-    .solution-section.is-visible .solution-glass{transform:translateX(0)}
-    .solution-copy{position:relative;z-index:5;max-width:580px;padding:16px 0}
+    .solution-copy{position:relative;z-index:8;padding:18px 0 10px}
     .solution-kicker{
-      margin:0 0 24px;color:#6b82aa;font-size:11px;font-weight:800;letter-spacing:.28em;
+      margin:0 0 20px;color:#6b82aa;font-size:11px;font-weight:800;letter-spacing:.28em;
       text-transform:uppercase;display:flex;align-items:center;gap:15px
     }
     .solution-kicker:before{content:"";width:42px;height:3px;border-radius:999px;background:#1680f8}
     .solution-title{
-      margin:0;color:#10265a;font:800 clamp(48px,4.25vw,66px)/1.02 Manrope,sans-serif;
-      letter-spacing:-.06em;max-width:610px
+      margin:0;color:#10265a;font:800 clamp(44px,4vw,61px)/1.02 Manrope,sans-serif;
+      letter-spacing:-.058em;max-width:570px
     }
-    .solution-title em{font-style:normal;color:#187df6}
+    .solution-title em{font-style:normal;color:#1680f8}
     .solution-intro{
-      margin:26px 0 0;color:#607494;font-size:16px;line-height:1.62;max-width:545px
+      margin:24px 0 0;color:#647797;font-size:16px;line-height:1.6;max-width:540px
     }
-    .solution-categories{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+
+    .solution-categories{
+      margin-top:28px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;max-width:560px
+    }
     .solution-category{
-      min-width:88px;padding:12px 12px 11px;border-radius:17px;
-      background:rgba(249,252,255,.88);border:1px solid #e1ebf6;
-      backdrop-filter:blur(8px);box-shadow:0 10px 24px rgba(31,73,125,.05)
+      min-width:0;padding:12px 8px 11px;border-radius:16px;
+      background:rgba(248,252,255,.94);border:1px solid #e3edf7;
+      text-align:center;box-shadow:0 10px 20px rgba(36,75,124,.04)
     }
     .solution-category-icon{
-      width:36px;height:36px;border-radius:11px;background:#edf6ff;color:#1680f8;
-      display:grid;place-items:center;margin-bottom:9px
+      width:38px;height:38px;border-radius:12px;margin:0 auto 8px;
+      display:grid;place-items:center;background:#eef6ff;color:#1680f8
     }
-    .solution-category-icon svg{width:19px;height:19px}
-    .solution-category span{display:block;color:#17336c;font-size:11.8px;font-weight:700;line-height:1.2}
-    .solution-actions{margin-top:28px}
+    .solution-category-icon svg{width:20px;height:20px}
+    .solution-category span{display:block;color:#17366c;font-size:11px;font-weight:700;line-height:1.2}
+
+    .solution-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:25px}
     .solution-btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;
-      padding:0 24px;border-radius:13px;text-decoration:none;font-size:14px;font-weight:750;
-      transition:transform .22s ease,box-shadow .22s ease
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:49px;
+      padding:0 22px;border-radius:12px;text-decoration:none;font-size:13.5px;font-weight:800;
+      transition:transform .2s ease,box-shadow .2s ease
     }
     .solution-btn:hover{transform:translateY(-2px)}
-    .solution-btn.primary{
-      background:linear-gradient(135deg,#0f6deb,#1a84ff);color:#fff;
-      box-shadow:0 13px 28px rgba(21,119,245,.22)
-    }
-    .solution-btn-arrow{font-size:20px;line-height:1}
+    .solution-btn.primary{background:#146ff4;color:#fff;box-shadow:0 12px 24px rgba(20,111,244,.20)}
+    .solution-btn.secondary{background:#fff;color:#146ff4;border:1px solid #c6d7ea}
 
-    .solution-visual{
-      position:relative;z-index:4;height:620px;min-width:0;
-      display:flex;align-items:flex-end;justify-content:center
+    .solution-showcase{
+      position:relative;min-height:560px;overflow:visible;isolation:isolate
     }
-    .solution-product-composition{
-      position:absolute;z-index:5;right:-4%;bottom:0;width:108%;max-width:820px;
-      display:block;object-fit:contain;filter:drop-shadow(0 24px 26px rgba(29,69,119,.15));
-      opacity:0;transform:translateY(32px) scale(.985);
-      transition:opacity .8s ease .08s,transform .9s cubic-bezier(.2,.72,.22,1) .08s
+    .solution-wave{
+      position:absolute;z-index:0;
+      width:118%;max-width:none;height:auto;
+      right:-10%;top:3%;
+      object-fit:contain;pointer-events:none;
+      opacity:.98;
+      filter:drop-shadow(0 28px 34px rgba(44,111,191,.10))
     }
-    .solution-section.is-visible .solution-product-composition{
-      opacity:1;transform:translateY(0) scale(1)
+    .solution-glass{
+      position:absolute;z-index:1;
+      width:104%;max-width:none;height:auto;
+      right:-2%;top:2%;
+      object-fit:contain;pointer-events:none;
+      opacity:.64;mix-blend-mode:multiply
     }
-    .solution-visual-glow{
-      position:absolute;z-index:2;right:2%;bottom:10%;width:74%;height:54%;
-      border-radius:50%;background:radial-gradient(circle,rgba(36,132,255,.17),rgba(36,132,255,0) 68%);
-      filter:blur(4px)
+    .solution-products-group{
+      position:absolute;z-index:5;
+      width:104%;max-width:none;height:auto;
+      right:-2%;bottom:4%;
+      object-fit:contain;
+      filter:drop-shadow(0 26px 25px rgba(22,54,96,.16));
+      transform-origin:center bottom
     }
-    .solution-orbit{
-      position:absolute;z-index:2;right:4%;top:12%;width:72%;height:72%;
-      border:1px solid rgba(30,132,255,.16);border-radius:50%;transform:rotate(-18deg)
+    .solution-showcase:after{
+      content:"";position:absolute;z-index:2;left:15%;right:2%;bottom:4%;
+      height:84px;border-radius:50%;
+      background:radial-gradient(ellipse,rgba(26,72,126,.15),rgba(26,72,126,0) 68%);
+      filter:blur(8px);pointer-events:none
     }
-    .solution-orbit:after{
-      content:"";position:absolute;right:11%;top:-8px;width:18px;height:18px;border-radius:50%;
-      background:#2d92ff;box-shadow:0 0 0 10px rgba(45,146,255,.08)
+    .solution-floating-label{
+      position:absolute;z-index:7;right:3%;top:7%;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.78);backdrop-filter:blur(10px);
+      border:1px solid rgba(191,214,239,.8);
+      color:#557194;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+      box-shadow:0 10px 24px rgba(30,65,110,.06)
     }
+
+    .solution-benefit-row{
+      margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);
+      border:1px solid #deebf7;border-radius:24px;background:rgba(250,253,255,.94);
+      overflow:hidden
+    }
+    .solution-benefit{
+      padding:18px 20px;min-height:96px
+    }
+    .solution-benefit+.solution-benefit{border-left:1px solid #e1ebf6}
+    .solution-benefit strong{display:block;color:#10265a;font:800 14px/1.2 Manrope,sans-serif}
+    .solution-benefit span{display:block;margin-top:6px;color:#7286a2;font-size:11.5px;line-height:1.35}
+
+    .solution-section .solution-copy,
+    .solution-section .solution-showcase,
+    .solution-section .solution-benefit-row{opacity:0;transform:translateY(24px)}
+    .solution-section.is-visible .solution-copy,
+    .solution-section.is-visible .solution-showcase,
+    .solution-section.is-visible .solution-benefit-row{
+      opacity:1;transform:translateY(0);
+      transition:opacity .75s ease,transform .8s cubic-bezier(.2,.72,.22,1)
+    }
+    .solution-section.is-visible .solution-showcase{transition-delay:.08s}
+    .solution-section.is-visible .solution-benefit-row{transition-delay:.16s}
 
     @media(max-width:1120px){
-      .solution-wrap{grid-template-columns:1fr;min-height:auto}
+      .solution-grid{grid-template-columns:1fr;min-height:auto}
       .solution-copy{max-width:720px}
-      .solution-visual{height:560px}
-      .solution-product-composition{right:50%;transform:translate(50%,32px) scale(.985);width:min(92%,800px)}
-      .solution-section.is-visible .solution-product-composition{transform:translate(50%,0) scale(1)}
-      .solution-glass{right:-18%;width:84%}
-      .solution-wave{left:2%;width:118%}
+      .solution-showcase{min-height:520px;margin-top:-20px}
+      .solution-categories{max-width:680px}
     }
-    @media(max-width:760px){
+    @media(max-width:780px){
       .solution-section{padding:66px 0 70px}
       .solution-wrap{width:calc(100% - 40px)}
-      .solution-title{font-size:44px}
-      .solution-intro{font-size:15.5px}
-      .solution-visual{height:450px}
-      .solution-category{min-width:calc(33.333% - 8px)}
+      .solution-title{font-size:46px}
+      .solution-categories{grid-template-columns:repeat(3,1fr)}
+      .solution-showcase{min-height:410px;margin-top:0}
+      .solution-benefit-row{grid-template-columns:1fr 1fr}
+      .solution-benefit:nth-child(3){border-left:0;border-top:1px solid #e1ebf6}
+      .solution-benefit:nth-child(4){border-top:1px solid #e1ebf6}
     }
-    @media(max-width:520px){
+    @media(max-width:540px){
       .solution-wrap{width:calc(100% - 32px)}
-      .solution-title{font-size:38px}
-      .solution-category{min-width:calc(50% - 6px)}
-      .solution-visual{height:380px}
-      .solution-glass{width:105%;right:-36%;top:8%}
+      .solution-title{font-size:39px}
+      .solution-categories{grid-template-columns:1fr 1fr}
+      .solution-showcase{min-height:330px}
+      .solution-wave{width:130%;right:-18%}
+      .solution-glass{width:115%;right:-8%}
+      .solution-products-group{width:112%;right:-6%}
+      .solution-benefit-row{grid-template-columns:1fr}
+      .solution-benefit+.solution-benefit{border-left:0;border-top:1px solid #e1ebf6}
     }
     @media(prefers-reduced-motion:reduce){
-      .solution-glass,.solution-product-composition{transition:none!important;opacity:1!important}
-      .solution-product-composition{transform:none!important}
+      .solution-copy,.solution-showcase,.solution-benefit-row{opacity:1!important;transform:none!important;transition:none!important}
     }
 
   </style>
@@ -797,48 +834,42 @@
     </div>
   </section>
 
+  
   <section class="solution-section" id="solucao" aria-labelledby="solution-title">
-    <img class="solution-wave" src="assets/a690ad10-267e-4c3c-8946-4f34eaf13652.png" alt="" aria-hidden="true">
-    <img class="solution-glass" src="assets/b4ed61f0-ac4a-4418-8290-34e9ad97cd7e.png" alt="" aria-hidden="true">
-
     <div class="solution-wrap">
-      <div class="solution-copy">
-        <p class="solution-kicker">Soluções</p>
-        <h2 class="solution-title" id="solution-title">Soluções nutricionais para diferentes <em>necessidades clínicas.</em></h2>
-        <p class="solution-intro">Um portfólio completo e especializado em nutrição enteral, oral, módulos e especialidades, com soluções das linhas NVTRO e Prodiet e suporte próximo às diferentes jornadas de cuidado.</p>
+      <div class="solution-grid">
+        <div class="solution-copy">
+          <p class="solution-kicker">Solução</p>
+          <h2 class="solution-title" id="solution-title">Soluções nutricionais para <em>diferentes necessidades clínicas.</em></h2>
+          <p class="solution-intro">Um portfólio especializado em nutrição enteral, suplementação oral, módulos e produtos para diferentes cenários de cuidado, com atendimento regional e suporte técnico.</p>
 
-        <div class="solution-categories" aria-label="Categorias de soluções">
-          <div class="solution-category">
-            <div class="solution-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3v5a5 5 0 0 0 5 5h1a4 4 0 0 1 4 4v4"/><path d="M5 3h4M15 21h4"/></svg></div>
-            <span>Enteral</span>
+          <div class="solution-categories" aria-label="Categorias do portfólio">
+            <div class="solution-category"><div class="solution-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h10v4a5 5 0 0 1-10 0V3Z"/><path d="M12 12v9M8 21h8"/></svg></div><span>Enteral</span></div>
+            <div class="solution-category"><div class="solution-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12l-1 17H7L6 3Z"/><path d="M5 7h14"/></svg></div><span>Oral</span></div>
+            <div class="solution-category"><div class="solution-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3Z"/></svg></div><span>Especialidades</span></div>
+            <div class="solution-category"><div class="solution-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><path d="m6.5 10.5 4-4M13.5 6.5l4 4M7 12h10"/></svg></div><span>Módulos</span></div>
+            <div class="solution-category"><div class="solution-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></svg></div><span>Home care</span></div>
           </div>
-          <div class="solution-category">
-            <div class="solution-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12l-1 18H7L6 3Z"/><path d="M8 7h8"/></svg></div>
-            <span>Oral</span>
-          </div>
-          <div class="solution-category">
-            <div class="solution-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3Z"/></svg></div>
-            <span>Especialidades</span>
-          </div>
-          <div class="solution-category">
-            <div class="solution-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><path d="M6.6 10.8 10.5 6.5M13.5 6.5l3.9 4.3M7 12h10"/></svg></div>
-            <span>Módulos</span>
-          </div>
-          <div class="solution-category">
-            <div class="solution-category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></svg></div>
-            <span>Home care</span>
+
+          <div class="solution-actions">
+            <a class="solution-btn primary" href="#contato">Conhecer o portfólio</a>
+            <a class="solution-btn secondary" href="#contato">Falar com a Santa Luzia</a>
           </div>
         </div>
 
-        <div class="solution-actions">
-          <a class="solution-btn primary" href="#contato">Conhecer o portfólio <span class="solution-btn-arrow">→</span></a>
+        <div class="solution-showcase" aria-label="Destaque visual do portfólio Santa Luzia">
+          <span class="solution-floating-label">Portfólio em destaque</span>
+          <img class="solution-wave" src="assets/a690ad10-267e-4c3c-8946-4f34eaf13652.png" alt="" aria-hidden="true">
+          <img class="solution-glass" src="assets/b4ed61f0-ac4a-4418-8290-34e9ad97cd7e.png" alt="" aria-hidden="true">
+          <img class="solution-products-group" src="assets/c58638f5-8d41-4b5a-bc4f-215718e2de62.png" alt="Seleção de produtos de nutrição clínica do portfólio Santa Luzia">
         </div>
       </div>
 
-      <div class="solution-visual" aria-label="Produtos do portfólio Santa Luzia">
-        <div class="solution-visual-glow" aria-hidden="true"></div>
-        <div class="solution-orbit" aria-hidden="true"></div>
-        <img class="solution-product-composition" src="assets/c58638f5-8d41-4b5a-bc4f-215718e2de62.png" alt="Seleção de produtos de nutrição clínica do portfólio Santa Luzia">
+      <div class="solution-benefit-row" aria-label="Diferenciais da solução Santa Luzia">
+        <div class="solution-benefit"><strong>Portfólio especializado</strong><span>Produtos para diferentes necessidades nutricionais.</span></div>
+        <div class="solution-benefit"><strong>Entrega regional</strong><span>Atendimento voltado a hospitais, clínicas e home care.</span></div>
+        <div class="solution-benefit"><strong>Apoio técnico</strong><span>Relacionamento com nutricionistas e equipes de saúde.</span></div>
+        <div class="solution-benefit"><strong>Continuidade do cuidado</strong><span>Soluções para diferentes etapas do atendimento.</span></div>
       </div>
     </div>
   </section>
