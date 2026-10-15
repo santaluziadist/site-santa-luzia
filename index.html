@@ -17,10 +17,10 @@
     .hero-grid{width:min(1240px,calc(100% - 64px));min-height:calc(100vh - 92px);padding:44px 0 44px;margin:auto;display:grid;grid-template-columns:.86fr 1.14fr;gap:25px;align-items:start;position:relative;z-index:2}
     .eyebrow{color:var(--blue);font-weight:700;font-size:12px;letter-spacing:.19em;text-transform:uppercase;margin:0 0 19px}h1{font:800 clamp(49px,4.8vw,71px)/1.07 Manrope,sans-serif;letter-spacing:-.06em;margin:0;max-width:610px}h1 em{color:var(--blue);font-style:normal}.intro{font-size:17px;line-height:1.7;color:var(--muted);max-width:475px;margin:24px 0 29px}.buttons{display:flex;gap:12px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:53px;padding:0 25px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:700;transition:transform .2s,box-shadow .2s}.button svg{width:16px;height:16px;flex:0 0 auto}.button-secondary svg{color:var(--blue)}.button:hover{transform:translateY(-2px)}.button-primary{background:var(--blue);color:#fff;box-shadow:0 11px 22px rgba(20,111,244,.24)}.button-secondary{background:#fff;color:var(--ink);border:1px solid #b9c8db}
     .proof{display:flex;align-items:center;gap:15px;margin-top:38px;padding-top:21px;border-top:1px solid var(--line)}.proof strong{font:800 25px/1 Manrope,sans-serif;letter-spacing:-.05em;color:var(--blue)}.proof span{max-width:180px;color:#718098;font-size:12px;line-height:1.4}.proof i{width:1px;height:26px;background:var(--line)}
-    .showcase{height:595px;position:relative;display:flex;align-items:center;justify-content:center;isolation:isolate;transform:translateY(-22px)}
-    .showcase::selection{background:transparent}.showcase:after{content:"NUTRIÇÃO CLÍNICA";position:absolute;bottom:48px;right:40px;color:#aebed3;font-size:10px;letter-spacing:.22em;font-weight:700}
+    .showcase{height:595px;position:relative;display:flex;align-items:center;justify-content:center;isolation:isolate;transform:translateY(-22px);perspective:1100px}
+    .showcase::selection{background:transparent}
     .glow{position:absolute;width:455px;height:455px;border-radius:50%;background:radial-gradient(circle,rgba(44,135,255,.15),rgba(44,135,255,0) 70%);animation:glowPulse 4.5s ease-in-out infinite}
-    .showcase > .product::before{content:"";position:absolute;inset:15% 8%;border-radius:28px;background:rgba(255,255,255,.01);z-index:-1}.product{position:absolute;cursor:pointer;transition:transform .78s cubic-bezier(.22,.61,.36,1),opacity .62s ease,filter .78s cubic-bezier(.22,.61,.36,1),width .78s cubic-bezier(.22,.61,.36,1),height .78s cubic-bezier(.22,.61,.36,1);filter:drop-shadow(0 18px 18px rgba(19,46,90,.12));user-select:none;background:#fff;border-radius:26px;overflow:hidden;will-change:transform,opacity,width,height}.product img{width:100%;height:100%;display:block;object-fit:contain;mix-blend-mode:multiply;background:transparent;border-radius:26px;transition:height .78s cubic-bezier(.22,.61,.36,1)}.product.center{width:310px;height:500px;z-index:3;transform:translateY(-11px);opacity:1}.product.center img{height:83%;object-position:center center}.product.left,.product.right{width:235px;height:370px;z-index:2;opacity:.7;filter:drop-shadow(0 16px 16px rgba(19,46,90,.11)) saturate(.92)}.product.left{transform:translateX(-225px) translateY(24px) scale(.92)}.product.right{transform:translateX(225px) translateY(24px) scale(.92)}.product.exit-left{width:205px;height:330px;z-index:1;opacity:0;transform:translateX(-390px) translateY(38px) scale(.80)}.product.exit-right{width:205px;height:330px;z-index:1;opacity:0;transform:translateX(390px) translateY(38px) scale(.80)}
+    .showcase > .product::before{content:"";position:absolute;inset:15% 8%;border-radius:28px;background:rgba(255,255,255,.01);z-index:-1}.product{position:absolute;cursor:pointer;transition:transform .88s cubic-bezier(.22,.61,.36,1),opacity .68s ease,filter .88s cubic-bezier(.22,.61,.36,1),width .88s cubic-bezier(.22,.61,.36,1),height .88s cubic-bezier(.22,.61,.36,1);filter:drop-shadow(0 18px 18px rgba(19,46,90,.12));user-select:none;background:#fff;border-radius:26px;overflow:hidden;will-change:transform,opacity,width,height;transform-style:preserve-3d}.product img{width:100%;height:100%;display:block;object-fit:contain;mix-blend-mode:multiply;background:transparent;border-radius:26px;transition:height .88s cubic-bezier(.22,.61,.36,1)}.product.center{width:310px;height:500px;z-index:4;transform:translate3d(0,-11px,0) scale(1) rotateY(0);opacity:1;filter:drop-shadow(0 22px 24px rgba(19,46,90,.14))}.product.center img{height:83%;object-position:center center}.product.left,.product.right{width:235px;height:370px;z-index:2;opacity:.70;filter:drop-shadow(0 16px 16px rgba(19,46,90,.10)) saturate(.92)}.product.left{transform:translate3d(-225px,24px,-70px) scale(.92) rotateY(10deg)}.product.right{transform:translate3d(225px,24px,-70px) scale(.92) rotateY(-10deg)}.product.exit-left{width:205px;height:330px;z-index:1;opacity:0;filter:blur(1.5px) saturate(.82);transform:translate3d(-395px,52px,-190px) scale(.72) rotateY(24deg)}.product.exit-right{width:205px;height:330px;z-index:1;opacity:0;filter:blur(1.5px) saturate(.82);transform:translate3d(395px,52px,-190px) scale(.72) rotateY(-24deg)}.product.enter-right{width:205px;height:330px;z-index:1;opacity:0;filter:blur(1.8px) saturate(.80);transform:translate3d(355px,58px,-220px) scale(.68) rotateY(-28deg)}.product.enter-left{width:205px;height:330px;z-index:1;opacity:0;filter:blur(1.8px) saturate(.80);transform:translate3d(-355px,58px,-220px) scale(.68) rotateY(28deg)}
     .product-card{position:absolute;z-index:4;bottom:14px;left:18px;right:18px;transform:none;width:auto;box-sizing:border-box;padding:4px 0 0;background:transparent;border:0;box-shadow:none;backdrop-filter:none;border-radius:0}.product-card .topline{display:flex;align-items:center;justify-content:space-between;color:var(--blue);font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.flavor{font:800 17px/1.15 Manrope,sans-serif;letter-spacing:-.045em;margin:4px 0 4px}.benefits{display:flex;gap:8px;flex-wrap:wrap}.benefits span{background:transparent;color:#3972c2;border-radius:0;padding:0;font-size:9px;font-weight:700}.benefits span+span:before{content:"•";margin-right:8px;color:#8eabd1}.carousel-arrow{position:absolute;z-index:6;top:48%;width:42px;height:42px;border:1px solid rgba(204,218,238,.95);border-radius:50%;background:rgba(255,255,255,.9);color:var(--blue);font:500 27px/1 Arial,sans-serif;box-shadow:0 10px 25px rgba(25,61,111,.13);cursor:pointer;transition:transform .2s,background .2s}.carousel-arrow:hover{transform:scale(1.08);background:#fff}.carousel-arrow.prev{left:calc(50% - 199px)}.carousel-arrow.next{right:calc(50% - 199px)}
     .hero-grid>div:first-child{animation:heroEnter .7s cubic-bezier(.2,.8,.2,1) both}.product-card{animation:heroEnter .8s .14s cubic-bezier(.2,.8,.2,1) both}
     @keyframes heroEnter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes glowPulse{0%,100%{transform:scale(.94);opacity:.72}50%{transform:scale(1.08);opacity:1}}
@@ -857,7 +857,7 @@
         <p class="eyebrow">Nutrição que transforma</p>
         <h1>Soluções que cuidam de <em>cada momento.</em></h1>
         <p class="intro">Levamos mais qualidade, confiança e nutrição para hospitais, clínicas e para quem precisa de cuidado todos os dias.</p>
-        <div class="buttons"><a class="button button-primary" href="https://wa.me/5591992944871" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.05 4.95A9.9 9.9 0 0 0 12.02 2C6.55 2 2.1 6.45 2.1 11.92c0 1.75.46 3.46 1.34 4.96L2 22l5.28-1.39a9.9 9.9 0 0 0 4.74 1.2h.01c5.47 0 9.92-4.45 9.92-9.92a9.86 9.86 0 0 0-2.9-6.94ZM12.02 20.14a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.13.82.84-3.05-.2-.32a8.22 8.22 0 1 1 6.99 3.88Zm4.5-6.15c-.25-.13-1.48-.73-1.7-.81-.23-.08-.4-.13-.57.13-.17.25-.66.81-.81.97-.15.17-.3.19-.55.06a6.65 6.65 0 0 1-1.97-1.21 7.4 7.4 0 0 1-1.37-1.7c-.14-.25-.01-.39.11-.51.11-.11.25-.3.37-.45.12-.14.17-.25.25-.42.08-.16.04-.31-.02-.44-.06-.12-.57-1.37-.78-1.88-.2-.49-.41-.42-.57-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.12.17 1.77 2.7 4.28 3.79.6.26 1.07.42 1.44.54.61.2 1.17.17 1.61.1.49-.07 1.48-.61 1.69-1.2.21-.59.21-1.1.15-1.2-.06-.1-.23-.17-.48-.29Z"/></svg>Fale no WhatsApp</a><a class="button button-secondary" href="#produtos">Ver produtos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 4 2 0 2.2 11.2h10.9l2-7.3H6.3"/><circle cx="9" cy="19" r="1"/><circle cx="18" cy="19" r="1"/></svg></a></div>
+        <div class="buttons"><a class="button button-primary" href="https://wa.me/5591992944871" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.05 4.95A9.9 9.9 0 0 0 12.02 2C6.55 2 2.1 6.45 2.1 11.92c0 1.75.46 3.46 1.34 4.96L2 22l5.28-1.39a9.9 9.9 0 0 0 4.74 1.2h.01c5.47 0 9.92-4.45 9.92-9.92a9.86 9.86 0 0 0-2.9-6.94ZM12.02 20.14a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.13.82.84-3.05-.2-.32a8.22 8.22 0 1 1 6.99 3.88Zm4.5-6.15c-.25-.13-1.48-.73-1.7-.81-.23-.08-.4-.13-.57.13-.17.25-.66.81-.81.97-.15.17-.3.19-.55.06a6.65 6.65 0 0 1-1.97-1.21 7.4 7.4 0 0 1-1.37-1.7c-.14-.25-.01-.39.11-.51.11-.11.25-.3.37-.45.12-.14.17-.25.25-.42.08-.16.04-.31-.02-.44-.06-.12-.57-1.37-.78-1.88-.2-.49-.41-.42-.57-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.12.17 1.77 2.7 4.28 3.79.6.26 1.07.42 1.44.54.61.2 1.17.17 1.61.1.49-.07 1.48-.61 1.69-1.2.21-.59.21-1.1.15-1.2-.06-.1-.23-.17-.48-.29Z"/></svg>Fale no WhatsApp</a><a class="button button-secondary" href="https://www.santaluziadist.com.br/" target="_blank" rel="noopener">Ver produtos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 4 2 0 2.2 11.2h10.9l2-7.3H6.3"/><circle cx="9" cy="19" r="1"/><circle cx="18" cy="19" r="1"/></svg></a></div>
         
       </div>
       <div class="showcase" id="hero-produtos" aria-label="Carrossel de produtos EnergyZip">
@@ -1367,34 +1367,52 @@
     const updateMeta=()=>{const active=products[current];flavor.textContent=active.flavor;benefits.innerHTML=active.benefits.map(item=>"<span>"+item+"</span>").join("");[...pager.children].forEach((button,i)=>button.classList.toggle("active",i===current));};
     const setCardProduct=(card,index)=>{const item=products[(index+products.length)%products.length];const img=card.querySelector("img");img.src=item.src;img.alt=item.alt;};
     const initCarousel=()=>{setCardProduct(cards[0],current-1);setCardProduct(cards[1],current);setCardProduct(cards[2],current+1);cards[0].className="product left";cards[1].className="product center";cards[2].className="product right";cards[1].append(productCard);updateMeta();};
+    const prepareEnteringCard=(card,side,index)=>{
+      card.style.transition="none";
+      setCardProduct(card,index);
+      card.className="product "+(side==="right"?"enter-right":"enter-left");
+      void card.offsetWidth;
+      card.style.transition="";
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{card.className="product "+side}));
+    };
     const rotateCarousel=(direction,manual=false)=>new Promise(resolve=>{
       if(carouselBusy){resolve();return}
       carouselBusy=true;
       productCard.animate([{opacity:1},{opacity:0}],{duration:180,easing:"ease-out",fill:"forwards"});
       const [left,center,right]=cards;
+
       if(direction>0){
         left.className="product exit-left";
         center.className="product left";
         right.className="product center";
+
         setTimeout(()=>{
           current=(current+1)%products.length;
           right.append(productCard);
-          productCard.animate([{opacity:0,transform:"translateX(12px)"},{opacity:1,transform:"translateX(0)"}],{duration:360,easing:"cubic-bezier(.22,.61,.36,1)",fill:"both"});
-          left.style.transition="none";setCardProduct(left,current+1);left.className="product right";void left.offsetWidth;left.style.transition="";
-          cards=[center,right,left];updateMeta();carouselBusy=false;resolve();
-        },790);
+          productCard.animate([{opacity:0,transform:"translateX(14px)"},{opacity:1,transform:"translateX(0)"}],{duration:420,easing:"cubic-bezier(.22,.61,.36,1)",fill:"both"});
+          prepareEnteringCard(left,"right",current+1);
+          cards=[center,right,left];
+          updateMeta();
+        },430);
+
+        setTimeout(()=>{carouselBusy=false;resolve()},920);
       }else{
         right.className="product exit-right";
         center.className="product right";
         left.className="product center";
+
         setTimeout(()=>{
           current=(current-1+products.length)%products.length;
           left.append(productCard);
-          productCard.animate([{opacity:0,transform:"translateX(-12px)"},{opacity:1,transform:"translateX(0)"}],{duration:360,easing:"cubic-bezier(.22,.61,.36,1)",fill:"both"});
-          right.style.transition="none";setCardProduct(right,current-1);right.className="product left";void right.offsetWidth;right.style.transition="";
-          cards=[right,left,center];updateMeta();carouselBusy=false;resolve();
-        },790);
+          productCard.animate([{opacity:0,transform:"translateX(-14px)"},{opacity:1,transform:"translateX(0)"}],{duration:420,easing:"cubic-bezier(.22,.61,.36,1)",fill:"both"});
+          prepareEnteringCard(right,"left",current-1);
+          cards=[right,left,center];
+          updateMeta();
+        },430);
+
+        setTimeout(()=>{carouselBusy=false;resolve()},920);
       }
+
       if(manual){clearInterval(timer);timer=setInterval(()=>rotateCarousel(1),5400)}
     });
     const goTo=async(index,manual=false)=>{
