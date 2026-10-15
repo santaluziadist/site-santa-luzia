@@ -365,6 +365,163 @@
       .challenge-head,.challenge-grid,.challenge-benefit-row{opacity:1!important;transform:none!important}
     }
 
+
+    /* Produtos */
+    .portfolio-section{
+      position:relative;overflow:hidden;
+      padding:70px 0 74px;
+      background:
+        radial-gradient(circle at 88% 8%,rgba(42,132,255,.09),transparent 26%),
+        linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+      border-top:1px solid rgba(220,230,243,.58);
+      color:#10265a
+    }
+    .portfolio-wrap{width:min(1320px,calc(100% - 64px));margin:auto;position:relative;z-index:3}
+    .portfolio-bg-wave{
+      position:absolute;z-index:0;left:48%;top:-34px;width:860px;max-width:none;height:auto;
+      transform:translateX(-12%);opacity:.48;pointer-events:none
+    }
+    .portfolio-bg-glass{
+      position:absolute;z-index:0;right:-110px;top:150px;width:680px;height:auto;opacity:.28;pointer-events:none
+    }
+    .portfolio-topline{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:24px}
+    .portfolio-kicker{
+      margin:0 0 12px;color:#1680f8;font-size:11px;font-weight:800;letter-spacing:.25em;text-transform:uppercase;
+      display:flex;align-items:center;gap:13px
+    }
+    .portfolio-kicker:before{content:"";width:42px;height:3px;border-radius:999px;background:#1680f8}
+    .portfolio-title{margin:0;color:#10265a;font:800 clamp(44px,4vw,60px)/1.02 Manrope,sans-serif;letter-spacing:-.055em}
+    .portfolio-title em{font-style:normal;color:#1680f8}
+    .portfolio-intro{margin:10px 0 0;color:#687c9c;font-size:15.5px;line-height:1.5;max-width:560px}
+    .portfolio-all{
+      flex:none;min-height:44px;padding:0 20px;border:1px solid #a7cdf7;border-radius:999px;
+      display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#1678ed;background:rgba(255,255,255,.76);
+      font-size:12.5px;font-weight:800;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease
+    }
+    .portfolio-all:hover{transform:translateY(-2px);border-color:#1680f8;box-shadow:0 10px 24px rgba(22,128,248,.09)}
+    .portfolio-all svg{width:16px;height:16px}
+
+    .portfolio-featured{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+    .portfolio-feature-card{
+      position:relative;min-height:338px;overflow:hidden;border-radius:25px;border:1px solid #e1eaf4;
+      background:linear-gradient(135deg,#fff 0%,#fbfdff 100%);
+      box-shadow:0 16px 38px rgba(29,66,111,.065)
+    }
+    .portfolio-feature-card.warm{background:linear-gradient(140deg,#fffdfa 0%,#fff7e9 100%)}
+    .portfolio-feature-card.cool{background:linear-gradient(140deg,#ffffff 0%,#f2f8ff 100%)}
+    .portfolio-feature-card.soft{background:linear-gradient(140deg,#fffdfb 0%,#f8fbff 100%)}
+    .portfolio-feature-copy{position:relative;z-index:6;padding:24px 18px 22px 24px;width:48%}
+    .portfolio-chip{
+      display:inline-flex;align-items:center;min-height:25px;padding:0 10px;border-radius:999px;
+      background:#edf6ff;color:#1680f8;font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase
+    }
+    .portfolio-feature-card.warm .portfolio-chip{background:#fff1d7;color:#bd7600}
+    .portfolio-feature-card.soft .portfolio-chip{background:#eef3ff;color:#455fc6}
+    .portfolio-feature-copy h3{margin:12px 0 12px;color:#10265a;font:800 24px/1.04 Manrope,sans-serif;letter-spacing:-.04em}
+    .portfolio-feature-list{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+    .portfolio-feature-list li{
+      display:grid;grid-template-columns:18px 1fr;gap:7px;color:#657895;font-size:12px;line-height:1.3
+    }
+    .portfolio-feature-list li:before{
+      content:"✓";width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:#edf6ff;color:#1680f8;
+      font-size:9px;font-weight:900
+    }
+    .portfolio-stage{position:absolute;z-index:2;right:-2%;top:0;width:61%;height:100%}
+    .portfolio-stage-bg{position:absolute;z-index:1;left:-10%;bottom:-2%;width:116%;height:auto;opacity:.92;pointer-events:none}
+    .portfolio-stage-bg.flip{transform:scaleX(-1)}
+    .portfolio-feature-product{
+      position:absolute;z-index:4;right:7%;bottom:17px;width:76%;height:83%;object-fit:contain;
+      filter:drop-shadow(0 22px 20px rgba(30,57,96,.13))
+    }
+    .portfolio-feature-card.cozy .portfolio-feature-product{right:2%;width:84%;height:78%}
+    .portfolio-feature-card.atempero .portfolio-feature-product{right:13%;width:62%;height:84%}
+
+    .portfolio-list-head{
+      display:flex;align-items:end;justify-content:space-between;gap:20px;margin:36px 0 15px
+    }
+    .portfolio-list-head h3{margin:0;color:#10265a;font:800 32px/1.05 Manrope,sans-serif;letter-spacing:-.04em}
+    .portfolio-list-head h3 em{font-style:normal;color:#1680f8}
+    .portfolio-list-head p{margin:7px 0 0;color:#7587a4;font-size:13px}
+    .portfolio-controls{display:flex;gap:9px}
+    .portfolio-control{
+      width:42px;height:42px;border-radius:50%;border:1px solid #d9e7f5;background:#fff;color:#1680f8;
+      display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 18px rgba(30,75,128,.05);
+      transition:transform .2s ease,background .2s ease,color .2s ease
+    }
+    .portfolio-control:hover{transform:translateY(-2px);background:#1680f8;color:#fff}
+    .portfolio-control svg{width:18px;height:18px}
+
+    .portfolio-carousel-shell{position:relative}
+    .portfolio-track{
+      display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:2px 1px 8px;
+      scrollbar-width:none;-ms-overflow-style:none
+    }
+    .portfolio-track::-webkit-scrollbar{display:none}
+    .portfolio-item{
+      flex:0 0 176px;scroll-snap-align:start;min-height:245px;border:1px solid #e2ebf5;border-radius:18px;background:rgba(255,255,255,.94);
+      padding:13px 13px 14px;box-shadow:0 10px 24px rgba(31,72,119,.045);display:flex;flex-direction:column
+    }
+    .portfolio-item-media{
+      position:relative;height:164px;border-radius:14px;background:linear-gradient(180deg,#fbfdff 0%,#f6faff 100%);
+      display:grid;place-items:center;overflow:hidden
+    }
+    .portfolio-item-media:after{
+      content:"";position:absolute;left:20%;right:20%;bottom:11px;height:16px;border-radius:50%;
+      background:radial-gradient(ellipse,rgba(37,74,119,.13),transparent 68%);filter:blur(5px)
+    }
+    .portfolio-item img{position:relative;z-index:2;max-width:92%;max-height:148px;object-fit:contain}
+    .portfolio-item h4{margin:11px 0 3px;color:#17366c;font:800 13px/1.15 Manrope,sans-serif}
+    .portfolio-item span{margin-top:auto;color:#7b8eab;font-size:9.5px;font-weight:800;letter-spacing:.10em;text-transform:uppercase}
+    .portfolio-pagination{display:flex;justify-content:center;gap:7px;margin-top:14px}
+    .portfolio-pagination button{
+      width:7px;height:7px;border-radius:999px;border:0;padding:0;background:#d2e3f7;cursor:pointer;transition:width .2s ease,background .2s ease
+    }
+    .portfolio-pagination button.active{width:22px;background:#1680f8}
+
+    .portfolio-section .portfolio-topline,
+    .portfolio-section .portfolio-featured,
+    .portfolio-section .portfolio-list-head,
+    .portfolio-section .portfolio-carousel-shell{opacity:0;transform:translateY(20px)}
+    .portfolio-section.is-visible .portfolio-topline,
+    .portfolio-section.is-visible .portfolio-featured,
+    .portfolio-section.is-visible .portfolio-list-head,
+    .portfolio-section.is-visible .portfolio-carousel-shell{
+      opacity:1;transform:translateY(0);transition:opacity .72s ease,transform .75s cubic-bezier(.2,.72,.22,1)
+    }
+    .portfolio-section.is-visible .portfolio-featured{transition-delay:.08s}
+    .portfolio-section.is-visible .portfolio-list-head{transition-delay:.14s}
+    .portfolio-section.is-visible .portfolio-carousel-shell{transition-delay:.18s}
+
+    @media(max-width:1100px){
+      .portfolio-featured{grid-template-columns:1fr}
+      .portfolio-feature-card{min-height:300px}
+      .portfolio-feature-copy{width:45%}
+      .portfolio-stage{width:56%}
+    }
+    @media(max-width:760px){
+      .portfolio-section{padding:58px 0 64px}
+      .portfolio-wrap{width:calc(100% - 32px)}
+      .portfolio-topline{align-items:flex-start;flex-direction:column}
+      .portfolio-title{font-size:42px}
+      .portfolio-feature-card{min-height:410px}
+      .portfolio-feature-copy{width:100%;padding-right:24px}
+      .portfolio-stage{width:100%;height:58%;top:auto;bottom:0}
+      .portfolio-feature-product{right:15%;width:70%;height:90%}
+      .portfolio-feature-card.cozy .portfolio-feature-product{right:8%;width:78%}
+      .portfolio-feature-card.atempero .portfolio-feature-product{right:21%;width:54%}
+      .portfolio-list-head{align-items:flex-start}
+      .portfolio-list-head h3{font-size:29px}
+      .portfolio-item{flex-basis:158px;min-height:225px}
+      .portfolio-item-media{height:148px}
+      .portfolio-item img{max-height:133px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .portfolio-section .portfolio-topline,.portfolio-section .portfolio-featured,.portfolio-section .portfolio-list-head,.portfolio-section .portfolio-carousel-shell{
+        opacity:1!important;transform:none!important;transition:none!important
+      }
+      .portfolio-track{scroll-behavior:auto}
+    }
+
     /* FAQ */
     .faq-section{
       position:relative;overflow:hidden;
@@ -877,6 +1034,112 @@
     </div>
   </section>
 
+  <section class="portfolio-section" id="produtos" aria-labelledby="portfolio-title">
+    <span class="section-seam" aria-hidden="true"></span>
+    <img class="portfolio-bg-wave" src="assets/2732214c-f231-40b8-8263-99cfa364eb85.png" alt="" aria-hidden="true">
+    <img class="portfolio-bg-glass" src="assets/bbde354c-3be7-4e7e-9843-462797c3c074.png" alt="" aria-hidden="true">
+
+    <div class="portfolio-wrap">
+      <div class="portfolio-topline">
+        <div>
+          <p class="portfolio-kicker">Portfólio</p>
+          <h2 class="portfolio-title" id="portfolio-title">Produtos <em>em destaque</em></h2>
+          <p class="portfolio-intro">Soluções nutricionais selecionadas para diferentes necessidades e etapas do cuidado.</p>
+        </div>
+        <a class="portfolio-all" href="https://www.santaluziadist.com.br/" target="_blank" rel="noopener">
+          Ver todos os produtos
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
+
+      <div class="portfolio-featured">
+        <article class="portfolio-feature-card warm">
+          <div class="portfolio-feature-copy">
+            <span class="portfolio-chip">Nutrição enteral e oral</span>
+            <h3>Nutro Premium 1.5</h3>
+            <ul class="portfolio-feature-list">
+              <li>Fórmula padrão</li>
+              <li>Apresentação de 1.000 ml</li>
+              <li>Sabor baunilha</li>
+            </ul>
+          </div>
+          <div class="portfolio-stage" aria-hidden="true">
+            <img class="portfolio-stage-bg" src="assets/fca98b2a-4765-43c0-ae98-5cd660dedbd5.png" alt="">
+            <img class="portfolio-feature-product" src="assets/0ab85870-e237-4061-a7d8-1cb975f8992f.png" alt="Nutro Premium 1.5">
+          </div>
+        </article>
+
+        <article class="portfolio-feature-card cool cozy">
+          <div class="portfolio-feature-copy">
+            <span class="portfolio-chip">Nutrição oral</span>
+            <h3>Trophic Cozy</h3>
+            <ul class="portfolio-feature-list">
+              <li>Sopa proteica de legumes</li>
+              <li>9,8 g de proteína por porção</li>
+              <li>2,9 g de fibras por porção</li>
+            </ul>
+          </div>
+          <div class="portfolio-stage" aria-hidden="true">
+            <img class="portfolio-stage-bg" src="assets/39cd7a82-7943-4f78-85f1-caf3171f8379.png" alt="">
+            <img class="portfolio-feature-product" src="assets/55cfa6e7-e057-44a8-82f9-02813a3dc66b.png" alt="Trophic Cozy">
+          </div>
+        </article>
+
+        <article class="portfolio-feature-card soft atempero">
+          <div class="portfolio-feature-copy">
+            <span class="portfolio-chip">Suplemento oral</span>
+            <h3>Atémpero</h3>
+            <ul class="portfolio-feature-list">
+              <li>Baixo em lactose</li>
+              <li>Rico em proteínas</li>
+              <li>Fonte de fibras</li>
+            </ul>
+          </div>
+          <div class="portfolio-stage" aria-hidden="true">
+            <img class="portfolio-stage-bg flip" src="assets/fca98b2a-4765-43c0-ae98-5cd660dedbd5.png" alt="">
+            <img class="portfolio-feature-product" src="assets/7f62df40-0c56-4aa6-b262-d85747032413.png" alt="Atémpero">
+          </div>
+        </article>
+      </div>
+
+      <div class="portfolio-list-head">
+        <div>
+          <h3>Nossos <em>produtos</em></h3>
+          <p>Conheça parte do nosso portfólio.</p>
+        </div>
+        <div class="portfolio-controls" aria-label="Controles do carrossel de produtos">
+          <button class="portfolio-control portfolio-prev" type="button" aria-label="Produtos anteriores">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button class="portfolio-control portfolio-next" type="button" aria-label="Próximos produtos">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="portfolio-carousel-shell">
+        <div class="portfolio-track" tabindex="0" aria-label="Carrossel de produtos Santa Luzia">
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/cff11bac-ac8a-46a3-b58a-1a60c7fc8ffe.png" alt="Energy ZIP Senior"></div><h4>Energy ZIP Senior</h4><span>Suplemento oral</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/aed0ef8a-1c58-42a0-a84b-826f51a3e949.png" alt="DIAMax IG"></div><h4>DIAMax IG</h4><span>Enteral e oral</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/55cfa6e7-e057-44a8-82f9-02813a3dc66b.png" alt="Trophic Cozy"></div><h4>Trophic Cozy</h4><span>Nutrição oral</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/a659786a-fc98-4a18-902a-5336579bf510.png" alt="Carbo CH"></div><h4>Carbo CH</h4><span>Módulo nutricional</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/7f62df40-0c56-4aa6-b262-d85747032413.png" alt="Atémpero"></div><h4>Atémpero</h4><span>Suplemento oral</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/a0ca293f-fb2c-41db-ab25-3ac27452cdc9.png" alt="Nutro Premium Soy 1.2"></div><h4>Nutro Premium Soy 1.2</h4><span>Enteral e oral</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/0ab85870-e237-4061-a7d8-1cb975f8992f.png" alt="Nutro Premium 1.5"></div><h4>Nutro Premium 1.5</h4><span>Enteral e oral</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/4cf00ab1-5568-44e5-a07e-6916de7356e8.png" alt="CorrectMax"></div><h4>CorrectMax</h4><span>Suplemento</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/fb026fd6-6886-4649-9d94-e757f18f6864.png" alt="HDMax"></div><h4>HDMax</h4><span>Enteral e oral</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/724eb6fb-cb3a-4d72-9940-d01210342fab.png" alt="Trophic Junior"></div><h4>Trophic Junior</h4><span>Pediatria</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/energyzip-baunilha.png" alt="EnergyZip sabor baunilha"></div><h4>EnergyZip Baunilha</h4><span>Suplemento oral</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/energyzip-morango.png" alt="EnergyZip sabor morango"></div><h4>EnergyZip Morango</h4><span>Suplemento oral</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/energyzip-chocolate.png" alt="EnergyZip sabor chocolate"></div><h4>EnergyZip Chocolate</h4><span>Suplemento oral</span></article>
+          <article class="portfolio-item"><div class="portfolio-item-media"><img src="assets/energyzip-proteina.png" alt="EnergyZip Protein sabor chocolate"></div><h4>EnergyZip Protein</h4><span>Suplemento oral</span></article>
+        </div>
+        <div class="portfolio-pagination" aria-label="Paginação do carrossel"></div>
+      </div>
+    </div>
+  </section>
+
+
   <section class="faq-section" id="faq" aria-labelledby="faq-title">
     <span class="section-seam" aria-hidden="true"></span>
     <div class="faq-wrap">
@@ -1166,6 +1429,71 @@
 
       problemButtons.forEach(button=>button.addEventListener("click",()=>selectProblem(button)));
       reset.addEventListener("click",resetSelection);
+    }
+
+
+    const portfolioSection=document.querySelector(".portfolio-section");
+    if(portfolioSection){
+      if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){portfolioSection.classList.add("is-visible")}
+      else{
+        const portfolioObserver=new IntersectionObserver(entries=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){portfolioSection.classList.add("is-visible");portfolioObserver.unobserve(portfolioSection)}
+          })
+        },{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+        portfolioObserver.observe(portfolioSection);
+      }
+
+      const portfolioTrack=portfolioSection.querySelector(".portfolio-track");
+      const portfolioPrev=portfolioSection.querySelector(".portfolio-prev");
+      const portfolioNext=portfolioSection.querySelector(".portfolio-next");
+      const portfolioPagination=portfolioSection.querySelector(".portfolio-pagination");
+      let portfolioTimer=null;
+      let portfolioPages=1;
+
+      const portfolioStep=()=>Math.max(180,portfolioTrack.clientWidth*.72);
+      const buildPortfolioPagination=()=>{
+        const maxScroll=Math.max(0,portfolioTrack.scrollWidth-portfolioTrack.clientWidth);
+        portfolioPages=Math.max(1,Math.ceil(maxScroll/portfolioStep())+1);
+        portfolioPagination.innerHTML="";
+        for(let i=0;i<portfolioPages;i++){
+          const dot=document.createElement("button");
+          dot.type="button";
+          dot.setAttribute("aria-label","Ir para grupo de produtos "+(i+1));
+          dot.addEventListener("click",()=>portfolioTrack.scrollTo({left:Math.min(i*portfolioStep(),maxScroll),behavior:"smooth"}));
+          portfolioPagination.append(dot);
+        }
+        updatePortfolioPagination();
+      };
+      const updatePortfolioPagination=()=>{
+        const step=portfolioStep();
+        const index=Math.min(portfolioPages-1,Math.round(portfolioTrack.scrollLeft/step));
+        [...portfolioPagination.children].forEach((dot,i)=>dot.classList.toggle("active",i===index));
+      };
+      const scrollPortfolio=(direction)=>{
+        const maxScroll=Math.max(0,portfolioTrack.scrollWidth-portfolioTrack.clientWidth);
+        let next=portfolioTrack.scrollLeft+(portfolioStep()*direction);
+        if(direction>0&&next>=maxScroll-8)next=maxScroll;
+        if(direction<0&&next<=8)next=0;
+        portfolioTrack.scrollTo({left:next,behavior:"smooth"});
+      };
+      const restartPortfolioTimer=()=>{
+        clearInterval(portfolioTimer);
+        portfolioTimer=setInterval(()=>{
+          const maxScroll=Math.max(0,portfolioTrack.scrollWidth-portfolioTrack.clientWidth);
+          if(portfolioTrack.scrollLeft>=maxScroll-12)portfolioTrack.scrollTo({left:0,behavior:"smooth"});
+          else scrollPortfolio(1);
+        },4800);
+      };
+
+      portfolioPrev.addEventListener("click",()=>{scrollPortfolio(-1);restartPortfolioTimer()});
+      portfolioNext.addEventListener("click",()=>{scrollPortfolio(1);restartPortfolioTimer()});
+      portfolioTrack.addEventListener("scroll",()=>requestAnimationFrame(updatePortfolioPagination),{passive:true});
+      portfolioTrack.addEventListener("mouseenter",()=>clearInterval(portfolioTimer));
+      portfolioTrack.addEventListener("mouseleave",restartPortfolioTimer);
+      window.addEventListener("resize",buildPortfolioPagination,{passive:true});
+      buildPortfolioPagination();
+      restartPortfolioTimer();
     }
 
     const faqSection=document.querySelector(".faq-section");
