@@ -426,15 +426,23 @@
       content:"✓";width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:#edf6ff;color:#1680f8;
       font-size:9px;font-weight:900
     }
-    .portfolio-stage{position:absolute;z-index:2;right:-2%;top:0;width:61%;height:100%}
-    .portfolio-stage-bg{position:absolute;z-index:1;left:-10%;bottom:-2%;width:116%;height:auto;opacity:.92;pointer-events:none}
-    .portfolio-stage-bg.flip{transform:scaleX(-1)}
-    .portfolio-feature-product{
-      position:absolute;z-index:4;right:7%;bottom:17px;width:76%;height:83%;object-fit:contain;
-      filter:drop-shadow(0 22px 20px rgba(30,57,96,.13))
+    .portfolio-stage{
+      position:absolute;z-index:2;right:0;top:0;width:52%;height:100%;
+      display:flex;align-items:flex-end;justify-content:center
     }
-    .portfolio-feature-card.cozy .portfolio-feature-product{right:2%;width:84%;height:78%}
-    .portfolio-feature-card.atempero .portfolio-feature-product{right:13%;width:62%;height:84%}
+    .portfolio-stage-bg{
+      position:absolute;z-index:1;left:50%;bottom:10px;width:88%;height:auto;
+      transform:translateX(-50%);opacity:.88;pointer-events:none
+    }
+    .portfolio-stage-bg.flip{transform:translateX(-50%) scaleX(-1)}
+    .portfolio-feature-product{
+      position:relative;z-index:4;right:auto;bottom:auto;
+      max-width:72%;max-height:78%;width:auto;height:auto;object-fit:contain;
+      filter:drop-shadow(0 18px 18px rgba(30,57,96,.12))
+    }
+    .portfolio-feature-card:nth-child(1) .portfolio-feature-product{max-width:54%;max-height:80%}
+    .portfolio-feature-card.cozy .portfolio-feature-product{max-width:68%;max-height:76%}
+    .portfolio-feature-card.atempero .portfolio-feature-product{max-width:44%;max-height:72%}
 
     .portfolio-list-head{
       display:flex;align-items:end;justify-content:space-between;gap:20px;margin:36px 0 15px
@@ -453,23 +461,23 @@
 
     .portfolio-carousel-shell{position:relative}
     .portfolio-track{
-      display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:2px 1px 8px;
+      display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:2px 1px 8px;
       scrollbar-width:none;-ms-overflow-style:none
     }
     .portfolio-track::-webkit-scrollbar{display:none}
     .portfolio-item{
-      flex:0 0 176px;scroll-snap-align:start;min-height:245px;border:1px solid #e2ebf5;border-radius:18px;background:rgba(255,255,255,.94);
+      flex:0 0 calc((100% - 56px)/5);scroll-snap-align:start;min-height:240px;border:1px solid #e2ebf5;border-radius:18px;background:rgba(255,255,255,.94);
       padding:13px 13px 14px;box-shadow:0 10px 24px rgba(31,72,119,.045);display:flex;flex-direction:column
     }
     .portfolio-item-media{
-      position:relative;height:164px;border-radius:14px;background:linear-gradient(180deg,#fbfdff 0%,#f6faff 100%);
+      position:relative;height:150px;border-radius:14px;background:linear-gradient(180deg,#fbfdff 0%,#f6faff 100%);
       display:grid;place-items:center;overflow:hidden
     }
     .portfolio-item-media:after{
       content:"";position:absolute;left:20%;right:20%;bottom:11px;height:16px;border-radius:50%;
       background:radial-gradient(ellipse,rgba(37,74,119,.13),transparent 68%);filter:blur(5px)
     }
-    .portfolio-item img{position:relative;z-index:2;max-width:92%;max-height:148px;object-fit:contain}
+    .portfolio-item img{position:relative;z-index:2;max-width:88%;max-height:132px;object-fit:contain}
     .portfolio-item h4{margin:11px 0 3px;color:#17366c;font:800 13px/1.15 Manrope,sans-serif}
     .portfolio-item span{margin-top:auto;color:#7b8eab;font-size:9.5px;font-weight:800;letter-spacing:.10em;text-transform:uppercase}
     .portfolio-pagination{display:flex;justify-content:center;gap:7px;margin-top:14px}
@@ -497,6 +505,7 @@
       .portfolio-feature-card{min-height:300px}
       .portfolio-feature-copy{width:45%}
       .portfolio-stage{width:56%}
+      .portfolio-item{flex:0 0 calc((100% - 28px)/3)}
     }
     @media(max-width:760px){
       .portfolio-section{padding:58px 0 64px}
@@ -506,12 +515,13 @@
       .portfolio-feature-card{min-height:410px}
       .portfolio-feature-copy{width:100%;padding-right:24px}
       .portfolio-stage{width:100%;height:58%;top:auto;bottom:0}
-      .portfolio-feature-product{right:15%;width:70%;height:90%}
-      .portfolio-feature-card.cozy .portfolio-feature-product{right:8%;width:78%}
-      .portfolio-feature-card.atempero .portfolio-feature-product{right:21%;width:54%}
+      .portfolio-feature-product{max-width:56%;max-height:80%}
+      .portfolio-feature-card:nth-child(1) .portfolio-feature-product{max-width:44%;max-height:82%}
+      .portfolio-feature-card.cozy .portfolio-feature-product{max-width:58%;max-height:78%}
+      .portfolio-feature-card.atempero .portfolio-feature-product{max-width:38%;max-height:74%}
       .portfolio-list-head{align-items:flex-start}
       .portfolio-list-head h3{font-size:29px}
-      .portfolio-item{flex-basis:158px;min-height:225px}
+      .portfolio-item{flex:0 0 calc((100% - 14px)/2);min-height:225px}
       .portfolio-item-media{height:148px}
       .portfolio-item img{max-height:133px}
     }
@@ -1445,45 +1455,54 @@
       }
 
       const portfolioTrack=portfolioSection.querySelector(".portfolio-track");
+      const portfolioItems=[...portfolioSection.querySelectorAll(".portfolio-item")];
       const portfolioPrev=portfolioSection.querySelector(".portfolio-prev");
       const portfolioNext=portfolioSection.querySelector(".portfolio-next");
       const portfolioPagination=portfolioSection.querySelector(".portfolio-pagination");
       let portfolioTimer=null;
       let portfolioPages=1;
 
-      const portfolioStep=()=>Math.max(180,portfolioTrack.clientWidth*.72);
+      const portfolioStep=()=>{
+        if(!portfolioItems.length)return 220;
+        const styles=getComputedStyle(portfolioTrack);
+        const gap=parseFloat(styles.columnGap||styles.gap||14);
+        return portfolioItems[0].offsetWidth+gap;
+      };
+      const portfolioVisible=()=>{
+        if(window.innerWidth<=760)return 2;
+        if(window.innerWidth<=1100)return 3;
+        return 5;
+      };
       const buildPortfolioPagination=()=>{
-        const maxScroll=Math.max(0,portfolioTrack.scrollWidth-portfolioTrack.clientWidth);
-        portfolioPages=Math.max(1,Math.ceil(maxScroll/portfolioStep())+1);
+        portfolioPages=Math.max(1,portfolioItems.length-portfolioVisible()+1);
         portfolioPagination.innerHTML="";
         for(let i=0;i<portfolioPages;i++){
           const dot=document.createElement("button");
           dot.type="button";
-          dot.setAttribute("aria-label","Ir para grupo de produtos "+(i+1));
-          dot.addEventListener("click",()=>portfolioTrack.scrollTo({left:Math.min(i*portfolioStep(),maxScroll),behavior:"smooth"}));
+          dot.setAttribute("aria-label","Ir para produto "+(i+1));
+          dot.addEventListener("click",()=>portfolioTrack.scrollTo({left:i*portfolioStep(),behavior:"smooth"}));
           portfolioPagination.append(dot);
         }
         updatePortfolioPagination();
       };
       const updatePortfolioPagination=()=>{
-        const step=portfolioStep();
-        const index=Math.min(portfolioPages-1,Math.round(portfolioTrack.scrollLeft/step));
+        const index=Math.min(portfolioPages-1,Math.round(portfolioTrack.scrollLeft/portfolioStep()));
         [...portfolioPagination.children].forEach((dot,i)=>dot.classList.toggle("active",i===index));
       };
       const scrollPortfolio=(direction)=>{
         const maxScroll=Math.max(0,portfolioTrack.scrollWidth-portfolioTrack.clientWidth);
         let next=portfolioTrack.scrollLeft+(portfolioStep()*direction);
-        if(direction>0&&next>=maxScroll-8)next=maxScroll;
-        if(direction<0&&next<=8)next=0;
+        if(direction>0&&next>=maxScroll-6)next=maxScroll;
+        if(direction<0&&next<=6)next=0;
         portfolioTrack.scrollTo({left:next,behavior:"smooth"});
       };
       const restartPortfolioTimer=()=>{
         clearInterval(portfolioTimer);
         portfolioTimer=setInterval(()=>{
           const maxScroll=Math.max(0,portfolioTrack.scrollWidth-portfolioTrack.clientWidth);
-          if(portfolioTrack.scrollLeft>=maxScroll-12)portfolioTrack.scrollTo({left:0,behavior:"smooth"});
+          if(portfolioTrack.scrollLeft>=maxScroll-6)portfolioTrack.scrollTo({left:0,behavior:"smooth"});
           else scrollPortfolio(1);
-        },4800);
+        },3600);
       };
 
       portfolioPrev.addEventListener("click",()=>{scrollPortfolio(-1);restartPortfolioTimer()});
