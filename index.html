@@ -1653,11 +1653,57 @@
         };
       };
 
+      let answerCloseAnimation=null;
+      const closeAnswer=()=>{
+        if(!challengeSection.classList.contains("has-selection"))return;
+        const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if(answerSwapAnimation){answerSwapAnimation.cancel();answerSwapAnimation=null;}
+        if(answerCloseAnimation){answerCloseAnimation.cancel();answerCloseAnimation=null;}
+
+        animateProblemOrder(()=>{
+          problemButtons.forEach(item=>item.classList.remove("is-active"));
+        });
+
+        if(reduceMotion){
+          answer.classList.remove("is-visible");
+          challengeSection.classList.remove("has-selection");
+          return;
+        }
+
+        answerCloseAnimation=answer.animate(
+          [
+            {opacity:1,transform:"translateY(0) scale(1)"},
+            {opacity:0,transform:"translateY(14px) scale(.982)"}
+          ],
+          {duration:360,easing:"cubic-bezier(.4,0,.2,1)",fill:"forwards"}
+        );
+
+        const contentClose=answerContent.animate(
+          [
+            {opacity:1,transform:"translateY(0)"},
+            {opacity:0,transform:"translateY(7px)"}
+          ],
+          {duration:180,easing:"ease-in",fill:"forwards"}
+        );
+
+        answerCloseAnimation.onfinish=()=>{
+          answer.classList.remove("is-visible");
+          challengeSection.classList.remove("has-selection");
+          answerCloseAnimation.cancel();
+          contentClose.cancel();
+          answerCloseAnimation=null;
+        };
+      };
+
       const selectProblem=(button)=>{
-        if(button.classList.contains("is-active"))return;
+        if(button.classList.contains("is-active")){
+          closeAnswer();
+          return;
+        }
         const data=challengeData[button.dataset.key];
         if(!data)return;
         const firstOpen=!challengeSection.classList.contains("has-selection");
+        if(answerCloseAnimation){answerCloseAnimation.cancel();answerCloseAnimation=null;}
         animateProblemOrder(()=>{
           problemButtons.forEach(item=>item.classList.toggle("is-active",item===button));
         });
