@@ -283,22 +283,22 @@
     }
 
     .challenge-showcase{
-      position:relative;min-height:590px;isolation:isolate;overflow:visible
+      position:relative;min-height:550px;isolation:isolate;overflow:visible
     }
     .challenge-wave{
-      position:absolute;z-index:0;width:142%;max-width:none;height:auto;right:-10%;top:-8%;
+      position:absolute;z-index:0;width:118%;max-width:720px;max-height:540px;height:auto;right:-1%;top:0;
       object-fit:contain;pointer-events:none;opacity:.92;filter:drop-shadow(0 26px 34px rgba(44,111,191,.08))
     }
     .challenge-glass{
-      position:absolute;z-index:1;width:132%;max-width:none;height:auto;right:-5%;top:-5%;
+      position:absolute;z-index:1;width:111%;max-width:680px;max-height:520px;height:auto;right:1%;top:2%;
       object-fit:contain;pointer-events:none;opacity:.58;mix-blend-mode:multiply
     }
     .challenge-products{
-      position:absolute;z-index:4;width:126%;max-width:none;height:auto;right:1%;bottom:10%;
+      position:absolute;z-index:4;width:105%;max-width:650px;max-height:500px;height:auto;right:3%;bottom:7%;
       object-fit:contain;filter:drop-shadow(0 25px 24px rgba(22,54,96,.14))
     }
     .challenge-showcase:after{
-      content:"";position:absolute;z-index:2;left:8%;right:4%;bottom:12%;height:76px;border-radius:50%;
+      content:"";position:absolute;z-index:2;left:14%;right:8%;bottom:9%;height:70px;border-radius:50%;
       background:radial-gradient(ellipse,rgba(26,72,126,.13),rgba(26,72,126,0) 68%);filter:blur(8px)
     }
 
@@ -1138,7 +1138,18 @@
       const benefitsNode=challengeSection.querySelector("#challenge-answer-benefits");
       const reset=challengeSection.querySelector(".challenge-reset");
 
+      const resetSelection=()=>{
+        problemButtons.forEach(item=>item.classList.remove("is-active","is-filtered"));
+        listPanel.classList.remove("has-selection");
+        challengeSection.classList.remove("has-selection");
+        answer.classList.remove("is-visible");
+      };
+
       const selectProblem=(button)=>{
+        if(button.classList.contains("is-active")){
+          resetSelection();
+          return;
+        }
         const data=challengeData[button.dataset.key];
         if(!data)return;
         problemButtons.forEach(item=>{
@@ -1154,12 +1165,7 @@
       };
 
       problemButtons.forEach(button=>button.addEventListener("click",()=>selectProblem(button)));
-      reset.addEventListener("click",()=>{
-        problemButtons.forEach(item=>item.classList.remove("is-active","is-filtered"));
-        listPanel.classList.remove("has-selection");
-        challengeSection.classList.remove("has-selection");
-        answer.classList.remove("is-visible");
-      });
+      reset.addEventListener("click",resetSelection);
     }
 
     const faqSection=document.querySelector(".faq-section");
