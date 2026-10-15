@@ -192,7 +192,7 @@
     .challenge-category span{display:block;font-size:12.5px;font-weight:700;line-height:1.2}
 
     .challenge-grid{
-      display:grid;grid-template-columns:.78fr .96fr 1.26fr;gap:28px;align-items:stretch
+      display:grid;grid-template-columns:.72fr 1.10fr 1.18fr;gap:26px;align-items:stretch
     }
     .challenge-list-panel{min-width:0}
     .challenge-list-title{
@@ -223,9 +223,18 @@
     }
     .challenge-list-panel.has-selection .challenge-reset{display:inline-flex}
 
+    .challenge-section.has-selection .challenge-grid{
+      grid-template-columns:.58fr 1.30fr 1.12fr
+    }
+    .challenge-section.has-selection .challenge-answer{
+      margin-right:-18px;
+      z-index:5
+    }
+
+
     .challenge-answer{
       position:relative;border-radius:24px;border:1px solid #dce8f5;background:rgba(255,255,255,.96);
-      padding:30px 31px;box-shadow:0 18px 36px rgba(29,66,111,.07);min-height:470px;
+      padding:30px 36px 30px 31px;box-shadow:0 18px 36px rgba(29,66,111,.07);min-height:470px;
       opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .38s ease,transform .42s cubic-bezier(.2,.72,.22,1)
     }
     .challenge-answer.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
@@ -255,22 +264,22 @@
     }
 
     .challenge-showcase{
-      position:relative;min-height:575px;isolation:isolate;overflow:visible
+      position:relative;min-height:590px;isolation:isolate;overflow:visible
     }
     .challenge-wave{
-      position:absolute;z-index:0;width:126%;max-width:none;height:auto;right:-14%;top:4%;
+      position:absolute;z-index:0;width:142%;max-width:none;height:auto;right:-10%;top:-8%;
       object-fit:contain;pointer-events:none;opacity:.92;filter:drop-shadow(0 26px 34px rgba(44,111,191,.08))
     }
     .challenge-glass{
-      position:absolute;z-index:1;width:116%;max-width:none;height:auto;right:-8%;top:5%;
+      position:absolute;z-index:1;width:132%;max-width:none;height:auto;right:-5%;top:-5%;
       object-fit:contain;pointer-events:none;opacity:.58;mix-blend-mode:multiply
     }
     .challenge-products{
-      position:absolute;z-index:4;width:112%;max-width:none;height:auto;right:-5%;bottom:5%;
+      position:absolute;z-index:4;width:126%;max-width:none;height:auto;right:1%;bottom:10%;
       object-fit:contain;filter:drop-shadow(0 25px 24px rgba(22,54,96,.14))
     }
     .challenge-showcase:after{
-      content:"";position:absolute;z-index:2;left:18%;right:2%;bottom:7%;height:70px;border-radius:50%;
+      content:"";position:absolute;z-index:2;left:8%;right:4%;bottom:12%;height:76px;border-radius:50%;
       background:radial-gradient(ellipse,rgba(26,72,126,.13),rgba(26,72,126,0) 68%);filter:blur(8px)
     }
 
@@ -1118,6 +1127,7 @@
         textNode.textContent=data.text;
         benefitsNode.innerHTML=data.benefits.map(item=>"<li>"+item+"</li>").join("");
         listPanel.classList.add("has-selection");
+        challengeSection.classList.add("has-selection");
         answer.classList.add("is-visible");
       };
 
@@ -1125,6 +1135,7 @@
       reset.addEventListener("click",()=>{
         problemButtons.forEach(item=>item.classList.remove("is-active","is-filtered"));
         listPanel.classList.remove("has-selection");
+        challengeSection.classList.remove("has-selection");
         answer.classList.remove("is-visible");
       });
     }
