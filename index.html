@@ -653,7 +653,8 @@
 
     .portfolio-section .portfolio-item{opacity:0;transform:translateX(18px)}
     .portfolio-section.is-visible .portfolio-item{
-      animation:portfolioItemSlide .56s cubic-bezier(.16,.84,.24,1) both;
+      opacity:1;transform:translateX(0);
+      animation:portfolioItemSlide .56s cubic-bezier(.16,.84,.24,1) backwards;
       animation-delay:calc(.26s + (var(--portfolio-i,0) * 42ms))
     }
     @keyframes portfolioItemSlide{
@@ -1796,6 +1797,7 @@
       const portfolioPagination=portfolioSection.querySelector(".portfolio-pagination");
       let portfolioTimer=null;
       let portfolioPages=1;
+      let portfolioWrapping=false;
 
       const getVisiblePortfolioItems=()=>portfolioItems.filter(item=>!item.hidden);
       const portfolioStep=()=>{
@@ -1826,20 +1828,67 @@
         const index=Math.min(portfolioPages-1,Math.round(portfolioTrack.scrollLeft/portfolioStep()));
         [...portfolioPagination.children].forEach((dot,i)=>dot.classList.toggle("active",i===index));
       };
+      const wrapPortfolio=(target,direction)=>{
+        if(portfolioWrapping)return;
+        portfolioWrapping=true;
+        const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if(reduceMotion){
+          portfolioTrack.scrollTo({left:target,behavior:"auto"});
+          updatePortfolioPagination();
+          portfolioWrapping=false;
+          return;
+        }
+
+        const outX=direction>0?-16:16;
+        const inX=direction>0?16:-16;
+        const out=portfolioTrack.animate(
+          [
+            {opacity:1,transform:"translateX(0)"},
+            {opacity:.28,transform:`translateX(${outX}px)`}
+          ],
+          {duration:170,easing:"cubic-bezier(.4,0,.2,1)",fill:"forwards"}
+        );
+
+        out.onfinish=()=>{
+          portfolioTrack.style.scrollBehavior="auto";
+          portfolioTrack.scrollLeft=target;
+          void portfolioTrack.offsetWidth;
+          portfolioTrack.style.scrollBehavior="";
+          updatePortfolioPagination();
+
+          const enter=portfolioTrack.animate(
+            [
+              {opacity:.28,transform:`translateX(${inX}px)`},
+              {opacity:1,transform:"translateX(0)"}
+            ],
+            {duration:260,easing:"cubic-bezier(.16,.84,.24,1)",fill:"both"}
+          );
+          enter.onfinish=()=>{
+            out.cancel();
+            enter.cancel();
+            portfolioWrapping=false;
+          };
+        };
+      };
+
       const scrollPortfolio=(direction)=>{
+        if(portfolioWrapping)return;
         const maxScroll=Math.max(0,portfolioTrack.scrollWidth-portfolioTrack.clientWidth);
-        let next=portfolioTrack.scrollLeft+(portfolioStep()*direction);
-        if(direction>0&&next>=maxScroll-6)next=maxScroll;
-        if(direction<0&&next<=6)next=0;
+        const step=portfolioStep();
+        if(direction>0&&portfolioTrack.scrollLeft>=maxScroll-6){
+          wrapPortfolio(0,1);
+          return;
+        }
+        if(direction<0&&portfolioTrack.scrollLeft<=6){
+          wrapPortfolio(maxScroll,-1);
+          return;
+        }
+        const next=Math.max(0,Math.min(maxScroll,portfolioTrack.scrollLeft+(step*direction)));
         portfolioTrack.scrollTo({left:next,behavior:"smooth"});
       };
       const restartPortfolioTimer=()=>{
         clearInterval(portfolioTimer);
-        portfolioTimer=setInterval(()=>{
-          const maxScroll=Math.max(0,portfolioTrack.scrollWidth-portfolioTrack.clientWidth);
-          if(portfolioTrack.scrollLeft>=maxScroll-6)portfolioTrack.scrollTo({left:0,behavior:"smooth"});
-          else scrollPortfolio(1);
-        },3600);
+        portfolioTimer=setInterval(()=>scrollPortfolio(1),3600);
       };
 
       portfolioPrev.addEventListener("click",()=>{scrollPortfolio(-1);restartPortfolioTimer()});
