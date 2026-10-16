@@ -739,12 +739,7 @@
     }
 
 
-    @supports(content-visibility:auto){
-      .about-section,.social-section,.challenge-section,.portfolio-section,.faq-section,.cta-section,.site-footer{
-        content-visibility:auto;
-        contain-intrinsic-size:900px
-      }
-    }
+    /* As alturas reais evitam saltos de rolagem e animações suspensas fora da viewport. */
 
     /* FAQ — wireframe aprovado | alterações isoladas */
     .faq-section{position:relative;isolation:isolate;overflow:hidden;color:#10265a;padding:72px 0 76px;border-top:1px solid rgba(220,230,243,.58);background:radial-gradient(circle at 6% 18%,rgba(43,132,255,.045),transparent 27%),radial-gradient(circle at 94% 14%,rgba(43,132,255,.035),transparent 23%),linear-gradient(180deg,#fff,#fbfdff)}
@@ -920,6 +915,117 @@
     .problem-section>.section-seam:after{background:#0b2d5c;border-color:rgba(76,166,255,.48)}
     .problem-section>.section-seam:before{background:linear-gradient(90deg,transparent,rgba(76,166,255,.42),transparent)}
 
+
+    /* Suavização visual entre as seções — sem modificar os conteúdos aprovados. */
+    .about-section,.social-section,.challenge-section,.portfolio-section,.faq-section{border-top-color:transparent}
+    .section-bridge{
+      position:absolute;top:0;left:0;right:0;height:clamp(62px,8vw,116px);
+      z-index:1;pointer-events:none;overflow:hidden;
+      background:linear-gradient(180deg,var(--bridge-from,#fff) 0%,rgba(255,255,255,0) 100%)
+    }
+    .section-bridge:after{
+      content:"";position:absolute;left:-8%;top:-105px;width:116%;height:120px;
+      border-bottom:1px solid rgba(34,125,241,.10);border-radius:50%;
+      pointer-events:none
+    }
+    .about-section{--bridge-from:#f4f8ff}
+    .social-section{--bridge-from:#fbfdff}
+    .challenge-section{--bridge-from:#fff}
+    .portfolio-section{--bridge-from:#f6faff}
+    .faq-section{--bridge-from:#f9fbfe}
+    .cta-section{--bridge-from:#fbfdff}
+    .cta-section:after{
+      content:"";position:absolute;left:0;right:0;bottom:0;height:40px;
+      background:linear-gradient(180deg,transparent,rgba(11,33,68,.055));
+      pointer-events:none;z-index:1
+    }
+    .site-footer{border-top:1px solid rgba(117,175,247,.25)}
+    /* Notebook compacto: carrossel sem cortes laterais ou colisão com texto. */
+    @media(min-width:901px) and (max-width:1199px){
+      .hero-grid{width:calc(100% - 56px);grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:22px}
+      h1{font-size:clamp(42px,4.7vw,62px)}
+      .showcase{height:515px}
+      .product.center{width:270px;height:444px}
+      .product.left,.product.right{width:192px;height:313px}
+      .product.left{transform:translate3d(-177px,22px,-60px) scale(.92) rotateY(10deg)}
+      .product.right{transform:translate3d(177px,22px,-60px) scale(.92) rotateY(-10deg)}
+      .product.exit-left{transform:translate3d(-305px,48px,-170px) scale(.72) rotateY(24deg)}
+      .product.exit-right{transform:translate3d(305px,48px,-170px) scale(.72) rotateY(-24deg)}
+      .product.enter-left{transform:translate3d(-290px,54px,-195px) scale(.68) rotateY(28deg)}
+      .product.enter-right{transform:translate3d(290px,54px,-195px) scale(.68) rotateY(-28deg)}
+      .carousel-arrow.prev{left:calc(50% - 165px)}
+      .carousel-arrow.next{right:calc(50% - 165px)}
+    }
+    /* Gutter e respiro consistentes em notebooks menores e tablets. */
+    @media(min-width:761px) and (max-width:1199px){
+      .about-wrap,.social-wrap,.challenge-wrap,.portfolio-wrap,.faq-wrap,.cta-wrap{
+        width:calc(100% - 56px)
+      }
+      .about-wrap{gap:clamp(24px,3vw,44px)}
+      .social-top{gap:clamp(24px,3vw,44px)}
+      .faq-grid{gap:clamp(22px,3vw,32px)}
+      .footer-main{gap:clamp(22px,3.2vw,42px)}
+    }
+    @media(min-width:761px) and (max-width:900px){
+      .hero-grid{min-height:0}
+      .hero{min-height:0}
+      .showcase{margin-top:10px}
+      .social-top,.about-wrap{gap:30px}
+    }
+    @media(max-width:760px){
+      .about-wrap,.social-wrap,.challenge-wrap,.portfolio-wrap,.faq-wrap,.cta-wrap{
+        width:calc(100% - 38px)
+      }
+      .about-section,.social-section,.challenge-section,.portfolio-section,.faq-section,.cta-section{
+        padding-top:clamp(55px,8vw,67px);padding-bottom:clamp(58px,8vw,70px)
+      }
+      .hero{min-height:0}
+      .hero-grid{min-height:0;padding-top:38px;padding-bottom:32px}
+      .hero-grid>div:first-child{min-width:0}
+      .social-top,.about-wrap{gap:26px}
+      .faq-grid{gap:25px}
+      .portfolio-topline{margin-bottom:34px}
+      .footer-wrap{width:calc(100% - 38px)}
+      .section-bridge{height:70px}
+      .section-bridge:after{top:-112px}
+    }
+    @media(max-width:520px){
+      .hero-grid{width:calc(100% - 32px);padding-top:33px;padding-bottom:24px}
+      h1{font-size:clamp(36px,10vw,42px)}
+      .intro{font-size:15px;line-height:1.6;margin-top:19px;margin-bottom:23px}
+      .showcase{height:414px;margin-top:9px}
+      .product-card{width:auto;left:12px;right:12px;padding:3px 0 0;bottom:10px}
+      .product.center img{height:81%}
+      .buttons{gap:10px}
+      .button{min-height:48px;padding:0 17px}
+      .about-wrap,.social-wrap,.challenge-wrap,.portfolio-wrap,.faq-wrap,.cta-wrap{
+        width:calc(100% - 32px)
+      }
+      .faq-head{margin-bottom:24px}
+      .faq-list{gap:8px}
+      .faq-visual{gap:14px}
+      .cta-grid{gap:24px}
+      .cta-actions{gap:10px}
+      .cta-btn{min-height:48px}
+      .footer-main{gap:24px}
+    }
+    @media(max-width:380px){
+      .hero-grid{width:calc(100% - 28px)}
+      .showcase{height:390px}
+      .product.center{width:198px;height:340px}
+      .product.left,.product.right{width:116px;height:200px}
+      .product.left{transform:translateX(-101px) translateY(20px) scale(.85)}
+      .product.right{transform:translateX(101px) translateY(20px) scale(.85)}
+      .product.center img{height:80%}
+      .carousel-arrow.prev{left:calc(50% - 122px)}
+      .carousel-arrow.next{right:calc(50% - 122px)}
+      .about-wrap,.social-wrap,.challenge-wrap,.portfolio-wrap,.faq-wrap,.cta-wrap{
+        width:calc(100% - 28px)
+      }
+    }
+    @media(prefers-reduced-motion:reduce){
+      .section-bridge,.section-bridge:after{transition:none!important;animation:none!important}
+    }
   </style>
 </head>
 <body>
@@ -948,6 +1054,7 @@
   
   <section class="about-section" id="empresa" aria-labelledby="about-title">
     <span class="section-seam" aria-hidden="true"></span>
+    <span class="section-bridge" aria-hidden="true"></span>
     <div class="about-wrap">
       <div class="about-content">
         <p class="about-kicker">A empresa</p>
@@ -1012,6 +1119,7 @@
 
   <section class="social-section" id="prova-social" aria-labelledby="social-title">
     <span class="section-seam" aria-hidden="true"></span>
+    <span class="section-bridge" aria-hidden="true"></span>
     <div class="social-wrap">
       <div class="social-decor-dot" aria-hidden="true"></div>
       <div class="social-top">
@@ -1075,6 +1183,7 @@
   
   <section class="challenge-section" id="problema" aria-labelledby="challenge-title">
     <span id="solucao" class="section-seam" aria-hidden="true"></span>
+    <span class="section-bridge" aria-hidden="true"></span>
     <div class="challenge-wrap">
       <div class="challenge-head">
         <div>
@@ -1155,6 +1264,7 @@
 
   <section class="portfolio-section" id="produtos" aria-labelledby="portfolio-title">
     <span class="section-seam" aria-hidden="true"></span>
+    <span class="section-bridge" aria-hidden="true"></span>
     <img loading="lazy" decoding="async" class="portfolio-bg-wave" src="assets/2732214c-f231-40b8-8263-99cfa364eb85.png" alt="" aria-hidden="true">
     <img loading="lazy" decoding="async" class="portfolio-bg-glass" src="assets/bbde354c-3be7-4e7e-9843-462797c3c074.png" alt="" aria-hidden="true">
 
@@ -1258,6 +1368,7 @@
 
   <section class="faq-section" id="faq" aria-labelledby="faq-title">
     <span class="section-seam" aria-hidden="true"></span>
+    <span class="section-bridge" aria-hidden="true"></span>
     <div class="faq-wrap">
       <div class="faq-head">
         <p class="faq-kicker">Dúvidas frequentes</p>
@@ -1324,6 +1435,7 @@
 
   <section class="cta-section" id="contato" aria-labelledby="cta-title">
     <span class="section-seam" aria-hidden="true"></span>
+    <span class="section-bridge" aria-hidden="true"></span>
     <div class="cta-wrap">
       <div class="cta-grid">
         <div class="cta-copy">
