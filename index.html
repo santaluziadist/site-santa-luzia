@@ -507,37 +507,45 @@
       position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px
     }
     .portfolio-featured:before{
-      content:"";position:absolute;z-index:-3;inset:-34px -28px -24px;border-radius:46px;pointer-events:none;
+      content:"";position:absolute;z-index:-3;inset:-40px -34px -28px;border-radius:50px;pointer-events:none;
       background:
-        radial-gradient(circle at 15% 42%,rgba(25,137,255,.16),transparent 27%),
-        radial-gradient(circle at 50% 18%,rgba(95,190,255,.15),transparent 31%),
-        radial-gradient(circle at 88% 64%,rgba(255,188,103,.14),transparent 29%),
-        linear-gradient(120deg,rgba(237,247,255,.86),rgba(255,255,255,.36) 42%,rgba(241,249,255,.72) 72%,rgba(255,248,237,.54));
-      border:1px solid rgba(183,216,248,.42);
-      box-shadow:0 28px 78px rgba(48,111,180,.085)
+        radial-gradient(circle at 9% 50%,rgba(22,128,248,.18),transparent 26%),
+        radial-gradient(circle at 49% 10%,rgba(76,178,255,.19),transparent 33%),
+        radial-gradient(circle at 91% 60%,rgba(255,188,103,.17),transparent 30%),
+        linear-gradient(118deg,rgba(234,246,255,.94),rgba(255,255,255,.42) 40%,rgba(239,248,255,.84) 70%,rgba(255,247,234,.64));
+      border:1px solid rgba(177,214,248,.48);
+      box-shadow:0 30px 86px rgba(48,111,180,.10)
     }
     .portfolio-featured:after{
-      content:"";position:absolute;z-index:-2;left:12%;right:10%;top:-26px;height:150px;border-radius:50%;pointer-events:none;
-      background:radial-gradient(ellipse,rgba(38,138,255,.13),rgba(38,138,255,0) 70%);filter:blur(12px)
+      content:"";position:absolute;z-index:-2;left:7%;right:7%;top:-34px;height:188px;border-radius:50%;pointer-events:none;
+      background:
+        radial-gradient(ellipse at 48% 50%,rgba(38,138,255,.16),rgba(38,138,255,0) 66%),
+        radial-gradient(ellipse at 82% 62%,rgba(255,193,119,.10),rgba(255,193,119,0) 64%);
+      filter:blur(13px)
     }
 
     .portfolio-feature-card{
       --halo:rgba(33,137,255,.17);
       --line:rgba(80,160,240,.24);
-      position:relative;z-index:2;min-height:326px;overflow:hidden;border-radius:24px;border:1px solid #dfe9f4;
+      position:relative;z-index:2;min-height:342px;overflow:hidden;border-radius:25px;border:1px solid #dfe9f4;
       background:linear-gradient(135deg,#fff 0%,#fbfdff 100%);
       box-shadow:0 15px 34px rgba(29,66,111,.065);
       transition:transform .30s cubic-bezier(.2,.72,.22,1),box-shadow .30s ease,border-color .30s ease
     }
     .portfolio-feature-card:before{
-      content:"";position:absolute;z-index:0;right:-16%;top:8%;width:68%;aspect-ratio:1;border-radius:50%;pointer-events:none;
-      background:radial-gradient(circle,var(--halo) 0%,rgba(255,255,255,0) 68%);
-      filter:blur(2px);
+      content:"";position:absolute;z-index:0;right:-12%;top:2%;width:76%;aspect-ratio:1;border-radius:50%;pointer-events:none;
+      background:
+        radial-gradient(circle at 50% 46%,var(--halo) 0%,rgba(255,255,255,0) 61%),
+        radial-gradient(circle at 50% 50%,rgba(255,255,255,.68) 0 25%,rgba(255,255,255,0) 56%);
+      filter:blur(1px);
       transition:transform .36s cubic-bezier(.2,.72,.22,1),opacity .3s ease
     }
     .portfolio-feature-card:after{
-      content:"";position:absolute;z-index:1;right:-12%;bottom:-34%;width:62%;aspect-ratio:1;border-radius:40% 60% 56% 44% / 50% 40% 60% 50%;
-      border:1px solid var(--line);background:rgba(255,255,255,.12);transform:rotate(-18deg);pointer-events:none;
+      content:"";position:absolute;z-index:1;right:-6%;bottom:-26%;width:70%;aspect-ratio:1;border-radius:44% 56% 58% 42% / 48% 42% 58% 52%;
+      border:1px solid var(--line);
+      background:linear-gradient(145deg,rgba(255,255,255,.32),rgba(255,255,255,.06));
+      box-shadow:inset 0 0 34px rgba(255,255,255,.30);
+      transform:rotate(-16deg);pointer-events:none;
       transition:transform .38s cubic-bezier(.2,.72,.22,1),opacity .3s ease
     }
     .portfolio-feature-card:hover{transform:translateY(-5px);border-color:#c6dcf3;box-shadow:0 22px 46px rgba(29,66,111,.115)}
@@ -563,7 +571,7 @@
         linear-gradient(140deg,#fff 0%,#fffaf5 48%,#f7fbff 100%)
     }
 
-    .portfolio-feature-copy{position:relative;z-index:7;padding:21px 14px 18px 21px;width:42%}
+    .portfolio-feature-copy{position:relative;z-index:7;padding:22px 12px 18px 21px;width:39%}
     .portfolio-chip{
       display:inline-flex;align-items:center;min-height:25px;padding:0 10px;border-radius:999px;
       background:#edf6ff;color:#1680f8;font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase
@@ -581,15 +589,22 @@
     }
 
     .portfolio-stage{
-      position:absolute;z-index:3;right:-1%;top:0;width:62%;height:100%;pointer-events:none
+      position:absolute;z-index:3;right:-2%;top:0;width:66%;height:100%;pointer-events:none
     }
     .portfolio-stage:before{
-      content:"";position:absolute;z-index:0;left:48%;bottom:9%;width:74%;height:34%;transform:translateX(-50%);
-      background:radial-gradient(ellipse,rgba(28,73,127,.12),rgba(28,73,127,0) 69%);filter:blur(9px)
+      content:"";position:absolute;z-index:0;left:50%;bottom:7%;width:84%;height:38%;transform:translateX(-50%);
+      background:radial-gradient(ellipse,rgba(28,73,127,.15),rgba(28,73,127,0) 68%);filter:blur(10px)
+    }
+    .portfolio-stage:after{
+      content:"";position:absolute;z-index:2;right:6%;top:13%;width:68%;height:64%;border-radius:46% 54% 52% 48% / 44% 48% 52% 56%;
+      background:linear-gradient(145deg,rgba(255,255,255,.52),rgba(219,239,255,.12));
+      border:1px solid rgba(255,255,255,.74);
+      box-shadow:0 16px 42px rgba(48,108,169,.08),inset 0 0 30px rgba(255,255,255,.40);
+      transform:rotate(8deg);pointer-events:none
     }
     .portfolio-stage-bg{
-      position:absolute;z-index:1;left:50%;bottom:0;width:95%;max-width:325px;height:auto;
-      transform:translateX(-50%);opacity:.62;pointer-events:none;
+      position:absolute;z-index:1;left:50%;bottom:-2px;width:101%;max-width:346px;height:auto;
+      transform:translateX(-50%);opacity:.72;pointer-events:none;
       transition:transform .36s cubic-bezier(.2,.72,.22,1),opacity .3s ease
     }
     .portfolio-stage-bg.flip{transform:translateX(-50%) scaleX(-1)}
@@ -604,19 +619,19 @@
     }
 
     .portfolio-feature-card.nutro-premium .portfolio-feature-product{
-      width:63%;height:86%;right:14%;bottom:15px;transform:scale(1.18)
+      width:74%;height:94%;right:5%;bottom:8px;transform:scale(1.30)
     }
-    .portfolio-feature-card.nutro-premium:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.22)}
+    .portfolio-feature-card.nutro-premium:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.35)}
 
     .portfolio-feature-card.cozy .portfolio-feature-product{
-      width:82%;height:82%;right:1%;bottom:17px;transform:scale(1.08)
+      width:91%;height:90%;right:-6%;bottom:9px;transform:scale(1.13)
     }
-    .portfolio-feature-card.cozy:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.12)}
+    .portfolio-feature-card.cozy:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.17)}
 
     .portfolio-feature-card.atempero .portfolio-feature-product{
-      width:60%;height:87%;right:15%;bottom:14px;transform:scale(1.26)
+      width:72%;height:94%;right:7%;bottom:8px;transform:scale(1.40)
     }
-    .portfolio-feature-card.atempero:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.30)}
+    .portfolio-feature-card.atempero:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.45)}
 
     .portfolio-list-head{
       display:flex;align-items:end;justify-content:space-between;gap:20px;margin:30px 0 13px
@@ -718,12 +733,12 @@
 
     @media(max-width:1100px){
       .portfolio-featured{grid-template-columns:1fr}
-      .portfolio-feature-card{min-height:300px}
-      .portfolio-feature-copy{width:45%}
-      .portfolio-stage{width:56%}
-      .portfolio-feature-card.nutro-premium .portfolio-feature-product{width:51%;height:88%;right:18%;bottom:12px;transform:scale(1.12)}
-      .portfolio-feature-card.cozy .portfolio-feature-product{width:67%;height:84%;right:7%;bottom:12px;transform:scale(1.06)}
-      .portfolio-feature-card.atempero .portfolio-feature-product{width:47%;height:88%;right:20%;bottom:12px;transform:scale(1.18)}
+      .portfolio-feature-card{min-height:310px}
+      .portfolio-feature-copy{width:43%}
+      .portfolio-stage{width:60%}
+      .portfolio-feature-card.nutro-premium .portfolio-feature-product{width:58%;height:91%;right:13%;bottom:10px;transform:scale(1.18)}
+      .portfolio-feature-card.cozy .portfolio-feature-product{width:73%;height:88%;right:3%;bottom:10px;transform:scale(1.09)}
+      .portfolio-feature-card.atempero .portfolio-feature-product{width:55%;height:91%;right:14%;bottom:10px;transform:scale(1.24)}
       .portfolio-item{flex:0 0 calc((100% - 28px)/3)}
     }
     @media(max-width:760px){
