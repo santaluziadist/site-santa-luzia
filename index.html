@@ -155,10 +155,10 @@
       .challenge-problem-icon svg{width:16px;height:16px}
       .challenge-problem strong{font-size:11.7px;line-height:1.18}
       .challenge-problem .chev{font-size:18px}
-      .challenge-showcase{min-height:362px}
-      .challenge-wave{width:99%;max-width:580px;max-height:390px;right:1%;top:-3%;opacity:.82}
-      .challenge-glass{width:91%;max-width:540px;max-height:380px;right:4%;top:0;opacity:.44}
-      .challenge-products{width:86%;max-width:520px;max-height:370px;right:7%;bottom:13%}
+      .challenge-showcase{min-height:382px;z-index:1}
+      .challenge-wave{width:398%;max-width:2140px;max-height:1120px;right:2%;top:-44%;opacity:.59;transform:scale(1.24);transform-origin:64% 42%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.60) 3%,rgba(0,0,0,.92) 13%,#000 27%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.60) 3%,rgba(0,0,0,.92) 13%,#000 27%)}
+      .challenge-glass{width:362%;max-width:1940px;max-height:1030px;right:6%;top:-39%;opacity:.24;transform:scale(1.22);transform-origin:64% 42%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.52) 3%,rgba(0,0,0,.82) 14%,#000 28%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.52) 3%,rgba(0,0,0,.82) 14%,#000 28%)}
+      .challenge-products{width:114%;max-width:680px;max-height:470px;right:2%;bottom:41.5%;transform:translateX(-6%)}
       .challenge-answer{margin:14px 24px}
       .challenge-section.has-selection .challenge-answer{padding:18px 21px}
       .challenge-answer-tag{font-size:9px}
@@ -317,7 +317,7 @@
     .challenge-grid{
       display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:stretch;position:relative
     }
-    .challenge-list-panel{min-width:0;transition:width .62s cubic-bezier(.2,.72,.22,1)}
+    .challenge-list-panel{min-width:0;position:relative;z-index:4;transition:width .62s cubic-bezier(.2,.72,.22,1)}
     .challenge-list-title{
       margin:0 0 14px;color:#17366c;font:800 20px/1.2 Manrope,sans-serif;letter-spacing:-.025em
     }
@@ -398,7 +398,11 @@
       position:absolute;z-index:4;width:84%;max-width:520px;max-height:395px;height:auto;right:9%;bottom:8%;
       object-fit:contain;filter:drop-shadow(0 25px 24px rgba(22,54,96,.14))
     }
-    .challenge-showcase:after{
+    .challenge-showcase:before{
+      content:"";position:absolute;z-index:2;right:-2%;bottom:6%;width:82%;height:72%;pointer-events:none;
+      background:radial-gradient(ellipse at 56% 58%,rgba(248,251,255,.62) 0%,rgba(248,251,255,.28) 42%,rgba(248,251,255,0) 72%)
+    }
+        .challenge-showcase:after{
       content:"";position:absolute;z-index:2;left:18%;right:12%;bottom:11%;height:62px;border-radius:50%;
       background:radial-gradient(ellipse,rgba(26,72,126,.13),rgba(26,72,126,0) 68%);filter:blur(8px)
     }
