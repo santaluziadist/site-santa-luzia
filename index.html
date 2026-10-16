@@ -155,10 +155,10 @@
       .challenge-problem-icon svg{width:16px;height:16px}
       .challenge-problem strong{font-size:11.7px;line-height:1.18}
       .challenge-problem .chev{font-size:18px}
-      .challenge-showcase{min-height:382px}
-      .challenge-wave{width:108%;max-width:630px;max-height:425px;right:-3%;top:-9%;opacity:.84}
-      .challenge-glass{width:98%;max-width:585px;max-height:410px;right:1%;top:-5%;opacity:.46}
-      .challenge-products{width:92%;max-width:555px;max-height:395px;right:4%;bottom:18%}
+      .challenge-showcase{min-height:382px;z-index:1}
+      .challenge-wave{width:158%;max-width:900px;max-height:520px;right:-5%;top:-16%;opacity:.66;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.22) 14%,#000 38%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.22) 14%,#000 38%)}
+      .challenge-glass{width:142%;max-width:820px;max-height:490px;right:-2%;top:-11%;opacity:.30;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 18%,#000 42%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 18%,#000 42%)}
+      .challenge-products{width:97%;max-width:580px;max-height:410px;right:2%;bottom:17%}
       .challenge-answer{margin:14px 24px}
       .challenge-section.has-selection .challenge-answer{padding:18px 21px}
       .challenge-answer-tag{font-size:9px}
@@ -317,7 +317,7 @@
     .challenge-grid{
       display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:stretch;position:relative
     }
-    .challenge-list-panel{min-width:0;transition:width .62s cubic-bezier(.2,.72,.22,1)}
+    .challenge-list-panel{min-width:0;position:relative;z-index:4;transition:width .62s cubic-bezier(.2,.72,.22,1)}
     .challenge-list-title{
       margin:0 0 14px;color:#17366c;font:800 20px/1.2 Manrope,sans-serif;letter-spacing:-.025em
     }
