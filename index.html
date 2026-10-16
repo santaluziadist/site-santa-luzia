@@ -851,13 +851,14 @@
     .cta-btn svg{width:19px;height:19px;flex:0 0 auto}
     .cta-visual{position:relative;min-width:0;height:460px;overflow:visible;isolation:isolate}
     .cta-art{position:absolute;z-index:0;width:92%;max-width:590px;height:auto;right:1%;bottom:16px;object-fit:contain;pointer-events:none;filter:drop-shadow(0 24px 30px rgba(40,104,177,.08))}
-    .cta-core{position:absolute;z-index:3;left:51%;top:48%;transform:translate(-50%,-50%);width:124px;height:124px;border-radius:29px;background:linear-gradient(145deg,#0e5cc0,#0b2f69);box-shadow:0 25px 45px rgba(19,80,151,.20),inset 0 1px 0 rgba(255,255,255,.34);display:grid;place-items:center}
-    .cta-core:after{content:"";position:absolute;inset:9px;border-radius:26px;border:1px solid rgba(255,255,255,.21)}
-    .cta-core img{width:56px;height:56px;object-fit:contain;position:relative;z-index:2;filter:brightness(0) invert(1);opacity:.96}
-    .cta-float{position:absolute;z-index:5;width:192px;min-height:80px;padding:13px 14px;border-radius:18px;background:rgba(255,255,255,.54);-webkit-backdrop-filter:blur(18px) saturate(1.3);backdrop-filter:blur(18px) saturate(1.3);border:1px solid rgba(255,255,255,.74);box-shadow:0 12px 28px rgba(31,76,127,.095),inset 0 1px 0 rgba(255,255,255,.62);display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;align-items:start}
+    .cta-core{position:absolute;z-index:4;left:51%;top:48%;width:164px;height:164px;transform:translate(-50%,-50%) rotate(-7deg) scale(.91);opacity:0;display:grid;place-items:center;isolation:isolate;clip-path:polygon(26% 4%,74% 4%,98% 50%,74% 96%,26% 96%,2% 50%);background:linear-gradient(140deg,rgba(251,255,255,.98),#8ed5ff 20%,#1d8bf1 58%,#b4e9ff 82%,#3e93ee);filter:drop-shadow(0 18px 22px rgba(5,67,140,.2));transition:transform .88s cubic-bezier(.16,.84,.24,1),opacity .65s ease}
+    .cta-core:before{content:"";position:absolute;inset:6px;z-index:0;clip-path:polygon(26% 4%,74% 4%,98% 50%,74% 96%,26% 96%,2% 50%);background:linear-gradient(145deg,#1e78ec 0%,#115bb5 46%,#082b68 95%)}
+    .cta-core:after{content:"";position:absolute;inset:14px;z-index:1;clip-path:polygon(26% 4%,74% 4%,98% 50%,74% 96%,26% 96%,2% 50%);border:1px solid rgba(255,255,255,.26);background:radial-gradient(ellipse at 28% 16%,rgba(255,255,255,.19),transparent 60%);pointer-events:none}
+    .cta-core img{width:65px;height:65px;object-fit:contain;position:relative;z-index:3;filter:brightness(0) invert(1) drop-shadow(0 3px 5px rgba(0,32,78,.17));opacity:1}
+    .cta-float{position:absolute;z-index:5;width:192px;min-height:80px;padding:13px 14px;border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.43),rgba(239,249,255,.25));-webkit-backdrop-filter:blur(19px) saturate(1.18);backdrop-filter:blur(19px) saturate(1.18);border:1px solid rgba(255,255,255,.65);box-shadow:0 12px 28px rgba(31,76,127,.075),inset 0 1px 0 rgba(255,255,255,.52);display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;align-items:start}
     .cta-float.one{left:0;top:6%}
     .cta-float.two{right:0;top:17%}
-    .cta-float.three{left:2%;bottom:5%}
+    .cta-float.three{left:6%;bottom:10%}
     .cta-float-icon{width:38px;height:38px;border-radius:12px;background:rgba(232,244,255,.72);color:#1680f8;display:grid;place-items:center}
     .cta-float-icon svg{width:19px;height:19px}
     .cta-float strong{display:block;color:#123267;font:800 12.5px/1.25 Manrope,sans-serif}
@@ -865,6 +866,7 @@
     .cta-section .cta-copy,.cta-section .cta-visual{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .78s cubic-bezier(.2,.72,.22,1)}
     .cta-section.is-visible .cta-copy,.cta-section.is-visible .cta-visual{opacity:1;transform:translateY(0)}
     .cta-section.is-visible .cta-visual{transition-delay:.12s}
+    .cta-section.is-visible .cta-core{opacity:1;transform:translate(-50%,-50%) rotate(0) scale(1);transition-delay:.28s}
     .cta-section .cta-float{opacity:0;transform:translateY(13px) scale(.97);transition:opacity .55s ease,transform .66s cubic-bezier(.2,.72,.22,1)}
     .cta-section.is-visible .cta-float{opacity:1;transform:translateY(0) scale(1)}
     .cta-section.is-visible .cta-float.one{transition-delay:.32s}
@@ -888,9 +890,8 @@
       .cta-btn{min-height:48px;padding:0 16px}
       .cta-visual{width:min(100%,440px);height:auto;min-height:0;display:grid;grid-template-columns:1fr;gap:11px;padding-top:292px}
       .cta-art{width:100%;max-width:440px;top:0;right:0;bottom:auto}
-      .cta-core{left:50%;top:149px;width:110px;height:110px;border-radius:26px}
-      .cta-core:after{border-radius:23px}
-      .cta-core img{width:50px;height:50px}
+      .cta-core{left:50%;top:149px;width:137px;height:137px}
+      .cta-core img{width:54px;height:54px}
       .cta-float{position:relative;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;width:100%;min-height:70px;grid-template-columns:38px 1fr;padding:13px 15px}
       .cta-float strong{font-size:12.5px}
       .cta-float span{font-size:11.2px}
@@ -898,7 +899,7 @@
     @media(max-width:390px){.cta-visual{padding-top:256px}.cta-core{top:130px}}
     @media(prefers-reduced-motion:reduce){
       .cta-section .cta-copy,.cta-section .cta-visual,.cta-section .cta-float{opacity:1!important;transform:none!important;transition:none!important}
-      .cta-section .cta-core{transition:none!important}
+      .cta-section .cta-core{opacity:1!important;transform:translate(-50%,-50%) rotate(0) scale(1)!important;transition:none!important}
       .cta-btn{transition:none!important}
     }
 
