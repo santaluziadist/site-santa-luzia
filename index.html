@@ -1415,71 +1415,120 @@
       },{rootMargin:"-28% 0px -58% 0px",threshold:[0,.01,.1,.25,.5]});
       navTargets.forEach(section=>navObserver.observe(section));
     }
-    let cards=[...document.querySelectorAll(".product")],pager=document.querySelector(".pager"),flavor=document.querySelector("#flavor"),benefits=document.querySelector("#benefits"),previous=document.querySelector(".carousel-arrow.prev"),next=document.querySelector(".carousel-arrow.next");let current=0,timer,carouselBusy=false;
-    const productCard=document.querySelector(".product-card");
-    products.forEach((_,i)=>{const button=document.createElement("button");button.setAttribute("aria-label","Mostrar produto "+(i+1));button.onclick=()=>goTo(i,true);pager.append(button)});
-    const updateMeta=()=>{const active=products[current];flavor.textContent=active.flavor;benefits.innerHTML=active.benefits.map(item=>"<span>"+item+"</span>").join("");[...pager.children].forEach((button,i)=>button.classList.toggle("active",i===current));};
-    const setCardProduct=(card,index)=>{const item=products[(index+products.length)%products.length];const img=card.querySelector("img");img.src=item.src;img.alt=item.alt;};
-    const initCarousel=()=>{setCardProduct(cards[0],current-1);setCardProduct(cards[1],current);setCardProduct(cards[2],current+1);cards[0].className="product left";cards[1].className="product center";cards[2].className="product right";cards[1].append(productCard);updateMeta();};
-    const prepareEnteringCard=(card,side,index)=>{
-      card.style.transition="none";
-      setCardProduct(card,index);
-      card.className="product "+(side==="right"?"enter-right":"enter-left");
-      void card.offsetWidth;
-      card.style.transition="";
-      requestAnimationFrame(()=>requestAnimationFrame(()=>{card.className="product "+side}));
+    /* Hero: relógio contínuo com atualização segura fora da viewport. */
+    const carouselRoot=document.querySelector("#hero-produtos");
+    let cards=[...carouselRoot.querySelectorAll(".product")];
+    const pager=carouselRoot.querySelector(".pager"),flavor=document.querySelector("#flavor"),benefits=document.querySelector("#benefits");
+    const previous=carouselRoot.querySelector(".carousel-arrow.prev"),next=carouselRoot.querySelector(".carousel-arrow.next");
+    const productCard=carouselRoot.querySelector(".product-card");
+    const CAROUSEL_PERIOD=5400,TRANSITION_END=920;
+    const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+    let current=0,carouselBusy=false,carouselVisible=true,transitionTarget=null,transitionToken=0;
+    let transitionTimeouts=[],transitionResolve=null,autoTimer=null,nextAdvanceAt=Date.now()+CAROUSEL_PERIOD,commandToken=0;
+    const norm=i=>(i%products.length+products.length)%products.length;
+    products.forEach((_,i)=>{
+      const button=document.createElement("button");button.type="button";
+      button.setAttribute("aria-label","Mostrar produto "+(i+1));button.addEventListener("click",()=>goTo(i));pager.append(button);
+    });
+    const updateMeta=()=>{
+      const active=products[current];flavor.textContent=active.flavor;
+      benefits.innerHTML=active.benefits.map(item=>"<span>"+item+"</span>").join("");
+      [...pager.children].forEach((button,i)=>{button.classList.toggle("active",i===current);button.setAttribute("aria-current",i===current?"true":"false");});
     };
-    const rotateCarousel=(direction,manual=false)=>new Promise(resolve=>{
-      if(carouselBusy){resolve();return}
-      carouselBusy=true;
+    const setCardProduct=(card,index)=>{
+      const item=products[norm(index)],img=card.querySelector("img");
+      if(img.getAttribute("src")!==item.src)img.src=item.src;
+      img.alt=item.alt;
+    };
+    const renderCarousel=index=>{
+      current=norm(index);
+      productCard.getAnimations().forEach(animation=>animation.cancel());
+      cards.forEach(card=>{card.style.transition="none";card.querySelector("img").style.transition="none";});
+      setCardProduct(cards[0],current-1);setCardProduct(cards[1],current);setCardProduct(cards[2],current+1);
+      cards[0].className="product left";cards[1].className="product center";cards[2].className="product right";
+      cards[1].append(productCard);updateMeta();
+      void carouselRoot.offsetWidth;
+      cards.forEach(card=>{card.style.transition="";card.querySelector("img").style.transition="";});
+    };
+    const finishTransition=()=>{
+      if(!carouselBusy)return;
+      ++transitionToken;transitionTimeouts.forEach(clearTimeout);transitionTimeouts=[];
+      carouselBusy=false;const target=transitionTarget;transitionTarget=null;
+      renderCarousel(target);
+      if(transitionResolve){const done=transitionResolve;transitionResolve=null;done();}
+    };
+    const prepareEnteringCard=(card,side,index,token)=>{
+      card.style.transition="none";setCardProduct(card,index);
+      card.className="product "+(side==="right"?"enter-right":"enter-left");
+      void card.offsetWidth;card.style.transition="";
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        if(token===transitionToken&&carouselVisible&&!document.hidden)card.className="product "+side;
+      }));
+    };
+    const rotateCarousel=direction=>new Promise(resolve=>{
+      if(carouselBusy)finishTransition();
+      const target=norm(current+(direction>0?1:-1));
+      if(!carouselVisible||document.hidden||reducedMotion.matches){renderCarousel(target);resolve();return;}
+      carouselBusy=true;transitionTarget=target;transitionResolve=resolve;
+      const token=++transitionToken,[left,center,right]=cards;
+      productCard.getAnimations().forEach(animation=>animation.cancel());
       productCard.animate([{opacity:1},{opacity:0}],{duration:180,easing:"ease-out",fill:"forwards"});
-      const [left,center,right]=cards;
-
-      if(direction>0){
-        left.className="product exit-left";
-        center.className="product left";
-        right.className="product center";
-
-        setTimeout(()=>{
-          current=(current+1)%products.length;
+      if(direction>0){left.className="product exit-left";center.className="product left";right.className="product center";}
+      else{right.className="product exit-right";center.className="product right";left.className="product center";}
+      transitionTimeouts.push(setTimeout(()=>{
+        if(token!==transitionToken)return;
+        current=target;
+        if(direction>0){
           right.append(productCard);
           productCard.animate([{opacity:0,transform:"translateX(14px)"},{opacity:1,transform:"translateX(0)"}],{duration:420,easing:"cubic-bezier(.22,.61,.36,1)",fill:"both"});
-          prepareEnteringCard(left,"right",current+1);
+          prepareEnteringCard(left,"right",current+1,token);
           cards=[center,right,left];
-          updateMeta();
-        },430);
-
-        setTimeout(()=>{carouselBusy=false;resolve()},920);
-      }else{
-        right.className="product exit-right";
-        center.className="product right";
-        left.className="product center";
-
-        setTimeout(()=>{
-          current=(current-1+products.length)%products.length;
+        }else{
           left.append(productCard);
           productCard.animate([{opacity:0,transform:"translateX(-14px)"},{opacity:1,transform:"translateX(0)"}],{duration:420,easing:"cubic-bezier(.22,.61,.36,1)",fill:"both"});
-          prepareEnteringCard(right,"left",current-1);
+          prepareEnteringCard(right,"left",current-1,token);
           cards=[right,left,center];
-          updateMeta();
-        },430);
-
-        setTimeout(()=>{carouselBusy=false;resolve()},920);
-      }
-
-      if(manual){clearInterval(timer);timer=setInterval(()=>rotateCarousel(1),5400)}
+        }
+        updateMeta();
+      },430));
+      transitionTimeouts.push(setTimeout(()=>{if(token===transitionToken)finishTransition();},TRANSITION_END));
     });
-    const goTo=async(index,manual=false)=>{
-      const target=(index+products.length)%products.length;
-      if(target===current)return;
-      let forward=(target-current+products.length)%products.length;
-      let backward=(current-target+products.length)%products.length;
-      const direction=forward<=backward?1:-1;
-      const steps=Math.min(forward,backward);
-      for(let i=0;i<steps;i++)await rotateCarousel(direction,manual&&i===steps-1);
+    const scheduleCarouselTick=()=>{
+      clearTimeout(autoTimer);autoTimer=setTimeout(syncCarouselClock,Math.max(50,nextAdvanceAt-Date.now()));
     };
-    previous.onclick=()=>rotateCarousel(-1,true);next.onclick=()=>rotateCarousel(1,true);
-    initCarousel();timer=setInterval(()=>rotateCarousel(1),5400);
+    const syncCarouselClock=()=>{
+      const now=Date.now();
+      if(now>=nextAdvanceAt){
+        const steps=1+Math.floor((now-nextAdvanceAt)/CAROUSEL_PERIOD);
+        nextAdvanceAt+=steps*CAROUSEL_PERIOD;
+        if(carouselBusy)finishTransition();
+        if(steps===1&&carouselVisible&&!document.hidden&&!reducedMotion.matches)void rotateCarousel(1);
+        else renderCarousel(current+steps);
+      }
+      scheduleCarouselTick();
+    };
+    const resetCarouselClock=()=>{nextAdvanceAt=Date.now()+CAROUSEL_PERIOD;scheduleCarouselTick();};
+    const goTo=async index=>{
+      ++commandToken;const command=commandToken;
+      if(carouselBusy)finishTransition();resetCarouselClock();
+      const target=norm(index),forward=norm(target-current),backward=norm(current-target);
+      const direction=forward<=backward?1:-1;
+      for(let i=0;i<Math.min(forward,backward);i++){if(command!==commandToken)break;await rotateCarousel(direction);}
+    };
+    previous.addEventListener("click",()=>{++commandToken;if(carouselBusy)finishTransition();resetCarouselClock();void rotateCarousel(-1);});
+    next.addEventListener("click",()=>{++commandToken;if(carouselBusy)finishTransition();resetCarouselClock();void rotateCarousel(1);});
+    renderCarousel(current);
+    const carouselObserver=new IntersectionObserver(entries=>{
+      const entry=entries[0];carouselVisible=!!entry?.isIntersecting&&entry.intersectionRatio>0;
+      if(!carouselVisible)finishTransition();
+      syncCarouselClock();
+    },{threshold:[0,.01,.1]});
+    carouselObserver.observe(carouselRoot);
+    document.addEventListener("visibilitychange",()=>{if(document.hidden)finishTransition();syncCarouselClock();});
+    window.addEventListener("pageshow",syncCarouselClock);
+    reducedMotion.addEventListener?.("change",()=>{if(reducedMotion.matches)finishTransition();syncCarouselClock();});
+    scheduleCarouselTick();
+
     const aboutSection=document.querySelector(".about-section");
     if(aboutSection){
       const revealAbout=()=>{
