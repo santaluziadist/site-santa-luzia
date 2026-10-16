@@ -1533,7 +1533,7 @@
     const pager=carouselRoot.querySelector(".pager"),flavor=document.querySelector("#flavor"),benefits=document.querySelector("#benefits");
     const previous=carouselRoot.querySelector(".carousel-arrow.prev"),next=carouselRoot.querySelector(".carousel-arrow.next");
     const productCard=carouselRoot.querySelector(".product-card");
-    const CAROUSEL_PERIOD=5400,TRANSITION_END=920;
+    const CAROUSEL_PERIOD=5400,TRANSITION_END=1420;
     const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
     let current=0,carouselBusy=false,carouselVisible=true,transitionTarget=null,transitionToken=0;
     let transitionTimeouts=[],transitionResolve=null,autoTimer=null,nextAdvanceAt=Date.now()+CAROUSEL_PERIOD,commandToken=0;
