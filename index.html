@@ -829,11 +829,11 @@
       position:relative;isolation:isolate;overflow:hidden;border-top:0;
       background:radial-gradient(circle at 77% 23%,rgba(37,133,255,.10),transparent 29%),
         linear-gradient(135deg,#f8fbff 0%,#f3f8ff 55%,#edf5ff 100%);
-      padding:68px 0 76px
+      padding:56px 0 60px
     }
-    .cta-wrap{width:min(1230px,calc(100% - 86px));min-height:460px;margin:auto;position:relative;z-index:2}
+    .cta-wrap{width:min(1230px,calc(100% - 86px));min-height:430px;margin:auto;position:relative;z-index:2}
     .cta-wrap:before{content:"";position:absolute;right:-105px;top:-185px;width:475px;height:475px;border:1px solid rgba(21,126,246,.085);border-radius:50%;pointer-events:none}
-    .cta-grid{display:grid;grid-template-columns:minmax(0,.99fr) minmax(0,1.01fr);gap:40px;min-height:460px;align-items:center;position:relative}
+    .cta-grid{display:grid;grid-template-columns:minmax(0,.99fr) minmax(0,1.01fr);gap:38px;min-height:430px;align-items:center;position:relative}
     .cta-copy{min-width:0;padding:0 0 0 12px;position:relative;z-index:5}
     .cta-kicker{margin:0 0 19px;color:#1680f8;font-size:11px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;display:flex;align-items:center;gap:14px}
     .cta-kicker:before{content:"";width:40px;height:3px;border-radius:999px;background:#1680f8}
@@ -849,16 +849,17 @@
     .cta-btn.secondary:hover{background:#fff;box-shadow:0 12px 24px rgba(36,94,158,.11)}
     .cta-btn:focus-visible{outline:3px solid #6fb0ff;outline-offset:3px}
     .cta-btn svg{width:19px;height:19px;flex:0 0 auto}
-    .cta-visual{position:relative;min-width:0;height:460px;overflow:visible;isolation:isolate}
-    .cta-art{position:absolute;z-index:0;width:92%;max-width:590px;height:auto;right:1%;bottom:16px;object-fit:contain;pointer-events:none;filter:drop-shadow(0 24px 30px rgba(40,104,177,.08))}
-    .cta-core{position:absolute;z-index:4;left:51%;top:48%;width:164px;height:164px;transform:translate(-50%,-50%) rotate(-7deg) scale(.91);opacity:0;display:grid;place-items:center;isolation:isolate;clip-path:polygon(26% 4%,74% 4%,98% 50%,74% 96%,26% 96%,2% 50%);background:linear-gradient(140deg,rgba(251,255,255,.98),#8ed5ff 20%,#1d8bf1 58%,#b4e9ff 82%,#3e93ee);filter:drop-shadow(0 18px 22px rgba(5,67,140,.2));transition:transform .88s cubic-bezier(.16,.84,.24,1),opacity .65s ease}
-    .cta-core:before{content:"";position:absolute;inset:6px;z-index:0;clip-path:polygon(26% 4%,74% 4%,98% 50%,74% 96%,26% 96%,2% 50%);background:linear-gradient(145deg,#1e78ec 0%,#115bb5 46%,#082b68 95%)}
-    .cta-core:after{content:"";position:absolute;inset:14px;z-index:1;clip-path:polygon(26% 4%,74% 4%,98% 50%,74% 96%,26% 96%,2% 50%);border:1px solid rgba(255,255,255,.26);background:radial-gradient(ellipse at 28% 16%,rgba(255,255,255,.19),transparent 60%);pointer-events:none}
-    .cta-core img{width:65px;height:65px;object-fit:contain;position:relative;z-index:3;filter:brightness(0) invert(1) drop-shadow(0 3px 5px rgba(0,32,78,.17));opacity:1}
-    .cta-float{position:absolute;z-index:5;width:192px;min-height:80px;padding:13px 14px;border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.43),rgba(239,249,255,.25));-webkit-backdrop-filter:blur(19px) saturate(1.18);backdrop-filter:blur(19px) saturate(1.18);border:1px solid rgba(255,255,255,.65);box-shadow:0 12px 28px rgba(31,76,127,.075),inset 0 1px 0 rgba(255,255,255,.52);display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;align-items:start}
-    .cta-float.one{left:0;top:6%}
-    .cta-float.two{right:0;top:17%}
-    .cta-float.three{left:6%;bottom:10%}
+    .cta-visual{position:relative;min-width:0;height:430px;overflow:visible;isolation:isolate}
+    .cta-art{position:absolute;z-index:0;width:96%;max-width:600px;height:auto;right:0;bottom:14px;object-fit:contain;pointer-events:none;filter:drop-shadow(0 24px 30px rgba(40,104,177,.08))}
+    /* Emblema enviado pelo usuário: preservar PNG original, sem moldura CSS sobreposta. */
+    .cta-visual:before{content:"";position:absolute;z-index:1;left:51%;top:47%;width:235px;height:235px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(61,150,248,.15) 0%,rgba(61,150,248,.055) 45%,transparent 72%);pointer-events:none}
+    .cta-core{position:absolute;z-index:4;left:51%;top:47%;width:176px;height:176px;transform:translate(-50%,-44%) scale(.92);opacity:0;display:grid;place-items:center;transition:opacity .65s ease,transform .85s cubic-bezier(.16,.84,.24,1)}
+    .cta-core img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 19px 22px rgba(3,59,135,.16));opacity:1}
+
+    .cta-float{position:absolute;z-index:5;width:192px;min-height:80px;padding:13px 14px;border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.37),rgba(229,244,255,.23));-webkit-backdrop-filter:blur(19px) saturate(1.18);backdrop-filter:blur(19px) saturate(1.18);border:1px solid rgba(255,255,255,.72);box-shadow:0 13px 27px rgba(31,76,127,.075),inset 0 1px 0 rgba(255,255,255,.4);display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;align-items:start}
+    .cta-float.one{left:1%;top:15%}
+    .cta-float.two{right:0;top:16%}
+    .cta-float.three{left:5%;bottom:11%}
     .cta-float-icon{width:38px;height:38px;border-radius:12px;background:rgba(232,244,255,.72);color:#1680f8;display:grid;place-items:center}
     .cta-float-icon svg{width:19px;height:19px}
     .cta-float strong{display:block;color:#123267;font:800 12.5px/1.25 Manrope,sans-serif}
@@ -866,7 +867,7 @@
     .cta-section .cta-copy,.cta-section .cta-visual{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .78s cubic-bezier(.2,.72,.22,1)}
     .cta-section.is-visible .cta-copy,.cta-section.is-visible .cta-visual{opacity:1;transform:translateY(0)}
     .cta-section.is-visible .cta-visual{transition-delay:.12s}
-    .cta-section.is-visible .cta-core{opacity:1;transform:translate(-50%,-50%) rotate(0) scale(1);transition-delay:.28s}
+    .cta-section.is-visible .cta-core{opacity:1;transform:translate(-50%,-50%) scale(1);transition-delay:.25s}
     .cta-section .cta-float{opacity:0;transform:translateY(13px) scale(.97);transition:opacity .55s ease,transform .66s cubic-bezier(.2,.72,.22,1)}
     .cta-section.is-visible .cta-float{opacity:1;transform:translateY(0) scale(1)}
     .cta-section.is-visible .cta-float.one{transition-delay:.32s}
@@ -877,11 +878,11 @@
       .cta-grid{grid-template-columns:1fr;gap:27px;min-height:0}
       .cta-copy{padding:0;max-width:700px}
       .cta-title{max-width:650px}
-      .cta-visual{width:min(100%,720px);height:470px;margin:0 auto}
+      .cta-visual{width:min(100%,720px);height:440px;margin:0 auto}
       .cta-art{width:88%;max-width:640px;right:3%;bottom:10px}
     }
     @media(max-width:700px){
-      .cta-section{padding:58px 0 66px}
+      .cta-section{padding:56px 0 58px}
       .cta-wrap{width:calc(100% - 36px)}
       .cta-grid{gap:28px}
       .cta-title{font-size:clamp(34px,8.8vw,43px);line-height:1.08}
@@ -890,16 +891,16 @@
       .cta-btn{min-height:48px;padding:0 16px}
       .cta-visual{width:min(100%,440px);height:auto;min-height:0;display:grid;grid-template-columns:1fr;gap:11px;padding-top:292px}
       .cta-art{width:100%;max-width:440px;top:0;right:0;bottom:auto}
-      .cta-core{left:50%;top:149px;width:137px;height:137px}
-      .cta-core img{width:54px;height:54px}
+      .cta-core{left:50%;top:146px;width:154px;height:154px}
+      .cta-core img{width:100%;height:100%}
       .cta-float{position:relative;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;width:100%;min-height:70px;grid-template-columns:38px 1fr;padding:13px 15px}
       .cta-float strong{font-size:12.5px}
       .cta-float span{font-size:11.2px}
     }
-    @media(max-width:390px){.cta-visual{padding-top:256px}.cta-core{top:130px}}
+    @media(max-width:390px){.cta-visual{padding-top:256px}.cta-core{top:128px;width:144px;height:144px}}
     @media(prefers-reduced-motion:reduce){
       .cta-section .cta-copy,.cta-section .cta-visual,.cta-section .cta-float{opacity:1!important;transform:none!important;transition:none!important}
-      .cta-section .cta-core{opacity:1!important;transform:translate(-50%,-50%) rotate(0) scale(1)!important;transition:none!important}
+      .cta-section .cta-core{opacity:1!important;transform:translate(-50%,-50%) scale(1)!important;transition:none!important}
       .cta-btn{transition:none!important}
     }
 
@@ -1332,7 +1333,7 @@
 
           <div class="cta-actions">
             <a class="cta-btn primary" href="https://wa.me/5591992944871" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.05 4.95A9.9 9.9 0 0 0 12.02 2C6.55 2 2.1 6.45 2.1 11.92c0 1.75.46 3.46 1.34 4.96L2 22l5.28-1.39a9.9 9.9 0 0 0 4.74 1.2h.01c5.47 0 9.92-4.45 9.92-9.92a9.86 9.86 0 0 0-2.9-6.94ZM12.02 20.14a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.13.82.84-3.05-.2-.32a8.22 8.22 0 1 1 6.99 3.88Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.05 4.95A9.9 9.9 0 0 0 12.02 2C6.55 2 2.1 6.45 2.1 11.92c0 1.75.46 3.46 1.34 4.96L2 22l5.28-1.39a9.9 9.9 0 0 0 4.74 1.2h.01c5.47 0 9.92-4.45 9.92-9.92a9.86 9.86 0 0 0-2.9-6.94ZM12.02 20.14a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.13.82.84-3.05-.2-.32a8.22 8.22 0 1 1 6.99 3.88Zm4.5-6.15c-.25-.13-1.48-.73-1.7-.81-.23-.08-.4-.13-.57.13-.17.25-.66.81-.81.97-.15.17-.3.19-.55.06a6.65 6.65 0 0 1-1.97-1.21 7.4 7.4 0 0 1-1.37-1.7c-.14-.25-.01-.39.11-.51.11-.11.25-.3.37-.45.12-.14.17-.25.25-.42.08-.16.04-.31-.02-.44-.06-.12-.57-1.37-.78-1.88-.2-.49-.41-.42-.57-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.12.17 1.77 2.7 4.28 3.79.6.26 1.07.42 1.44.54.61.2 1.17.17 1.61.1.49-.07 1.48-.61 1.69-1.2.21-.59.21-1.1.15-1.2-.06-.1-.23-.17-.48-.29Z"/></svg>
               Falar no WhatsApp
             </a>
             <a class="cta-btn secondary" href="#produtos">Conhecer o portfólio</a>
@@ -1342,7 +1343,7 @@
 
         <div class="cta-visual" aria-label="Diferenciais de atendimento da Santa Luzia">
           <img loading="lazy" decoding="async" class="cta-art" src="assets/1c37e442-3dc5-45c2-a0be-fb2e489863fe.png" alt="" aria-hidden="true">
-          <div class="cta-core"><img loading="lazy" decoding="async" src="assets/santa-luzia-symbol.png" alt=""></div>
+          <div class="cta-core" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/e99d405d-ba2a-42f1-8520-4f640d1ee8e7.png" alt=""></div>
 
           <div class="cta-float one">
             <div class="cta-float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13h3v6H4zM17 13h3v6h-3z"/></svg></div>
