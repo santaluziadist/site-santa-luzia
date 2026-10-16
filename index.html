@@ -571,7 +571,7 @@
         linear-gradient(140deg,#fff 0%,#fffaf5 48%,#f7fbff 100%)
     }
 
-    .portfolio-feature-copy{position:relative;z-index:7;padding:22px 12px 18px 21px;width:39%}
+    .portfolio-feature-copy{position:relative;z-index:7;padding:22px 14px 18px 21px;width:43%}
     .portfolio-chip{
       display:inline-flex;align-items:center;min-height:25px;padding:0 10px;border-radius:999px;
       background:#edf6ff;color:#1680f8;font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase
@@ -589,22 +589,22 @@
     }
 
     .portfolio-stage{
-      position:absolute;z-index:3;right:-2%;top:0;width:66%;height:100%;pointer-events:none
+      position:absolute;z-index:3;right:0;top:0;width:60%;height:100%;pointer-events:none
     }
     .portfolio-stage:before{
-      content:"";position:absolute;z-index:0;left:50%;bottom:7%;width:84%;height:38%;transform:translateX(-50%);
-      background:radial-gradient(ellipse,rgba(28,73,127,.15),rgba(28,73,127,0) 68%);filter:blur(10px)
+      content:"";position:absolute;z-index:0;left:50%;bottom:8%;width:78%;height:32%;transform:translateX(-50%);
+      background:radial-gradient(ellipse,rgba(28,73,127,.13),rgba(28,73,127,0) 68%);filter:blur(9px)
     }
     .portfolio-stage:after{
-      content:"";position:absolute;z-index:2;right:6%;top:13%;width:68%;height:64%;border-radius:46% 54% 52% 48% / 44% 48% 52% 56%;
-      background:linear-gradient(145deg,rgba(255,255,255,.52),rgba(219,239,255,.12));
-      border:1px solid rgba(255,255,255,.74);
-      box-shadow:0 16px 42px rgba(48,108,169,.08),inset 0 0 30px rgba(255,255,255,.40);
+      content:"";position:absolute;z-index:2;right:8%;top:15%;width:64%;height:59%;border-radius:46% 54% 52% 48% / 44% 48% 52% 56%;
+      background:linear-gradient(145deg,rgba(255,255,255,.48),rgba(219,239,255,.10));
+      border:1px solid rgba(255,255,255,.70);
+      box-shadow:0 14px 36px rgba(48,108,169,.07),inset 0 0 28px rgba(255,255,255,.36);
       transform:rotate(8deg);pointer-events:none
     }
     .portfolio-stage-bg{
-      position:absolute;z-index:1;left:50%;bottom:-2px;width:101%;max-width:346px;height:auto;
-      transform:translateX(-50%);opacity:.72;pointer-events:none;
+      position:absolute;z-index:1;left:50%;bottom:-4px;width:88%;max-width:306px;height:auto;
+      transform:translateX(-50%);opacity:.58;pointer-events:none;
       transition:transform .36s cubic-bezier(.2,.72,.22,1),opacity .3s ease
     }
     .portfolio-stage-bg.flip{transform:translateX(-50%) scaleX(-1)}
@@ -619,19 +619,19 @@
     }
 
     .portfolio-feature-card.nutro-premium .portfolio-feature-product{
-      width:74%;height:94%;right:5%;bottom:8px;transform:scale(1.30)
+      width:64%;height:86%;right:11%;bottom:17px;transform:scale(1.17)
     }
-    .portfolio-feature-card.nutro-premium:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.35)}
+    .portfolio-feature-card.nutro-premium:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.21)}
 
     .portfolio-feature-card.cozy .portfolio-feature-product{
-      width:91%;height:90%;right:-6%;bottom:9px;transform:scale(1.13)
+      width:79%;height:82%;right:1%;bottom:17px;transform:scale(1.04)
     }
-    .portfolio-feature-card.cozy:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.17)}
+    .portfolio-feature-card.cozy:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.08)}
 
     .portfolio-feature-card.atempero .portfolio-feature-product{
-      width:72%;height:94%;right:7%;bottom:8px;transform:scale(1.40)
+      width:59%;height:84%;right:14%;bottom:17px;transform:scale(1.18)
     }
-    .portfolio-feature-card.atempero:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.45)}
+    .portfolio-feature-card.atempero:hover .portfolio-feature-product{transform:translateY(-4px) scale(1.22)}
 
     .portfolio-list-head{
       display:flex;align-items:end;justify-content:space-between;gap:20px;margin:30px 0 13px
@@ -677,8 +677,17 @@
       content:"";position:absolute;left:20%;right:20%;bottom:11px;height:16px;border-radius:50%;
       background:radial-gradient(ellipse,rgba(37,74,119,.13),transparent 68%);filter:blur(5px)
     }
-    .portfolio-item img{position:relative;z-index:2;max-width:96%;max-height:144px;object-fit:contain;transition:transform .32s cubic-bezier(.2,.72,.22,1),filter .32s ease}
-    .portfolio-item:hover img{transform:translateY(-2px) scale(1.055);filter:drop-shadow(0 10px 10px rgba(25,58,99,.10))}
+    .portfolio-item img{
+      position:relative;z-index:2;max-width:96%;max-height:144px;object-fit:contain;
+      scale:1;transition:transform .32s cubic-bezier(.2,.72,.22,1),filter .32s ease,scale .32s cubic-bezier(.2,.72,.22,1)
+    }
+    .portfolio-item:hover img{transform:translateY(-2px);scale:1.055;filter:drop-shadow(0 10px 10px rgba(25,58,99,.10))}
+    .portfolio-item img[alt="Atémpero"]{scale:1.18}
+    .portfolio-item:hover img[alt="Atémpero"]{scale:1.23}
+    .portfolio-item img[alt="Nutro Premium Soy 1.2"]{scale:1.08}
+    .portfolio-item:hover img[alt="Nutro Premium Soy 1.2"]{scale:1.13}
+    .portfolio-item img[alt^="EnergyZip"]{scale:1.07}
+    .portfolio-item:hover img[alt^="EnergyZip"]{scale:1.12}
     .portfolio-item[hidden]{display:none!important}
     .portfolio-item h4{margin:10px 0 3px;color:#10265a;font:800 13px/1.15 Manrope,sans-serif}
     .portfolio-item span{margin-top:auto;color:#6f829f;font-size:9.5px;font-weight:800;letter-spacing:.10em;text-transform:uppercase}
@@ -736,9 +745,9 @@
       .portfolio-feature-card{min-height:310px}
       .portfolio-feature-copy{width:43%}
       .portfolio-stage{width:60%}
-      .portfolio-feature-card.nutro-premium .portfolio-feature-product{width:58%;height:91%;right:13%;bottom:10px;transform:scale(1.18)}
-      .portfolio-feature-card.cozy .portfolio-feature-product{width:73%;height:88%;right:3%;bottom:10px;transform:scale(1.09)}
-      .portfolio-feature-card.atempero .portfolio-feature-product{width:55%;height:91%;right:14%;bottom:10px;transform:scale(1.24)}
+      .portfolio-feature-card.nutro-premium .portfolio-feature-product{width:52%;height:84%;right:17%;bottom:14px;transform:scale(1.12)}
+      .portfolio-feature-card.cozy .portfolio-feature-product{width:68%;height:82%;right:6%;bottom:14px;transform:scale(1.04)}
+      .portfolio-feature-card.atempero .portfolio-feature-product{width:48%;height:84%;right:19%;bottom:14px;transform:scale(1.15)}
       .portfolio-item{flex:0 0 calc((100% - 28px)/3)}
     }
     @media(max-width:760px){
